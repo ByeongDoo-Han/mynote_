@@ -840,8 +840,8 @@ int execvp(const char *file, char *const argv[]);
 환경 변수에 의해 설정딘 path안의 file; (`$echo $PATH`)
 
 - 예
-	#### 1	
-	```c
+#### 1	
+```c
 	#include <unistd.h>
 	main() {
 			printf("executing a.out\n");
@@ -849,9 +849,9 @@ int execvp(const char *file, char *const argv[]);
 			printf("execl failed to run a.out");
 			exit(1);
 	}
-	```
-	#### 2
-	```c
+```
+#### 2
+```c
 	#include <unistd.h>
 	main() {
 		char *const av[] = {"a.out", "3", (char*)0);
@@ -859,10 +859,10 @@ int execvp(const char *file, char *const argv[]);
 		execv("./a.out", av);
 		printf("execv failed to run a.out");
 		exit(1);
-	```
+```
 
 - exec와 fork를 함께 사용
-<img src="https://southeastasia1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fsejonguniversity-my.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!esjJeEoOpUS7f9WlbwzIuaCS7mxV6qhGooyId9-fUe1N7acubbvRTYIlwsfpXofQ%2Fitems%2F01ETTV2H5I6LFKVVZJWNDJLNRGOBB4AKHI%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc2Vqb25ndW5pdmVyc2l0eS1teS5zaGFyZXBvaW50LmNvbUA2YzJlYTVlZS00MThjLTRlMTMtOGVhYS01MTYzY2RiNTBjNjciLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJuYmYiOiIxNTcwNTc4Nzk3IiwiZXhwIjoiMTU3MDYwMDM5NyIsImVuZHBvaW50dXJsIjoiV3NmRGp2WHBiVGJPM1RPQzJOYjRrbUJmRk1aUkNDSG5aRVdqSjd6aDZSRT0iLCJlbmRwb2ludHVybExlbmd0aCI6IjEyNiIsImlzbG9vcGJhY2siOiJUcnVlIiwiY2lkIjoiTnpabVpqQmlPV1l0WWpCallTMDVNREF3TFdabFlqUXRNbVU0WmpkbE9HTXpZVE0yIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiIsInNpdGVpZCI6Ik56aGpPV000TjJFdE1HVTBZUzAwTkdFMUxXSmlOMll0WkRWaE5UWm1NR05qT0dJNSIsInNpZ25pbl9zdGF0ZSI6IltcImttc2lcIl0iLCJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8bmFtaWxzMTQ3QHNqdS5hYy5rciIsIm5paSI6Im1pY3Jvc29mdC5zaGFyZXBvaW50IiwiaXN1c2VyIjoidHJ1ZSIsImNhY2hla2V5IjoiMGguZnxtZW1iZXJzaGlwfDEwMDM3ZmZlYTkzM2U0MmFAbGl2ZS5jb20iLCJ0dCI6IjAiLCJ1c2VQZXJzaXN0ZW50Q29va2llIjoiMyJ9.MndPMmRzODRJRHJvSEVTd0JrbUpsN1FBYTFyTm5yOXlRbXlCMCtCNTZCMD0&encodeFailures=1&srcWidth=&srcHeight=&width=1920&height=893&action=Access" width=400px/>
+<여기 이미지 추가>
 
 > **Q.  parent process가 직접 실행하지 않고 exec 하는 이유?**
 
@@ -1079,5 +1079,5 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTg0ODM2MzMsNjk2NTYyNjU1XX0=
+eyJoaXN0b3J5IjpbMTcyNjM5NTUzNSw2OTY1NjI2NTVdfQ==
 -->
