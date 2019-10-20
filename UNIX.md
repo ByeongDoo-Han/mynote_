@@ -127,7 +127,7 @@ ssize_t read(int filedes, void *buffer, size_t nbytes);
 
 ### Write System call
 
-=> 지정된 저장장소에서 지정한 byte수 만크의 data를 읽어 open된 file에 쓰는 명령(file pointer | r/w pointer : 쓰여질 다음 byte의 위치)
+=> 지정된 저장장소에서 지정한 byte수 만큼의 data를 읽어 open된 file에 쓰는 명령(file pointer | r/w pointer : 쓰여질 다음 byte의 위치)
 
 ```c
 ssize_t write(int filedes, const void *buffer, size_t nbytes);
@@ -1081,6 +1081,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyNTg3MTEwOSwxNzM4MTc0Nzc1LDE4MD
-g1OTcxNjcsMTcyNjM5NTUzNSw2OTY1NjI2NTVdfQ==
+eyJoaXN0b3J5IjpbLTEyNDE2ODk4NDUsLTgyNTg3MTEwOSwxNz
+M4MTc0Nzc1LDE4MDg1OTcxNjcsMTcyNjM5NTUzNSw2OTY1NjI2
+NTVdfQ==
 -->
