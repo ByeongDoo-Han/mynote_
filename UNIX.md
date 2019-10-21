@@ -1093,7 +1093,7 @@ int kill(pid_t pid, int sig);
 	- pid > 0 : **해당** id의 process에게 signal 전달
 	- pid = 0 : sender와 **같은 process group**에 속하는 **모든** process에게 signal 전달. **(sender 자신 포함)**
 	- pid = -1 : uid가 **sender의 euid**와 같은 모든 process에게 signal전달. **(sender 자신 포함)**
-	- pid < 0 &pid != -1 : process의 group id가 pid의 절대값과 같은 모든 process에게 signal 전달
+	- pid < 0 & pid != -1 : process의 group id가 pid의 절대값과 같은 모든 process에게 signal 전달
 		> pid = 345 -> pid가 345인 process에게
 		> pid = -345 -> group id가 345인 process에게
 	- 만약에 다른 사용자의 process에게 signal을 보내면 ? -1 return
@@ -1146,11 +1146,11 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MzM5MzkwODEsMTQ5Nzk3ODQxMywtMT
-M5MzkxOTIyMCwxMzcxNTM5NDY0LC0xMTkyMzQzNDkyLC0xMjEw
-NzkzNzU2LDE0MTYxOTE5ODIsLTI5NTgyODk0NywtMTUwMjAzMz
-QzOCw2Nzk5MDk4NTEsLTE5ODU1NDIyMzMsLTk5Njk4NDQyNSwy
-MDM4MjkwNTk5LC0xMjQxNjg5ODQ1LC04MjU4NzExMDksMTczOD
-E3NDc3NSwxODA4NTk3MTY3LDE3MjYzOTU1MzUsNjk2NTYyNjU1
-XX0=
+eyJoaXN0b3J5IjpbLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxND
+k3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIz
+NDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1ODI4OT
+Q3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIzMywt
+OTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4NDUsLTgyNT
+g3MTEwOSwxNzM4MTc0Nzc1LDE4MDg1OTcxNjcsMTcyNjM5NTUz
+NSw2OTY1NjI2NTVdfQ==
 -->
