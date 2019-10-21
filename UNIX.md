@@ -1102,7 +1102,7 @@ int kill(pid_t pid, int sig);
 		
 		> 위와 같은 예제의 코드로 
 		> 1. pid == -1로 실행한 결과 shell까지 튕김(sender포함)
-		> 2. pid == 0로 실행한 결과 a.out2만 투
+		> 2. pid == 0로 실행한 결과 a.out2만 튕김
 		
 
 - 호출 process에게 sig를 보낸다.
@@ -1151,7 +1151,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NDI5MzAxLC0yNjY3ODY3NjksLTE1Mz
+eyJoaXN0b3J5IjpbOTc2NjczMzE0LC0yNjY3ODY3NjksLTE1Mz
 M5MzkwODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcxNTM5
 NDY0LC0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYxOTE5OD
 IsLTI5NTgyODk0NywtMTUwMjAzMzQzOCw2Nzk5MDk4NTEsLTE5
