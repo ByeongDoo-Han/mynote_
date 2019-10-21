@@ -578,7 +578,7 @@ uid_t geteuid(void);
 #include <sys/types.h>
 #include <unistd.h>
 gid_t getgid(void);
-gid_t getegit(void);
+gid_t getegid(void);
 ```
 
 
@@ -1082,7 +1082,8 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5Njk4NDQyNSwyMDM4MjkwNTk5LC0xMj
-QxNjg5ODQ1LC04MjU4NzExMDksMTczODE3NDc3NSwxODA4NTk3
-MTY3LDE3MjYzOTU1MzUsNjk2NTYyNjU1XX0=
+eyJoaXN0b3J5IjpbLTE5ODU1NDIyMzMsLTk5Njk4NDQyNSwyMD
+M4MjkwNTk5LC0xMjQxNjg5ODQ1LC04MjU4NzExMDksMTczODE3
+NDc3NSwxODA4NTk3MTY3LDE3MjYzOTU1MzUsNjk2NTYyNjU1XX
+0=
 -->
