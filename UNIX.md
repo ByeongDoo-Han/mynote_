@@ -869,7 +869,7 @@ int execvp(const char *file, char *const argv[]);
 		- argv[] : 배열로 받기;
 
 - file 이름을 쓰는 경우는?
-환경 변수에 의해 설정딘 path안의 file; (`$echo $PATH`)
+환경 변수에 의해 설정된 path안의 file; (`$echo $PATH`)
 
 - 예
 #### 1	
@@ -1111,10 +1111,10 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMT
-IxMDc5Mzc1NiwxNDE2MTkxOTgyLC0yOTU4Mjg5NDcsLTE1MDIw
-MzM0MzgsNjc5OTA5ODUxLC0xOTg1NTQyMjMzLC05OTY5ODQ0Mj
-UsMjAzODI5MDU5OSwtMTI0MTY4OTg0NSwtODI1ODcxMTA5LDE3
-MzgxNzQ3NzUsMTgwODU5NzE2NywxNzI2Mzk1NTM1LDY5NjU2Mj
-Y1NV19
+eyJoaXN0b3J5IjpbLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NCwtMT
+E5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0yOTU4
+Mjg5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NTQyMj
+MzLC05OTY5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4OTg0NSwt
+ODI1ODcxMTA5LDE3MzgxNzQ3NzUsMTgwODU5NzE2NywxNzI2Mz
+k1NTM1LDY5NjU2MjY1NV19
 -->
