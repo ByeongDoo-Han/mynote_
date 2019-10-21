@@ -931,6 +931,39 @@ pid_t wait (int* status);
 - return값
 	- 성공 -> 종료된 child의 id
 	- 실패 -> -1 (살아 있는 child process가 없는 경우)
+```c
+void do_child(void) {
+        printf("%ld\n", getpid());
+        sleep(1);
+        exit(0);
+}
+
+int main(void){
+        int fd, i, status, n;
+        pid_t pid;
+
+        for(i = 0; i < 3; i++){
+                pid =fork();
+                if(pid == 0)
+                        do_child();
+        }
+
+        while((n = wait((int*)0)) != -1){
+                printf("%d\n", n);
+                sleep(1);
+        }
+
+        return 0;
+}
+*********OUTPUT*************
+32368
+32370
+32371
+32368
+32370
+32371
+*****************************
+```
 - status : child의 종료 상태가 전달
 
 <img src="https://lh3.googleusercontent.com/l7cZfh0D-XlXHWzC2qysETKTwaKsxUhwM7LHwSrklG9qJ6WY-hPWRmHTmFf_EZSPonQEWzMH3Lxf6hXQY2Nnydit8vel-S5aLAWAa6L2mWfRQ07Mv3ArZZWdwglO3z4VnboOtl9IRAW6dnukaqLxRjqUqp9fGMZTwioYaehUQnzubWEnwa1UKGwa0m3dRiglAUEfqGcHgt2Cl45z5KM7V2Gn4XQKY574ToACOIV61R21r15xiJmmZrxXrKbgT-Bb2mTZ1a_-tvgIwr02M1aYkR_9CmyCkFxdPbEid4vC1-SCc0b_o8MSTOLeJu1WhCv3327Piqu25ozVfQ8C3FNcMiXO9MQze1_F2zFMw55Fdab6Tq6HizJQUCb7mbFlYQWDRJ_sjyubcr2-xftMC6bbCVQSC1un90n6j1f2mH6zOs9iOMqledGQybuNrrgdYoeI2bYNbUJHF-yc1g7uEoJ6WzXDo-qCdVRxgGGR3dB9JpBIJd9hc8j1cFf6PSTERMJ-uZJVyF-IBF9ijxs9topzItXAGvDt-TacUVRmlHzf9Pw_QAwonMBEBg6jeBFSBPkCJRkfJZC8MJxKxV6MpeKclxgG1BCUn_ONQcQiZ7tbsbsjHH5lboAfGyyAZJafbhVZx6dVtznighHZq0cpB93RsBLOAiuoscx0yEL0I42h-GowcsISI9x8tKnG27wNCbQLFAK3CZVGf0KULCk1dhcmZ6WJDemjg5PubMUpR6gDI7us7mz4=w920-h932-no" width=500px />
@@ -1111,10 +1144,10 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NCwtMT
-E5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0yOTU4
-Mjg5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NTQyMj
-MzLC05OTY5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4OTg0NSwt
-ODI1ODcxMTA5LDE3MzgxNzQ3NzUsMTgwODU5NzE2NywxNzI2Mz
-k1NTM1LDY5NjU2MjY1NV19
+eyJoaXN0b3J5IjpbLTIyMTkzODkzNiwtMTM5MzkxOTIyMCwxMz
+cxNTM5NDY0LC0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYx
+OTE5ODIsLTI5NTgyODk0NywtMTUwMjAzMzQzOCw2Nzk5MDk4NT
+EsLTE5ODU1NDIyMzMsLTk5Njk4NDQyNSwyMDM4MjkwNTk5LC0x
+MjQxNjg5ODQ1LC04MjU4NzExMDksMTczODE3NDc3NSwxODA4NT
+k3MTY3LDE3MjYzOTU1MzUsNjk2NTYyNjU1XX0=
 -->
