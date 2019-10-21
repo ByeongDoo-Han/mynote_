@@ -125,6 +125,29 @@ ssize_t read(int filedes, void *buffer, size_t nbytes);
 		- (더이상 읽을게 없으면) -> 0
 	- 실패 -> -1
 
+```c
+for(i=0;i<5;i++){
+	n=read(0, buf, 512);
+	write(fd, buf, n);
+}
+lseek(fd, 0, SEEK_SET);
+n=read(fd, buf, 512);
+write(1, buf, n);
+
+******INPUT******
+10
+20
+30
+40
+50
+******OUTPUT******
+10
+20
+30
+40
+50
+```
+
 ### Write System call
 
 => 지정된 저장장소에서 지정한 byte수 만큼의 data를 읽어 open된 file에 쓰는 명령(file pointer | r/w pointer : 쓰여질 다음 byte의 위치)
@@ -1151,11 +1174,11 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=700px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTkzODQ3MzQsOTc2NjczMzE0LC0yNj
-Y3ODY3NjksLTE1MzM5MzkwODEsMTQ5Nzk3ODQxMywtMTM5Mzkx
-OTIyMCwxMzcxNTM5NDY0LC0xMTkyMzQzNDkyLC0xMjEwNzkzNz
-U2LDE0MTYxOTE5ODIsLTI5NTgyODk0NywtMTUwMjAzMzQzOCw2
-Nzk5MDk4NTEsLTE5ODU1NDIyMzMsLTk5Njk4NDQyNSwyMDM4Mj
-kwNTk5LC0xMjQxNjg5ODQ1LC04MjU4NzExMDksMTczODE3NDc3
-NSwxODA4NTk3MTY3XX0=
+eyJoaXN0b3J5IjpbMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5Nz
+Y2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4
+NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OT
+IsLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1ODI4OTQ3LC0x
+NTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIzMywtOTk2OT
+g0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4NDUsLTgyNTg3MTEw
+OSwxNzM4MTc0Nzc1XX0=
 -->
