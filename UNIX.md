@@ -804,11 +804,11 @@ pid_t fork(void);
 >	pid_t pid;
 >
 >	N=atoi(argv[1]);
->	printf("pid=%ld ... ppid=%ld\n", getpid(), getppid());
+>	printf("pid=%ld ... ppid=%ld\n", getpid(), getpgrp());
 >	for(i=0;i<N;i++){
 >		pid=fork();
 >		if(pid==0){
->			printf("pid=%ld ... ppid=%ld\n", getpid(), getppid());
+>			printf("pid=%ld ... ppid=%ld\n", getpid(), getpgrp());
 >		}
 >	}
 >	for(i=0;i<N;i++){
@@ -1111,9 +1111,10 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMT
-QxNjE5MTk4MiwtMjk1ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkw
-OTg1MSwtMTk4NTU0MjIzMywtOTk2OTg0NDI1LDIwMzgyOTA1OT
-ksLTEyNDE2ODk4NDUsLTgyNTg3MTEwOSwxNzM4MTc0Nzc1LDE4
-MDg1OTcxNjcsMTcyNjM5NTUzNSw2OTY1NjI2NTVdfQ==
+eyJoaXN0b3J5IjpbMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMT
+IxMDc5Mzc1NiwxNDE2MTkxOTgyLC0yOTU4Mjg5NDcsLTE1MDIw
+MzM0MzgsNjc5OTA5ODUxLC0xOTg1NTQyMjMzLC05OTY5ODQ0Mj
+UsMjAzODI5MDU5OSwtMTI0MTY4OTg0NSwtODI1ODcxMTA5LDE3
+MzgxNzQ3NzUsMTgwODU5NzE2NywxNzI2Mzk1NTM1LDY5NjU2Mj
+Y1NV19
 -->
