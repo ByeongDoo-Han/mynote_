@@ -652,7 +652,34 @@ pid_t setsid(void);
 - 제어 단말기를 갖지 않는 새로운 session과 group 생성;
 - 호출 프로세스의 id가 session과 group의 id가 된다.
 - 만약, 호출 process가 현재 group의 leader이면 -1를 return
+```c
+int main() {
+  pid_t pid;
+  int p[2];
+  char c='?';
 
+  if (pipe(p) != 0)
+    perror("pipe() error");
+  else
+    if ((pid = fork()) == 0) {
+      printf("child's process group id is %d, process id is %d\n", (int) getpgrp(), (int)getpid());
+      write(p[1], &c, 1);
+      setsid();
+      printf("child's process group id is now %d, process id is now %d\n", (int) getpgrp(), (int)getpid());
+      exit(0);
+    }
+    else {
+      printf("parent's process group id is %d, process id is %d\n", (int) getpgrp(), (int) getpid());
+      read(p[0], &c, 1);
+      sleep(5);
+    }
+}
+
+**********OUTPUT*************
+parent's process group id is 25373, process id is 25373
+child's process group id is 25373, process id is 25374
+child's process group id is now 25374, process id is now 25374
+```
 > #### process와 program의 관계
 >  1대 1의 관계가 아니다!
 >  program 내의 여러 개의 process 생성 가능.
@@ -1082,8 +1109,8 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc5OTA5ODUxLC0xOTg1NTQyMjMzLC05OT
-Y5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4OTg0NSwtODI1ODcx
-MTA5LDE3MzgxNzQ3NzUsMTgwODU5NzE2NywxNzI2Mzk1NTM1LD
-Y5NjU2MjY1NV19
+eyJoaXN0b3J5IjpbLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOT
+g1NTQyMjMzLC05OTY5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4
+OTg0NSwtODI1ODcxMTA5LDE3MzgxNzQ3NzUsMTgwODU5NzE2Ny
+wxNzI2Mzk1NTM1LDY5NjU2MjY1NV19
 -->
