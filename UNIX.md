@@ -766,7 +766,7 @@ pid_t fork(void);
 	      
 	     fd=open("data", O_RDONLY);
 	     read(fd, buf, 10);
-	     printf("before fork:%ld\n", lseek(fd, (off_t)0, SEEK_CUR);
+	     printf("before fork:%ld\n", lseek(fd, (off_t)0, SEEK_SET);
 	      
 	     switch(pid=fork()){
 	         case -1: 
@@ -784,10 +784,10 @@ pid_t fork(void);
 	            }
 	 }
 	  실행 결과:
-		  before fork:
-		  child befor read:
-		  child after read:
-		  parent after wait:
+		  before fork:	0
+		  child befor read:	0
+		  child after read:	10
+		  parent after wait:	10
 	```
 
 > #### parent code에 wait()가 없을 시
@@ -1111,9 +1111,9 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=500px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMj
-k1ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0
-MjIzMywtOTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4ND
-UsLTgyNTg3MTEwOSwxNzM4MTc0Nzc1LDE4MDg1OTcxNjcsMTcy
-NjM5NTUzNSw2OTY1NjI2NTVdfQ==
+eyJoaXN0b3J5IjpbLTExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMT
+QxNjE5MTk4MiwtMjk1ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkw
+OTg1MSwtMTk4NTU0MjIzMywtOTk2OTg0NDI1LDIwMzgyOTA1OT
+ksLTEyNDE2ODk4NDUsLTgyNTg3MTEwOSwxNzM4MTc0Nzc1LDE4
+MDg1OTcxNjcsMTcyNjM5NTUzNSw2OTY1NjI2NTVdfQ==
 -->
