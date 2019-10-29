@@ -1152,7 +1152,6 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	> 예외) SIGSTOP(process의 일시중단), SIGKILL(process의 종료)의 경우 별도의 action을 취할 수 없다.
 
 -  sigaction의 구조
-1. 
 	```c
 	struct sigaction {
 		void(*sa_handler)(int);
@@ -1161,7 +1160,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 		void (*sa_sigaction) (int, siginfo_t *, void *);
 	}
 	```
-2. void (*sa_handler)(int)
+1. void (*sa_handler)(int)
 		- SIG_DEL (default 행동, 즉 종료 선택);
 		- SIG_IGN (무시) ;
 		- 정의된 함수 (signal을 받으면 함수로 제어 이동; 함수 실행 후, signal을 받기 직전의 처리 문장으로 return);
@@ -1174,13 +1173,15 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	- signal Handling 하는
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=700px />
 
-
+2. sigset_t sa_mask;
+	=> 여기 정의된 signal들은, sa_handler에 의해 지정된 함수가 수행되는 동안 blocking된다.
+	3. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjc1OTk4NzUsMTQxMzAyNjI0MSwtMT
-M1OTM4NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkz
-OTA4MSwxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0Nj
-QsLTExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4Miwt
-Mjk1ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NT
-U0MjIzMywtOTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4
-NDUsLTgyNTg3MTEwOV19
+eyJoaXN0b3J5IjpbMTM5ODM1NzcsMTQxMzAyNjI0MSwtMTM1OT
+M4NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4
+MSwxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLT
+ExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1
+ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0Mj
+IzMywtOTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4NDUs
+LTgyNTg3MTEwOV19
 -->
