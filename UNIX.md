@@ -1162,7 +1162,14 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	```
 1. void (*sa_handler)(int)
 		- SIG_DEL (default 행동, 즉 종료 선택);
+		
+	```c
+	act.sa_hander=SIG_IGN;
+	sigaction(SIGINT< &act, NULL);
+	```
+		
 		- SIG_IGN (무시) ;
+
 		- 정의된 함수 (signal을 받으면 함수로 제어 이동; 함수 실행 후, signal을 받기 직전의 처리 문장으로 return);
 
 	
@@ -1179,11 +1186,11 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	=> SA_RESETHAND : handler로부터 복귀 시 signal action을 SIG_DFL로 재설정;
 	=> SA_SIGINFO : sa_handler 대신 sa_sigaction 사용
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjgwMDAxNDUsMTQxMzAyNjI0MSwtMT
-M1OTM4NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkz
-OTA4MSwxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0Nj
-QsLTExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4Miwt
-Mjk1ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NT
-U0MjIzMywtOTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4
-NDUsLTgyNTg3MTEwOV19
+eyJoaXN0b3J5IjpbMTI5NDYwNTMxNywxNDEzMDI2MjQxLC0xMz
+U5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5
+MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NC
+wtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0y
+OTU4Mjg5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NT
+QyMjMzLC05OTY5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4OTg0
+NSwtODI1ODcxMTA5XX0=
 -->
