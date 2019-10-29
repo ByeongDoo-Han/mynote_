@@ -1175,13 +1175,15 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 
 2. sigset_t sa_mask;
 	=> 여기 정의된 signal들은, sa_handler에 의해 지정된 함수가 수행되는 동안 blocking된다.
-	3. 
+3.  int sa_flags;
+	=> SA_RESETHAND : handler로부터 복귀 시 signal action을 SIG_DFL로 재설정;
+	=> SA_SIGINFO : sa_handler 대신 sa_sigaction 사용
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5ODM1NzcsMTQxMzAyNjI0MSwtMTM1OT
-M4NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4
-MSwxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLT
-ExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1
-ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0Mj
-IzMywtOTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4NDUs
-LTgyNTg3MTEwOV19
+eyJoaXN0b3J5IjpbLTE0NjgwMDAxNDUsMTQxMzAyNjI0MSwtMT
+M1OTM4NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkz
+OTA4MSwxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0Nj
+QsLTExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4Miwt
+Mjk1ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NT
+U0MjIzMywtOTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4
+NDUsLTgyNTg3MTEwOV19
 -->
