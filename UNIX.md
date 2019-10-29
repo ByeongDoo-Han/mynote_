@@ -1222,12 +1222,20 @@ int sigdelset(sigset *setm int signo);
 
 int sigismember(sigset_t *set, int signo);
 ```
+
+### sa_sigaction()에 의한 signal handling
+```c
+int main(void) {
+	static struct sigaction act;
+	act.sa_flag
+```
+=> sa_sigaction은 sa_handler와 비슷한 기능을 하지만 조금 더 많은 내용을 표기해 준다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwOTk3NjM5NywxNDEzMDI2MjQxLC0xMz
-U5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5
-MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NC
-wtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0y
-OTU4Mjg5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NT
-QyMjMzLC05OTY5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4OTg0
-NSwtODI1ODcxMTA5XX0=
+eyJoaXN0b3J5IjpbMjE1Mzk2OTYsMTQxMzAyNjI0MSwtMTM1OT
+M4NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4
+MSwxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLT
+ExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1
+ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0Mj
+IzMywtOTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4NDUs
+LTgyNTg3MTEwOV19
 -->
