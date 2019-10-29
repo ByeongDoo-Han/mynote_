@@ -1193,19 +1193,19 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	act.sa_hander=SIG_IGN;
 	sigaction(SIGINT< &act, NULL);
 	```
-3. 여러개의 signal을 무시하려면;
+3. 여러개의 signal을 무시하려면;(1개의 act.sa_handler + 다수의 sigaction)
 	```c
 	act.sa_handler=SIG_IGN;
 	sigaction(SIGINT, &act, NULL);
 	sigaction(SIGQUIT, &act, NULL);
 	```
-> **한 process에서 무시되는 signal은 exec() 후에도 계속 무시된다.**
+> **한 process에서 무시되는 signal은 exec() 후에도 계속 무시된다.**(signal table까지 copy한다. 다만, **함수로 수행하는 경우**에는 함수 주호가 다르기때문에 수행할 수 없다.)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3ODQ4MjgyMiwxNDEzMDI2MjQxLC0xMz
-U5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5
-MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NC
-wtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0y
-OTU4Mjg5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NT
-QyMjMzLC05OTY5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4OTg0
-NSwtODI1ODcxMTA5XX0=
+eyJoaXN0b3J5IjpbMTYyNTA5NTkyLDE0MTMwMjYyNDEsLTEzNT
+kzODQ3MzQsOTc2NjczMzE0LC0yNjY3ODY3NjksLTE1MzM5Mzkw
+ODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcxNTM5NDY0LC
+0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYxOTE5ODIsLTI5
+NTgyODk0NywtMTUwMjAzMzQzOCw2Nzk5MDk4NTEsLTE5ODU1ND
+IyMzMsLTk5Njk4NDQyNSwyMDM4MjkwNTk5LC0xMjQxNjg5ODQ1
+LC04MjU4NzExMDldfQ==
 -->
