@@ -1209,15 +1209,21 @@ Q. signal 처리 중 다른 signal이 올 경우
 sigset_t sa_mask -> 나중에 처리, 즉시 처리하기 위한 blocking을 위한
 
 - signal 집합 지정:
-	- sigemptyset -> sigaddset
-	- sigfillset -> sigdelset
+	- sigemptyset -> sigaddset (빈 sigset에 signal을 추가)
+	- sigfillset -> sigdelset(모든 signal을 추가 후 예외 signal은 제외)
 
 ```c
 #include <signal.h>
-ubt sigemptyset(sigs
+int sigemptyset(sigset_t *set);
+int sigfillset(sigset_t *set);
+
+int sigaddset(sigset_t *set, int signo);
+int sigdelset(sigset *setm int signo);
+
+int sigismember(sigset_t *set, int signo);
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4NTk1NTA4NCwxNDEzMDI2MjQxLC0xMz
+eyJoaXN0b3J5IjpbMTAwOTk3NjM5NywxNDEzMDI2MjQxLC0xMz
 U5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5
 MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NC
 wtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0y
