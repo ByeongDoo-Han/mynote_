@@ -1206,13 +1206,22 @@ Q. signal 처리 중 다른 signal이 올 경우
 1) 다른 signal로 넘어간 후 다시 돌아와 남은 signal을 처리한다.
 2) 현재 signal 처리 후 다른 signal을 처리한다.
 
+sigset_t sa_mask -> 나중에 처리, 즉시 처리하기 위한 blocking을 위한
 
+- signal 집합 지정:
+	- sigemptyset -> sigaddset
+	- sigfillset -> sigdelset
+
+```c
+#include <signal.h>
+ubt sigemptyset(sigs
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzI2OTAwMjM4LDE0MTMwMjYyNDEsLTEzNT
-kzODQ3MzQsOTc2NjczMzE0LC0yNjY3ODY3NjksLTE1MzM5Mzkw
-ODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcxNTM5NDY0LC
-0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYxOTE5ODIsLTI5
-NTgyODk0NywtMTUwMjAzMzQzOCw2Nzk5MDk4NTEsLTE5ODU1ND
-IyMzMsLTk5Njk4NDQyNSwyMDM4MjkwNTk5LC0xMjQxNjg5ODQ1
-LC04MjU4NzExMDldfQ==
+eyJoaXN0b3J5IjpbMTk4NTk1NTA4NCwxNDEzMDI2MjQxLC0xMz
+U5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5
+MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NC
+wtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0y
+OTU4Mjg5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NT
+QyMjMzLC05OTY5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4OTg0
+NSwtODI1ODcxMTA5XX0=
 -->
