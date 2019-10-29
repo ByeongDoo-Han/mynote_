@@ -1194,11 +1194,14 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	sigaction(SIGINT< &act, NULL);
 	```
 3. 여러개의 signal을 무시하려면;
-```c
-act.sa_handler=SIG_
-```
+	```c
+	act.sa_handler=SIG_IGN;
+	sigaction(SIGINT, &act, NULL);
+	sigaction(SIGQUIT, &act, NULL);
+	```
+> **한 process에서 무시되는 signal은 exec() 후에도 계속 무시된다.**
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0Mzk1ODkyNywxNDEzMDI2MjQxLC0xMz
+eyJoaXN0b3J5IjpbLTk3ODQ4MjgyMiwxNDEzMDI2MjQxLC0xMz
 U5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5
 MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NC
 wtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0y
