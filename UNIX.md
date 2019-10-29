@@ -1199,9 +1199,16 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	sigaction(SIGINT, &act, NULL);
 	sigaction(SIGQUIT, &act, NULL);
 	```
-> **한 process에서 무시되는 signal은 exec() 후에도 계속 무시된다.**(signal table까지 copy한다. 다만, **함수로 수행하는 경우**에는 함수 주호가 다르기때문에 수행할 수 없다.)
+> **한 process에서 무시되는 signal은 exec() 후에도 계속 무시된다.**(signal table까지 copy한다. 다만, **함수로 수행하는 경우**에는 함수 주호가 다르기때문에 **수행할 수 없다**.)
+
+### signal 집합 지정
+Q. signal 처리 중 다른 signal이 올 경우
+1) 다른 signal로 넘어간 후 다시 돌아와 남은 signal을 처리한다.
+2) 현재 signal 처리 후 다른 signal을 처리한다.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyNTA5NTkyLDE0MTMwMjYyNDEsLTEzNT
+eyJoaXN0b3J5IjpbMzI2OTAwMjM4LDE0MTMwMjYyNDEsLTEzNT
 kzODQ3MzQsOTc2NjczMzE0LC0yNjY3ODY3NjksLTE1MzM5Mzkw
 ODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcxNTM5NDY0LC
 0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYxOTE5ODIsLTI5
