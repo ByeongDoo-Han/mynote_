@@ -1233,11 +1233,12 @@ int main(void) {
 	...
 }
 void handler(int signo, siginfo_t *sf,ucontext_t *uc){
-
+	printf("%d\n", sf->si_code);
+}
 ```
 => sa_sigaction은 sa_handler와 비슷한 기능을 하지만 조금 더 많은 내용을 표기해 준다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4MDkwMDc4OSwxNDEzMDI2MjQxLC0xMz
+eyJoaXN0b3J5IjpbMTEzMzQ3MDQ2MiwxNDEzMDI2MjQxLC0xMz
 U5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5
 MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NC
 wtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0y
