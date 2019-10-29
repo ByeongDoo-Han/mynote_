@@ -1165,10 +1165,6 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	- SIG_DEL (default 행동, 즉 종료 선택);
 		
 	- SIG_IGN (무시) ;
-		```c
-		act.sa_hander=SIG_DFL;
-		siganction(SIGINT, &act, NULL);	
-		```
 
 	- 정의된 함수 (signal을 받으면 함수로 제어 이동; 함수 실행 후, signal을 받기 직전의 처리 문장으로 return);
 
@@ -1188,18 +1184,25 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 
 #### Signal 사용 예
 1. SIGINT를 무시;
-2. SIGINT시 종료;
-		
 	```c
-		act.sa_hander=SIG_IGN;
-		sigaction(SIGINT< &act, NULL);
-		```
+	act.sa_hander=SIG_DFL;
+	siganction(SIGINT, &act, NULL);	
+	```
+2. SIGINT시 종료;
+	```c
+	act.sa_hander=SIG_IGN;
+	sigaction(SIGINT< &act, NULL);
+	```
+3. 여러개의 signal을 무시하려면;
+```c
+act.sa_handler=SIG_
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE4MzM0NjUwLDE0MTMwMjYyNDEsLTEzNT
-kzODQ3MzQsOTc2NjczMzE0LC0yNjY3ODY3NjksLTE1MzM5Mzkw
-ODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcxNTM5NDY0LC
-0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYxOTE5ODIsLTI5
-NTgyODk0NywtMTUwMjAzMzQzOCw2Nzk5MDk4NTEsLTE5ODU1ND
-IyMzMsLTk5Njk4NDQyNSwyMDM4MjkwNTk5LC0xMjQxNjg5ODQ1
-LC04MjU4NzExMDldfQ==
+eyJoaXN0b3J5IjpbLTQ0Mzk1ODkyNywxNDEzMDI2MjQxLC0xMz
+U5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5
+MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NC
+wtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0y
+OTU4Mjg5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NT
+QyMjMzLC05OTY5ODQ0MjUsMjAzODI5MDU5OSwtMTI0MTY4OTg0
+NSwtODI1ODcxMTA5XX0=
 -->
