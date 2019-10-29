@@ -1164,11 +1164,6 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 
 	- SIG_DEL (default 행동, 즉 종료 선택);
 		
-		```c
-		act.sa_hander=SIG_IGN;
-		sigaction(SIGINT< &act, NULL);
-		```
-		
 	- SIG_IGN (무시) ;
 		```c
 		act.sa_hander=SIG_DFL;
@@ -1191,9 +1186,16 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	=> SA_RESETHAND : handler로부터 복귀 시 signal action을 SIG_DFL로 재설정;
 	=> SA_SIGINFO : sa_handler 대신 sa_sigaction 사용
 
-
+#### Signal 사용 예
+1. SIGINT를 무시;
+2. SIGINT시 종료;
+		
+	```c
+		act.sa_hander=SIG_IGN;
+		sigaction(SIGINT< &act, NULL);
+		```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyMDEwOTY1LDE0MTMwMjYyNDEsLTEzNT
+eyJoaXN0b3J5IjpbMzE4MzM0NjUwLDE0MTMwMjYyNDEsLTEzNT
 kzODQ3MzQsOTc2NjczMzE0LC0yNjY3ODY3NjksLTE1MzM5Mzkw
 ODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcxNTM5NDY0LC
 0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYxOTE5ODIsLTI5
