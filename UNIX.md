@@ -1152,6 +1152,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	> 예외) SIGSTOP(process의 일시중단), SIGKILL(process의 종료)의 경우 별도의 action을 취할 수 없다.
 
 -  sigaction의 구조
+1. 
 	```c
 	struct sigaction {
 		void(*sa_handler)(int);
@@ -1160,25 +1161,26 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 		void (*sa_sigaction) (int, siginfo_t *, void *);
 	}
 	```
-	- void (*sa_handler)(int)
+2. void (*sa_handler)(int)
 		- SIG_DEL (default 행동, 즉 종료 선택);
 		- SIG_IGN (무시) ;
 		- 정의된 함수 (signal을 받으면 함수로 제어 이동; 함수 실행 후, signal을 받기 직전의 처리 문장으로 return);
 
 	
-#### SIGNAL Handling 예시 code
-- signal handling 안하는
+	#### SIGNAL Handling 예시 code
+	- signal handling 안하는
 <img src="https://lh3.googleusercontent.com/mRFf5H-y6RdVqxYQ7fY4F_mb9HT9YMlBWPolus1yztHhVRNAWbU6sd_ih67SIq3jF-Xi8WRh5VZgtGqmjpRiYWpjoqdsRE9h7lvzbioio8n0fjGOzLtSjvecz8oNxKT0xFK6UaWO0GtUvuBZQRT1KP8UnBdTmnBsGrcJUJaOjZmeiiIa6xoQnE0YJzdtz4hHvbWpWFGzk5q6BSS5dPEq4z5IeIkCIfQ3Y8WkuYy69sQXT5H-G8pi2wkPQmRCHAZQXYppPsZy63n1VVkRMsh7P82UsohZB28hpnCIk-EfdAijRX5CXWBV-6dA_mrLEoTx8E4oxXQ5EOld5MvvJytMXRoOAkFy-7kCraq_b-x8UWoJxqOA44vBEGk7-VGvaPi9IgrgfCa35nAw-s9MXRK3oXpwHZLNFB9kdv0SZ5Zx7znADThlpovl6i7djY7kqYhezKXv8iHOx6sbEUwiClMp6vEtYGSXxjzH4Sc879pC1pmyAy3o87tgT3rXx4SWSezfrauZ9s5Xk62Q4mI-2ZkPeCOT4e5M8aBlL0q_Zb90zXjPVxMjq-pYUF5oJMz8QCVK_BhT8yeTCyUBKfMITjgUEKmk5uN0XqP0XKtGkyiFrRPH-IFq2QaJsQ-ZS-jMCyHG3kP5N0g56IIYgxny6BF4-Mm6Uedvt814VC07EwJN59VMj-h0NkpLpAnv2977KBjbPHWIR4sKaQG-wz3Z6bt0Gz9q9cc3uUdFihOQ5QrlY6uu_sO5=w890-h693-no" width=700px />
 
-- signal Handling 하는
+	- signal Handling 하는
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=700px />
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5Nz
-Y2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4
-NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OT
-IsLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1ODI4OTQ3LC0x
-NTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIzMywtOTk2OT
-g0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4NDUsLTgyNTg3MTEw
-OSwxNzM4MTc0Nzc1XX0=
+eyJoaXN0b3J5IjpbLTEwMjc1OTk4NzUsMTQxMzAyNjI0MSwtMT
+M1OTM4NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkz
+OTA4MSwxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0Nj
+QsLTExOTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4Miwt
+Mjk1ODI4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NT
+U0MjIzMywtOTk2OTg0NDI1LDIwMzgyOTA1OTksLTEyNDE2ODk4
+NDUsLTgyNTg3MTEwOV19
 -->
