@@ -1186,6 +1186,22 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	=> SA_RESETHAND : handler로부터 복귀 시 signal action을 SIG_DFL로 재설정;
 	=> SA_SIGINFO : sa_handler 대신 sa_sigaction 사용
 
+4. void (*sa_sigaction) (int, siginfo_t *, void *);
+	#### sa_sigaction()에 의한 signal handling
+	```c
+	int main(void) {
+		static struct sigaction act;
+		act.sa_flags = SA_SIGINFO;
+		act.sa_sigaction = handler;
+		sigaction(SIGUSR1 &act, NULL);
+		...
+	}
+	void handler(int signo, siginfo_t *sf,ucontext_t *uc){
+		printf("%d\n", sf->si_code);
+	}
+	```
+	=> sa_sigaction은 sa_handler와 비슷한 기능을 하지만 조금 더 많은 내용을 표기해 준다.
+
 #### Signal 사용 예
 1. SIGINT를 무시;
 	```c
@@ -1206,7 +1222,8 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 > **한 process에서 무시되는 signal은 exec() 후에도 계속 무시된다.**(signal table까지 copy한다. 다만, **함수로 수행하는 경우**에는 함수 주호가 다르기때문에 **수행할 수 없다**.)
 
 ### signal 집합 지정
-Q. signal 처리 중 다른 signal이 올 경우
+Q. signal 처리 중 다른 signal이 올 경우?
+
 1) 다른 signal로 넘어간 후 다시 돌아와 남은 signal을 처리한다.
 2) 현재 signal 처리 후 다른 signal을 처리한다.
 
@@ -1218,33 +1235,19 @@ Q. signal 처리 중 다른 signal이 올 경우
 	- sigemptyset -> sigaddset (빈 sigset에 signal을 추가)
 	- sigfillset -> sigdelset(모든 signal을 추가 후 예외 signal은 제외)
 
-```c
-#include <signal.h>
-int sigemptyset(sigset_t *set);
-int sigfillset(sigset_t *set);
+	```c
+	#include <signal.h>
+	int sigemptyset(sigset_t *set);
+	int sigfillset(sigset_t *set);
 
-int sigaddset(sigset_t *set, int signo);
-int sigdelset(sigset *setm int signo);
+	int sigaddset(sigset_t *set, int signo);
+	int sigdelset(sigset *setm int signo);
 
-int sigismember(sigset_t *set, int signo);
-```
+	int sigismember(sigset_t *set, int signo);
+	```
 
-### sa_sigaction()에 의한 signal handling
-```c
-int main(void) {
-	static struct sigaction act;
-	act.sa_flags = SA_SIGINFO;
-	act.sa_sigaction = handler;
-	sigaction(SIGUSR1 &act, NULL);
-	...
-}
-void handler(int signo, siginfo_t *sf,ucontext_t *uc){
-	printf("%d\n", sf->si_code);
-}
-```
-=> sa_sigaction은 sa_handler와 비슷한 기능을 하지만 조금 더 많은 내용을 표기해 준다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODYyMTUwOTE0LC0yMzE1MzE4MDIsMTEzMz
+eyJoaXN0b3J5IjpbNjAyNzc2MjQ0LC0yMzE1MzE4MDIsMTEzMz
 Q3MDQ2MiwxNDEzMDI2MjQxLC0xMzU5Mzg0NzM0LDk3NjY3MzMx
 NCwtMjY2Nzg2NzY5LC0xNTMzOTM5MDgxLDE0OTc5Nzg0MTMsLT
 EzOTM5MTkyMjAsMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMTIx
