@@ -1164,7 +1164,6 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 		void (*sa_sigaction) (int, siginfo_t *, void *);
 	}
 	```
-#### 각 변수의 
 1. void (*sa_handler)(int)
 
 	- SIG_DEL (default 행동, 즉 종료 선택);
@@ -1174,11 +1173,11 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	- 정의된 함수 (signal을 받으면 함수로 제어 이동; 함수 실행 후, signal을 받기 직전의 처리 문장으로 return);
 
 	
-	#### SIGNAL Handling 예시 code
-	- signal handling 안하는
+#### SIGNAL Handling 예시 code
+- signal handling 안하는
 <img src="https://lh3.googleusercontent.com/mRFf5H-y6RdVqxYQ7fY4F_mb9HT9YMlBWPolus1yztHhVRNAWbU6sd_ih67SIq3jF-Xi8WRh5VZgtGqmjpRiYWpjoqdsRE9h7lvzbioio8n0fjGOzLtSjvecz8oNxKT0xFK6UaWO0GtUvuBZQRT1KP8UnBdTmnBsGrcJUJaOjZmeiiIa6xoQnE0YJzdtz4hHvbWpWFGzk5q6BSS5dPEq4z5IeIkCIfQ3Y8WkuYy69sQXT5H-G8pi2wkPQmRCHAZQXYppPsZy63n1VVkRMsh7P82UsohZB28hpnCIk-EfdAijRX5CXWBV-6dA_mrLEoTx8E4oxXQ5EOld5MvvJytMXRoOAkFy-7kCraq_b-x8UWoJxqOA44vBEGk7-VGvaPi9IgrgfCa35nAw-s9MXRK3oXpwHZLNFB9kdv0SZ5Zx7znADThlpovl6i7djY7kqYhezKXv8iHOx6sbEUwiClMp6vEtYGSXxjzH4Sc879pC1pmyAy3o87tgT3rXx4SWSezfrauZ9s5Xk62Q4mI-2ZkPeCOT4e5M8aBlL0q_Zb90zXjPVxMjq-pYUF5oJMz8QCVK_BhT8yeTCyUBKfMITjgUEKmk5uN0XqP0XKtGkyiFrRPH-IFq2QaJsQ-ZS-jMCyHG3kP5N0g56IIYgxny6BF4-Mm6Uedvt814VC07EwJN59VMj-h0NkpLpAnv2977KBjbPHWIR4sKaQG-wz3Z6bt0Gz9q9cc3uUdFihOQ5QrlY6uu_sO5=w890-h693-no" width=700px />
 
-	- signal Handling 하는
+- signal Handling 하는
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=700px />
 
 2. sigset_t sa_mask;
@@ -1196,7 +1195,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 2. SIGINT시 종료;
 	```c
 	act.sa_hander=SIG_IGN;
-	sigaction(SIGINT< &act, NULL);
+	sigaction(SIGINT, &act, NULL);
 	```
 3. 여러개의 signal을 무시하려면;(1개의 act.sa_handler + 다수의 sigaction)
 	```c
@@ -1245,7 +1244,7 @@ void handler(int signo, siginfo_t *sf,ucontext_t *uc){
 ```
 => sa_sigaction은 sa_handler와 비슷한 기능을 하지만 조금 더 많은 내용을 표기해 준다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExOTI4NTg5LC0yMzE1MzE4MDIsMTEzMz
+eyJoaXN0b3J5IjpbODYyMTUwOTE0LC0yMzE1MzE4MDIsMTEzMz
 Q3MDQ2MiwxNDEzMDI2MjQxLC0xMzU5Mzg0NzM0LDk3NjY3MzMx
 NCwtMjY2Nzg2NzY5LC0xNTMzOTM5MDgxLDE0OTc5Nzg0MTMsLT
 EzOTM5MTkyMjAsMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMTIx
