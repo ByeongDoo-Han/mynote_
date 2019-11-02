@@ -1244,19 +1244,27 @@ Q. signal 처리 중 다른 signal이 올 경우?
 	int sigdelset(sigset *setm int signo);
 
 	int sigismember(sigset_t *set, int signo);
-
+	//-----------------------------------------------
 	//ex)
 	sigset_t maskt1, mask2;
 	
-	sig
+	sigemptyset(&mask1);
+	sigaddset(&mask1, SIGINT);
+	sigaddset(&mask1, SIGQUIT);
+
+	sigfiilset(&mask2);
+	sigdelset(&mask2, SIGCHLD);
 	```
 
+### 이전의 설정 복원하기
+```c
+sigaction(SIGTERM, NULL, &oact); /*과거 설정 젖
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4OTYwNjgzNCwtMjMxNTMxODAyLDExMz
-M0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMz
-MTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC
-0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEy
-MTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1ODI4OTQ3LC0xNTAyMD
-MzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIzMywtOTk2OTg0NDI1
-LDIwMzgyOTA1OTldfQ==
+eyJoaXN0b3J5IjpbLTEwMjA5Nzc3MDQsLTIzMTUzMTgwMiwxMT
+MzNDcwNDYyLDE0MTMwMjYyNDEsLTEzNTkzODQ3MzQsOTc2Njcz
+MzE0LC0yNjY3ODY3NjksLTE1MzM5MzkwODEsMTQ5Nzk3ODQxMy
+wtMTM5MzkxOTIyMCwxMzcxNTM5NDY0LC0xMTkyMzQzNDkyLC0x
+MjEwNzkzNzU2LDE0MTYxOTE5ODIsLTI5NTgyODk0NywtMTUwMj
+AzMzQzOCw2Nzk5MDk4NTEsLTE5ODU1NDIyMzMsLTk5Njk4NDQy
+NSwyMDM4MjkwNTk5XX0=
 -->
