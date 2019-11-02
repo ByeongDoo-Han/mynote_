@@ -1107,7 +1107,7 @@ if(WIFSIGNALED(status))	//signal을 받고 종료
 	printf("%d\n", WTERMSIG(status));
 ```
 
-### signal send
+### SIGNAL send
 ```c
 #include <sys/types.h>
 #include <signal.h>
@@ -1145,7 +1145,7 @@ int kill(pid_t pid, int sig);
 - 무시
 - 정의된 action (sigaction)
 
-#### sigaction
+### 1. sigaction
 ```c
 #include <signal.h>
 int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
@@ -1164,6 +1164,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 		void (*sa_sigaction) (int, siginfo_t *, void *);
 	}
 	```
+#### 각 변수의 
 1. void (*sa_handler)(int)
 
 	- SIG_DEL (default 행동, 즉 종료 선택);
@@ -1244,11 +1245,11 @@ void handler(int signo, siginfo_t *sf,ucontext_t *uc){
 ```
 => sa_sigaction은 sa_handler와 비슷한 기능을 하지만 조금 더 많은 내용을 표기해 준다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwNTkwNTIyMCwtMjMxNTMxODAyLDExMz
-M0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMz
-MTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC
-0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEy
-MTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1ODI4OTQ3LC0xNTAyMD
-MzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIzMywtOTk2OTg0NDI1
-LDIwMzgyOTA1OTldfQ==
+eyJoaXN0b3J5IjpbMjExOTI4NTg5LC0yMzE1MzE4MDIsMTEzMz
+Q3MDQ2MiwxNDEzMDI2MjQxLC0xMzU5Mzg0NzM0LDk3NjY3MzMx
+NCwtMjY2Nzg2NzY5LC0xNTMzOTM5MDgxLDE0OTc5Nzg0MTMsLT
+EzOTM5MTkyMjAsMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMTIx
+MDc5Mzc1NiwxNDE2MTkxOTgyLC0yOTU4Mjg5NDcsLTE1MDIwMz
+M0MzgsNjc5OTA5ODUxLC0xOTg1NTQyMjMzLC05OTY5ODQ0MjUs
+MjAzODI5MDU5OV19
 -->
