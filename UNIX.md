@@ -1187,7 +1187,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	=> SA_SIGINFO : sa_handler 대신 sa_sigaction 사용
 
 4. void (*sa_sigaction) (int, siginfo_t *, void *);
-	#### sa_sigaction()에 의한 signal handling
+	-  sa_sigaction()에 의한 signal handling
 	```c
 	int main(void) {
 		static struct sigaction act;
@@ -1244,14 +1244,19 @@ Q. signal 처리 중 다른 signal이 올 경우?
 	int sigdelset(sigset *setm int signo);
 
 	int sigismember(sigset_t *set, int signo);
+
+	//ex)
+	sigset_t maskt1, mask2;
+	
+	sig
 	```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAyNzc2MjQ0LC0yMzE1MzE4MDIsMTEzMz
-Q3MDQ2MiwxNDEzMDI2MjQxLC0xMzU5Mzg0NzM0LDk3NjY3MzMx
-NCwtMjY2Nzg2NzY5LC0xNTMzOTM5MDgxLDE0OTc5Nzg0MTMsLT
-EzOTM5MTkyMjAsMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMTIx
-MDc5Mzc1NiwxNDE2MTkxOTgyLC0yOTU4Mjg5NDcsLTE1MDIwMz
-M0MzgsNjc5OTA5ODUxLC0xOTg1NTQyMjMzLC05OTY5ODQ0MjUs
-MjAzODI5MDU5OV19
+eyJoaXN0b3J5IjpbMTU4OTYwNjgzNCwtMjMxNTMxODAyLDExMz
+M0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMz
+MTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC
+0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEy
+MTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1ODI4OTQ3LC0xNTAyMD
+MzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIzMywtOTk2OTg0NDI1
+LDIwMzgyOTA1OTldfQ==
 -->
