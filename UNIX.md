@@ -1270,9 +1270,15 @@ sigaction(SIGTERM, &oact, NULL);
 - timer 사용
 ```c
 #include <signal.h>
-unsigned int alarm
+unsigned int alarm(unsigned int secs);
+```
+- secs : 초 단위의 시간; 시간 종료 후 SIGALRM을 보낸다.
+- alarm은 exec 후에도 계속 작동; but! fork 후에는 자식 process에 대한 alarm은 작동하지 않는다.
+- alarm(0); ----> alarm 끄기;
+- alarm은 누적되지 않는다. 2번 사용되면, 두 번째 alarm이 대체;
+- 두 번째 alarm의 return 값이 첫 alarm의 잔여시간;
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxNTc0NjY2NCwtMjMxNTMxODAyLDExMz
+eyJoaXN0b3J5IjpbLTYzMzg1Njg5NywtMjMxNTMxODAyLDExMz
 M0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMz
 MTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC
 0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEy
