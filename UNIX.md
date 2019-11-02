@@ -1074,8 +1074,9 @@ pid_t waitpid(pid_t pid, int *status, int options);
 > ex) 무한루프 중 Ctrl + c -> OS가 SIGINT를 받음 -> 종료
 
 - software interrupt
-- kernel -> processprocess -> process
-- 자료 전송보다는 비정상적인 상황을 알릴때 사용
+- kernel -> process
+- process -> process
+- 자료 전송보다는 [비정상적인 상황]을 알릴때 사용
 - ex) program 수행중 Ctrl + c (interrupt key)
 	-> kernel이 문자 감지, 해당 session에 있는 모든 process에게 "SIGINT"라는 signal을 보냄
 	-> 모든 process 종료! **그러나, shell process는 무시**
@@ -1240,7 +1241,7 @@ void handler(int signo, siginfo_t *sf,ucontext_t *uc){
 ```
 => sa_sigaction은 sa_handler와 비슷한 기능을 하지만 조금 더 많은 내용을 표기해 준다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NTQxMjg4MiwtMjMxNTMxODAyLDExMz
+eyJoaXN0b3J5IjpbMTI0MTg0OTAwMSwtMjMxNTMxODAyLDExMz
 M0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMz
 MTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC
 0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEy
