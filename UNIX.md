@@ -1282,13 +1282,21 @@ unsigned int alarm(unsigned int secs);
 > 1) 몇 초 후에 무슨일을 하겠다.
 >2) 몇초 동안 무슨 일이 일어나지 않으면 무슨 일을 하겠다.
 
+### signal blocking
+```c
+#include <signal.h>
+int sigprocmask(int how, const sigset_t *set, sigset_t *oset)
+```
+- how : (= SIG_SETMASK), set에 있는 signal들을 지금부터 봉쇄
+- oset은 봉쇄된 signal들의 현재 mask; 관심 없으면 NULL로 지정;
+- how : (= SIG_UNBLOCK); 봉쇄 제거;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTUwODU1MjAsLTYzMzg1Njg5NywtMj
-MxNTMxODAyLDExMzM0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4
-NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MS
-wxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTEx
-OTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1OD
-I4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIz
-MywtOTk2OTg0NDI1XX0=
+eyJoaXN0b3J5IjpbNzk0NDQ5NTA5LC0xOTE1MDg1NTIwLC02Mz
+M4NTY4OTcsLTIzMTUzMTgwMiwxMTMzNDcwNDYyLDE0MTMwMjYy
+NDEsLTEzNTkzODQ3MzQsOTc2NjczMzE0LC0yNjY3ODY3NjksLT
+E1MzM5MzkwODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcx
+NTM5NDY0LC0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYxOT
+E5ODIsLTI5NTgyODk0NywtMTUwMjAzMzQzOCw2Nzk5MDk4NTEs
+LTE5ODU1NDIyMzNdfQ==
 -->
