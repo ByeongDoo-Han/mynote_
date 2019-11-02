@@ -1082,10 +1082,13 @@ pid_t waitpid(pid_t pid, int *status, int options);
 	-> 모든 process 종료! **그러나, shell process는 무시**
 - <signal.h>
 ### signal의 기본처리
-1. 종료 -> 내 program은 잘 작동하는데 OS의 사정에 의해 종료 (signal에 의한 정상 종료, default)
-2. 코어덤프 후 종료 -> 내 program 상 비정상적인 작동으로 OS가 중단시킴 (signal에 의한 비정상 종료)
-	- core file (종료 직전의 momory의 상태)를 생성 후 종료 : debug
-3. 중지 -> 멈춘 상태로 계속 진행가능
+1. 종료 
+-> 내 program은 잘 작동하는데 OS의 사정에 의해 종료 (signal에 의한 정상 종료, default)
+2. 코어덤프 후 종료 
+-> 내 program 상 비정상적인 작동으로 OS가 중단시킴 (signal에 의한 비정상 종료)
+	> core file (종료 직전의 momory의 상태)를 생성 후 종료 : debug
+3. 중지 
+-> 멈춘 상태로 계속 진행가능
 4. 무시
 <img src="https://lh3.googleusercontent.com/oqLhcStmYo6-q5qgfvOJfJA6KgdkVM-eSMzjTRyJD-Xxl1IBz8sZM4FHF0U_4fyU6RWLuVonao3Pfk39w8ouqCR871irXvXk2gKG6fJyouqIDWgs8f3bmX5DcdBXpuxXfxmDrV9y8s_LEcIjsM-aNG1D_N3x_C7Au3VWtUJVpnxEGnEd12Kbtvo8X_9NVMF-v9mZ3InLETBR0aQQvuW5QBQDTAqK7_P4iigAdI3vJfxy4GqL6T7_aBWTkzakZYJBsNDPVVIwL0S6a-VRZF29DF_FzqqYGBDWpMn5ww1wvypBOQk-RMVzY1q9YpH22S3mXpiByFIyB0WaY1h5_brdQ8vrQ8KqMDHuK0AAnYpZHxI82pW2suTlnBKCwnCH16a2o21qFWoG2K-CCgpMtUq2IaDaN28B4BNBqgrk_uA8yIrQCVol743sqWKXuCV1SY3bLa2DwN2t0z14qir2l-GEvWp0eaxNMlb-N2vW04qeDMVlp3CFBt_y8oxE03lTTZJ2Ad-9_3lOSQbtf0hXJNfYcKIhoAneCRV7GJD-0IE58v5zAa-VjZmWtJCxSlg44noLQLnFAC9Bx3PSSmAGZJvQDmVcjFurhF76dwvVtcuRssu8O_xgsTik5zuOM76h95-D0yS6tvd_BjSvtz_H3Dkz_r9tP5yTnJhvhiq_wqBXfwO6SoGoMZfHU9lwLClefCcHBNG19u2wYL6kg2MuXiKDPpzrlyEhGeWb_8PPs4NxXLT1kY7X=w717-h923-no" width=250px />
 
@@ -1241,7 +1244,7 @@ void handler(int signo, siginfo_t *sf,ucontext_t *uc){
 ```
 => sa_sigaction은 sa_handler와 비슷한 기능을 하지만 조금 더 많은 내용을 표기해 준다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0MTg0OTAwMSwtMjMxNTMxODAyLDExMz
+eyJoaXN0b3J5IjpbMTgwNTkwNTIyMCwtMjMxNTMxODAyLDExMz
 M0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMz
 MTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC
 0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEy
