@@ -1291,8 +1291,16 @@ int sigprocmask(int how, const sigset_t *set, sigset_t *oset)
 - oset은 봉쇄된 signal들의 현재 mask; 관심 없으면 NULL로 지정;
 - how : (= SIG_UNBLOCK); 봉쇄 제거;
 
+### pause System call
+```c
+#include <unistd.h>
+int pause(void);
+```
+- signal 도착까지 실행을 일시 중단(CPU 사용없이);
+- signal이 포착되면; 처리 routine 수행 & -1 return;
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk0NDQ5NTA5LC0xOTE1MDg1NTIwLC02Mz
+eyJoaXN0b3J5IjpbOTU1MDQ1MzA3LC0xOTE1MDg1NTIwLC02Mz
 M4NTY4OTcsLTIzMTUzMTgwMiwxMTMzNDcwNDYyLDE0MTMwMjYy
 NDEsLTEzNTkzODQ3MzQsOTc2NjczMzE0LC0yNjY3ODY3NjksLT
 E1MzM5MzkwODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcx
