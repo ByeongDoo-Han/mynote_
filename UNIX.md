@@ -1258,13 +1258,25 @@ Q. signal 처리 중 다른 signal이 올 경우?
 
 ### 이전의 설정 복원하기
 ```c
-sigaction(SIGTERM, NULL, &oact); /*과거 설정 젖
+sigaction(SIGTERM, NULL, &oact); /*과거 설정 저장 */
+
+act.sa_handler = SIG_IGN;
+sigaction(SIGTERM, &act, NULL);
+// do anything
+sigaction(SIGTERM, &oact, NULL);
+```
+
+### alarm signal 설정
+- timer 사용
+```c
+#include <signal.h>
+unsigned int alarm
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjA5Nzc3MDQsLTIzMTUzMTgwMiwxMT
-MzNDcwNDYyLDE0MTMwMjYyNDEsLTEzNTkzODQ3MzQsOTc2Njcz
-MzE0LC0yNjY3ODY3NjksLTE1MzM5MzkwODEsMTQ5Nzk3ODQxMy
-wtMTM5MzkxOTIyMCwxMzcxNTM5NDY0LC0xMTkyMzQzNDkyLC0x
-MjEwNzkzNzU2LDE0MTYxOTE5ODIsLTI5NTgyODk0NywtMTUwMj
-AzMzQzOCw2Nzk5MDk4NTEsLTE5ODU1NDIyMzMsLTk5Njk4NDQy
-NSwyMDM4MjkwNTk5XX0=
+eyJoaXN0b3J5IjpbMTIxNTc0NjY2NCwtMjMxNTMxODAyLDExMz
+M0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMz
+MTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC
+0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEy
+MTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1ODI4OTQ3LC0xNTAyMD
+MzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIzMywtOTk2OTg0NDI1
+LDIwMzgyOTA1OTldfQ==
 -->
