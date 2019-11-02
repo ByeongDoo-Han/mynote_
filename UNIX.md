@@ -1277,12 +1277,16 @@ unsigned int alarm(unsigned int secs);
 - alarm(0); ----> alarm 끄기;
 - alarm은 누적되지 않는다. 2번 사용되면, 두 번째 alarm이 대체;
 - 두 번째 alarm의 return 값이 첫 alarm의 잔여시간;
+
+<사용법>
+1) 몇 초 후에 무슨일을 하겠다.
+2) 몇초 동안 무슨 일이 일어나지 않으면 무슨 일을 하겠다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzMzg1Njg5NywtMjMxNTMxODAyLDExMz
-M0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMz
-MTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC
-0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEy
-MTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1ODI4OTQ3LC0xNTAyMD
-MzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIzMywtOTk2OTg0NDI1
-LDIwMzgyOTA1OTldfQ==
+eyJoaXN0b3J5IjpbLTIyNzk5ODM3MSwtNjMzODU2ODk3LC0yMz
+E1MzE4MDIsMTEzMzQ3MDQ2MiwxNDEzMDI2MjQxLC0xMzU5Mzg0
+NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5MDgxLD
+E0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NCwtMTE5
+MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0yOTU4Mj
+g5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NTQyMjMz
+LC05OTY5ODQ0MjVdfQ==
 -->
