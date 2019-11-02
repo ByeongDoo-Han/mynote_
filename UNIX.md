@@ -1273,20 +1273,22 @@ sigaction(SIGTERM, &oact, NULL);
 unsigned int alarm(unsigned int secs);
 ```
 - secs : 초 단위의 시간; 시간 종료 후 SIGALRM을 보낸다.
-- alarm은 exec 후에도 계속 작동; but! fork 후에는 자식 process에 대한 alarm은 작동하지 않는다.
+- alarm은 exec 후에도 계속 작동; but! fork 후에는 자식 process에 대한 alarm은 작동하지 않는다. (alarm은 program단위가 아니라 process 단위)
 - alarm(0); ----> alarm 끄기;
 - alarm은 누적되지 않는다. 2번 사용되면, 두 번째 alarm이 대체;
 - 두 번째 alarm의 return 값이 첫 alarm의 잔여시간;
 
-<사용법>
-1) 몇 초 후에 무슨일을 하겠다.
-2) 몇초 동안 무슨 일이 일어나지 않으면 무슨 일을 하겠다.
+> <사용법>
+> 1) 몇 초 후에 무슨일을 하겠다.
+>2) 몇초 동안 무슨 일이 일어나지 않으면 무슨 일을 하겠다.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNzk5ODM3MSwtNjMzODU2ODk3LC0yMz
-E1MzE4MDIsMTEzMzQ3MDQ2MiwxNDEzMDI2MjQxLC0xMzU5Mzg0
-NzM0LDk3NjY3MzMxNCwtMjY2Nzg2NzY5LC0xNTMzOTM5MDgxLD
-E0OTc5Nzg0MTMsLTEzOTM5MTkyMjAsMTM3MTUzOTQ2NCwtMTE5
-MjM0MzQ5MiwtMTIxMDc5Mzc1NiwxNDE2MTkxOTgyLC0yOTU4Mj
-g5NDcsLTE1MDIwMzM0MzgsNjc5OTA5ODUxLC0xOTg1NTQyMjMz
-LC05OTY5ODQ0MjVdfQ==
+eyJoaXN0b3J5IjpbLTE5MTUwODU1MjAsLTYzMzg1Njg5NywtMj
+MxNTMxODAyLDExMzM0NzA0NjIsMTQxMzAyNjI0MSwtMTM1OTM4
+NDczNCw5NzY2NzMzMTQsLTI2Njc4Njc2OSwtMTUzMzkzOTA4MS
+wxNDk3OTc4NDEzLC0xMzkzOTE5MjIwLDEzNzE1Mzk0NjQsLTEx
+OTIzNDM0OTIsLTEyMTA3OTM3NTYsMTQxNjE5MTk4MiwtMjk1OD
+I4OTQ3LC0xNTAyMDMzNDM4LDY3OTkwOTg1MSwtMTk4NTU0MjIz
+MywtOTk2OTg0NDI1XX0=
 -->
