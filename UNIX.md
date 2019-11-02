@@ -1,20 +1,5 @@
 
-# 시스템 정보
-### uid 검색
-```c
-#include <sys/types.h>
-#include <unistd.h>
-uid_t getuid(void);
-uid_t geteuid(void);
-```
 
-### guid 검색
-```c
-#include <sys/types.h>
-#include <unistd.h>
-gid_t getgid(void);
-gid_t getegid(void);
-```
 
 
 
@@ -818,11 +803,11 @@ int pause(void);
 - signal이(어떤 signal 상관없이) 포착되면; 처리 routine 수행 & -1 return;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5NjcwNzgzMiwtMTIzMjcyMTIwNywtND
-Y3OTUwMjYyLDk2NDI1OTIwNyw5NTUwNDUzMDcsLTE5MTUwODU1
-MjAsLTYzMzg1Njg5NywtMjMxNTMxODAyLDExMzM0NzA0NjIsMT
-QxMzAyNjI0MSwtMTM1OTM4NDczNCw5NzY2NzMzMTQsLTI2Njc4
-Njc2OSwtMTUzMzkzOTA4MSwxNDk3OTc4NDEzLC0xMzkzOTE5Mj
-IwLDEzNzE1Mzk0NjQsLTExOTIzNDM0OTIsLTEyMTA3OTM3NTYs
-MTQxNjE5MTk4Ml19
+eyJoaXN0b3J5IjpbLTg5NTU5NDYzLC0xMjMyNzIxMjA3LC00Nj
+c5NTAyNjIsOTY0MjU5MjA3LDk1NTA0NTMwNywtMTkxNTA4NTUy
+MCwtNjMzODU2ODk3LC0yMzE1MzE4MDIsMTEzMzQ3MDQ2MiwxND
+EzMDI2MjQxLC0xMzU5Mzg0NzM0LDk3NjY3MzMxNCwtMjY2Nzg2
+NzY5LC0xNTMzOTM5MDgxLDE0OTc5Nzg0MTMsLTEzOTM5MTkyMj
+AsMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMTIxMDc5Mzc1Niwx
+NDE2MTkxOTgyXX0=
 -->
