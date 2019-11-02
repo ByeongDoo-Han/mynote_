@@ -1291,6 +1291,57 @@ int sigprocmask(int how, const sigset_t *set, sigset_t *oset)
 - oset은 봉쇄된 signal들의 현재 mask; 관심 없으면 NULL로 지정;
 - how : (= SIG_UNBLOCK); 봉쇄 제거;
 
+	```c
+	void catchint(int);
+
+	int main(void){
+		int i, j, num[10], sum=0;
+		static struct sigaction act;
+
+		act.sa_handler=catchint;
+		sigaction(SIGINT, &act, NULL);
+
+		for(i=0;i<5;i++){
+			scanf("%d", &num[i]);
+			sum+=num[i];
+			for(j=0;j<=i;j++){
+				printf(" ... %d\n", num[j]);
+				sleep(1);
+			}
+		}
+		exit(0);
+	}
+
+	void catchint(int signo) {
+		printf("DO NOT INTERRUPT .... \n");
+	}
+
+	********OUTPUT***********
+	1
+	... 1
+	2
+	... 1
+	... 2
+	3
+	... 1
+	... 2
+	... 3
+	4
+	... 1
+	^CDO NOT iNTERRUPT ....
+	... 2
+	^CDO NOT iNTERRUPT ....
+	... 3
+	... 4
+	^CDO NOT iNTERRUPT ....
+	... 1
+	... 2
+	... 3
+	... 4
+	... -12424645
+	```
+	
+
 ### pause System call
 ```c
 #include <unistd.h>
@@ -1300,11 +1351,11 @@ int pause(void);
 - signal이(어떤 signal 상관없이) 포착되면; 처리 routine 수행 & -1 return;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY0MjU5MjA3LDk1NTA0NTMwNywtMTkxNT
-A4NTUyMCwtNjMzODU2ODk3LC0yMzE1MzE4MDIsMTEzMzQ3MDQ2
-MiwxNDEzMDI2MjQxLC0xMzU5Mzg0NzM0LDk3NjY3MzMxNCwtMj
-Y2Nzg2NzY5LC0xNTMzOTM5MDgxLDE0OTc5Nzg0MTMsLTEzOTM5
-MTkyMjAsMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMTIxMDc5Mz
-c1NiwxNDE2MTkxOTgyLC0yOTU4Mjg5NDcsLTE1MDIwMzM0Mzgs
-Njc5OTA5ODUxXX0=
+eyJoaXN0b3J5IjpbLTQ2Nzk1MDI2Miw5NjQyNTkyMDcsOTU1MD
+Q1MzA3LC0xOTE1MDg1NTIwLC02MzM4NTY4OTcsLTIzMTUzMTgw
+MiwxMTMzNDcwNDYyLDE0MTMwMjYyNDEsLTEzNTkzODQ3MzQsOT
+c2NjczMzE0LC0yNjY3ODY3NjksLTE1MzM5MzkwODEsMTQ5Nzk3
+ODQxMywtMTM5MzkxOTIyMCwxMzcxNTM5NDY0LC0xMTkyMzQzND
+kyLC0xMjEwNzkzNzU2LDE0MTYxOTE5ODIsLTI5NTgyODk0Nywt
+MTUwMjAzMzQzOF19
 -->
