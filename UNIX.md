@@ -1297,14 +1297,14 @@ int sigprocmask(int how, const sigset_t *set, sigset_t *oset)
 int pause(void);
 ```
 - signal 도착까지 실행을 일시 중단(CPU 사용없이);
-- signal이 포착되면; 처리 routine 수행 & -1 return;
+- signal이(어떤 signal 상관없이) 포착되면; 처리 routine 수행 & -1 return;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU1MDQ1MzA3LC0xOTE1MDg1NTIwLC02Mz
-M4NTY4OTcsLTIzMTUzMTgwMiwxMTMzNDcwNDYyLDE0MTMwMjYy
-NDEsLTEzNTkzODQ3MzQsOTc2NjczMzE0LC0yNjY3ODY3NjksLT
-E1MzM5MzkwODEsMTQ5Nzk3ODQxMywtMTM5MzkxOTIyMCwxMzcx
-NTM5NDY0LC0xMTkyMzQzNDkyLC0xMjEwNzkzNzU2LDE0MTYxOT
-E5ODIsLTI5NTgyODk0NywtMTUwMjAzMzQzOCw2Nzk5MDk4NTEs
-LTE5ODU1NDIyMzNdfQ==
+eyJoaXN0b3J5IjpbOTY0MjU5MjA3LDk1NTA0NTMwNywtMTkxNT
+A4NTUyMCwtNjMzODU2ODk3LC0yMzE1MzE4MDIsMTEzMzQ3MDQ2
+MiwxNDEzMDI2MjQxLC0xMzU5Mzg0NzM0LDk3NjY3MzMxNCwtMj
+Y2Nzg2NzY5LC0xNTMzOTM5MDgxLDE0OTc5Nzg0MTMsLTEzOTM5
+MTkyMjAsMTM3MTUzOTQ2NCwtMTE5MjM0MzQ5MiwtMTIxMDc5Mz
+c1NiwxNDE2MTkxOTgyLC0yOTU4Mjg5NDcsLTE1MDIwMzM0Mzgs
+Njc5OTA5ODUxXX0=
 -->
