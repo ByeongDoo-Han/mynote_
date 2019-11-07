@@ -93,14 +93,14 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	> 예외) SIGSTOP(process의 일시중단), SIGKILL(process의 종료)의 경우 별도의 action을 취할 수 없다.
 
 #### sigaction의 구조
-	```c
+```c
 	struct sigaction {
 		void(*sa_handler)(int);
 		sigset_t sa_mask;
 		int sa_flags;
 		void (*sa_sigaction) (int, siginfo_t *, void *);
 	}
-	```
+```
 1. void (*sa_handler)(int)
 
 	- SIG_DEL (default 행동, 즉 종료 선택);
@@ -240,5 +240,5 @@ int pause(void);
 - signal이(어떤 signal 상관없이) 포착되면; 처리 routine 수행 & -1 return;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwOTgwNzkzNF19
+eyJoaXN0b3J5IjpbODkwMTgzNDM4LDEwMDk4MDc5MzRdfQ==
 -->
