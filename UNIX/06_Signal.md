@@ -178,7 +178,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	int sigfillset(sigset_t *set);
 
 	int sigaddset(sigset_t *set, int signo);
-	int sigdelset(sigset *setm int signo);
+	int sigdelset(sigset *set, int signo);
 
 	int sigismember(sigset_t *set, int signo);
 	//-----------------------------------------------
@@ -240,6 +240,6 @@ int pause(void);
 - signal이(어떤 signal 상관없이) 포착되면; 처리 routine 수행 & -1 return;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2Mjg2MTQzNCw4OTAxODM0MzgsMTAwOT
+eyJoaXN0b3J5IjpbLTc5NDg4NDA2OSw4OTAxODM0MzgsMTAwOT
 gwNzkzNF19
 -->
