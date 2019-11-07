@@ -140,12 +140,12 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 <img src="https://lh3.googleusercontent.com/TOvBYw1QO9NTX-JxJ8QlABctO0s3lNxnIoCQ0tHIuWOcRgEy2F3gGXWfBZFUEMCgyXnJMr8vPzNrFwpvZlif7z1X7WTPcGC4dsK7djGxQa-MumUrXmPeTznHW-joXmuGrJfFa4grr2lA_EQ0TjNyOj2yNP-XCcokWmZzMhyrTKpTuWhDrkxuriN4NNNbKpBIMywabIUCQOWSGWxXYvjXT8vJPKQUWagKClBaQh3ElswVBLo_FK8aE8In23QsbbnZWeBPot1V8fsDdFtuV8EMqJOy3CY-L9TzZqceDuVbizgnDOUVq10sE6SOErA2W0IvKizPhqr7c1b5wqZFY9yn6cXMdDVaknvAZuh50baFKYE-WovDzOdwf_QVguKcUaktDV_ITZhpZ8xQ49SUUn1lAN5OXoiNg4SPkIKR-l2yw5SMWh9FMEJwKvn0OKtjaGt4UyLY-EvUfPXinhEyatLolY5V29Sp-3ewIPa_u4W_QoUIdqn4sJx1_O4CAn_h28GWDigDPdyZHOEpjCemeIiI5LTo_7y3BxSu7Qq6LAIG83n9LL6XemXK_ieqcnl68-n-QR7BoXxsmc7MBtGJIYUz820E6kfeBQYg9g3pDTBgEGbNRZ8FVPDKgq8Qf_B24ZHG4yfgAE8NHUm_iIn6o3nxbjQO_6nuig-UVnoT1vbkYR1M0_1Y039OtNY5vD-gOnQOKADoc1SZKVyr9zJPqxgDzqPK39hWWJBvFmixXippskt41H8p=w941-h931-no" width=700px />
 
 ### Signal 사용 예
-1. SIGINT를 무시;
+1. SIGINT를 종료;
 	```c
 	act.sa_hander=SIG_DFL;
 	siganction(SIGINT, &act, NULL);	
 	```
-2. SIGINT시 종료;
+2. SIGINT시 무시;
 	```c
 	act.sa_hander=SIG_IGN;
 	sigaction(SIGINT, &act, NULL);
@@ -156,7 +156,7 @@ int sigaction(int signo, const struct sigaction *act, struct sigaction *oact);
 	sigaction(SIGINT, &act, NULL);
 	sigaction(SIGQUIT, &act, NULL);
 	```
-> **한 process에서 무시되는 signal은 exec() 후에도 계속 무시된다.**(signal table까지 copy한다. 다만, **함수로 수행하는 경우**에는 함수 주호가 다르기때문에 **수행할 수 없다**.)
+> **한 process에서 무시되는 signal은 exec() 후에도 계속 무시된다.**(signal table까지 copy한다. 다만, **함수로 수행하는 경우**에는 함수 주소가 다르기때문에 **수행할 수 없다**.)
 
 ## signal 집합 지정
 #### Q. signal 처리 중 다른 signal이 올 경우?
@@ -240,5 +240,6 @@ int pause(void);
 - signal이(어떤 signal 상관없이) 포착되면; 처리 routine 수행 & -1 return;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODkwMTgzNDM4LDEwMDk4MDc5MzRdfQ==
+eyJoaXN0b3J5IjpbMjA2Mjg2MTQzNCw4OTAxODM0MzgsMTAwOT
+gwNzkzNF19
 -->
