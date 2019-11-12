@@ -280,7 +280,8 @@ int child(int p[2]){
 <사용법>
 1. FIFO 만들기
 2. FIFO open -> (O_RDONLY | O_WRONLY), mode (실행 option은 의미없음)
-> O_RDWR 쓰는경우? 
+> O_RDWR 쓰는경우?  write 종료시 blocking된 채로 기다리기 위해, 아니면 무한 0 return
+<img src="https://lh3.googleusercontent.com/VgqOQRFkxE0RyCd5Mz_LdfgsRiNBETsjhSfS2SZENReNDZ-8iFy_2noklWZKp6a_6s_ruCdqoerNvzk1vWib88LKIas2XmE2NWVC3axXZ9qn1xs6w9DrhNQmVV1bsR8o7Sz4wmnDPvxYoRDeU8qmj6CGyHg5MJzfh-1fUY_lPeSTqDrlv_SVglVYHZBmzut-haGuj0cue9tE_smfDNlAMSy9cyB30Fp_WxmRkKnoqT2qPbqmL7IA6Cx_SxRTPG3bu7uFXtQ6gPhB8b_MEd6lZUFdPpGUa1aSeERD8MRXVtKRbGIQ6kTbsDJIkDH5_ImXsMFVNtZh-MEW9mYPEMztN_jr9afRAAcrnTrsYAXyFtdCgMKW9vewR4A_6xGrNJVG81fJUOl-dcbvBGdWaLKAynzgD6itjBVYdX8lcRLxhey_o9ZoX6jUzAxRPJBZGLXP8Y0yAx0VnrZw_OEmeQfL1l-KJQF8_qHBo0-IaxaGUcRiIoPrq_Thy9vzl7qqBhjFpzRkEIeUcy0J3e7oJWQofSgqeUIOG79XZr5UcMKUcctT38YV_Y1ddfvHYJmG-BR5wkI-D3KAm2HxZ9Awqpz26fRLdwByBczSktw9awI9DkQHuKEAEVaTJ5bhsYCGTWaNHb05dOEZkuWgnMIEIdxWrDDzZAhAVTYOucA_PF8tuuG8F_0pWb2ObvG0SX3WgdM28NmbOd1nsq5nFKWTxLDxogar5f0WUZEgsrDLcFFToPhsoQYd=w968-h527-no" />
 3. file에 read 또는 write
 
 #### FIFO 형식
@@ -305,7 +306,7 @@ fd = open(/tmp/fifo", O_WRONLY);
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3Nzc5NTY1NSwxOTg3OTI3MDY5LC0xMz
-M4NTAxOTQzLDE3NTA3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgy
-NzYsMjA5OTM1Nzg2Ml19
+eyJoaXN0b3J5IjpbLTE2NjQzMTM0OTMsMTI3Nzc5NTY1NSwxOT
+g3OTI3MDY5LC0xMzM4NTAxOTQzLDE3NTA3NTgzODUsMTc5MjM3
+MTUzNiw0ODQzMzgyNzYsMjA5OTM1Nzg2Ml19
 -->
