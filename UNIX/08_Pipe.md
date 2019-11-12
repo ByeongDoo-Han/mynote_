@@ -187,10 +187,87 @@ timeout이
 
 #### select system call 예제 code
 ```c
+#define MSGSIZE 6
+
+char *msg1 = "hello";
+char *msg2 = "bye!!";
+void parent(int[][2]);
+int child(int[]);
+
+int main() {
+        int pip[3][2];
+        int i;
+
+        for(i=0;i<3;i++){               // 3개의 child 생성
+                pipe(pip[i]);           // 3개의 pipe
+                if(fork()==0)
+                        child(pip[i]);
+        }
+        parent(pip);
+        for(i=0;i<3;i++){
+                wait(0);
+        }
+        exit(0);
+}
+
+void parent(int p[3][2]) {
+        char buf[MSGSIZE], ch;
+        fd_set set, master;
+        int i, j, k;
+
+        for(i=0;i<3;i++)
+                close(p[i][1]);         // 읽기 pipe 닫기
+
+        FD_ZERO(&master);               // fd_set을 0으로 초기화
+
+        for(i=0;i<3;i++)
+                FD_SET(p[i][0], &master);       // fd_set의 쓰기용 pipe를 1로 변경
+
+        // 현재까지의 ->  fd_set은 master
+
+		while(set=master, select(p[2][0] + 1, &set, NULL, NULL, NULL) >0 ) {
+        // set=master하는 이유는 select의 return시 mask를 재설정 하는 이유때문
+        //
+        //              전의 set = 관심있는 pipe를 가진 set fd(3, 5, 7) = {1, 1, 1}
+        // select 호출 
+        //              후의 set = pipe를 체크한 후     set fd(3, 5 ,7) = {1, 0, 1}
+        //
+        // => (fd=5의 1 -> 0의 변경은 들어온 data가 없음을 의미)
+        // => 여기서 select의 return은 data가 들어왔는지OR 안들어왔는지만 알수 있음
+        //      즉, 어떤 pipe에서 데이터가 들어왔는지 확인하기 위해서는FD_ISSET으로 확인
+        //      select의 return값이 3인 것은?
+        //      1. 3명의 child가 모두 종료한 상황
+        //      2. 3 child가 모두 data를 보내는 상황
+
+                for(i=0;i<3;i++){
+                        if(FD_ISSET(p[i][0], &set)){    // 각 pipe를 index로 접근하여 데이터가 들어왔는지 유무를 확인
+                                if(read(p[i][0], buf, MSGSIZE) > 0)     // read >0 하는 이유는? => child가 종료되면서 write가 없으면 read의 return이 0이 상태
+                                        printf("MSG from %d=%s\n", i, buf);
+                        }
+                }
+
+                if(waitpid(-1, NULL, WNOHANG) == -1)    // pid=-1은 child중 아무나, waitpid == -1이면 child가 전부 종료인 상태
+                        return;
+        }
+}
+
+int child(int p[2]){
+        int count;
+
+        close(p[0]);
+
+        for(count=0;count<2;count++){
+                write(p[1], msg1, MSGSIZE);
+                sleep(getpid()%4);
+        }
+
+        write(p[1], msg2, MSGSIZE);
+        exit(0);
+}
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTEyNDM5NjYsLTEzMzg1MDE5NDMsMT
-c1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3
-ODYyXX0=
+eyJoaXN0b3J5IjpbNDI3OTE0MjYsLTEzMzg1MDE5NDMsMTc1MD
+c1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3ODYy
+XX0=
 -->
