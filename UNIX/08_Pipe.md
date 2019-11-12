@@ -300,9 +300,12 @@ fd = open(/tmp/fifo", O_WRONLY);
 - 일반 open 호출은 다른 프로세스가 읽기 또는 쓰기를 위해 open될 때까지 blocking
 - Non-blocking open의 경우, 상대 프로세스가 준비되지 않으면, **-1 return (errno=ENXIO)**
 
+#### FIFO blocking
+<img src="https://lh3.googleusercontent.com/Y53Et9-B7eHZHIa9qEM8xqzhadJGa1F5jhLbLrTGCoA-2ydqXHfrl8Lzdas_iT8-CgBnC_F8_FanCBAkMEpU_LuPeInrvRc8KCU6Zp0ef9vGbmjQh8iQAqaJUUjgyeBIe6rl2CGscN_XTkzm_vaVOasha4ONXBMrGZBTXsmkNbYJSjKl6MuSHk_H4KwbWXhEHg3QT6ur_H5IGszxRQOgHhInLe0bamhGwYOij-KBvYZ-ehyycbLEDNeP05JCnKcZSVn_UAqs13_bBYirMggcx3f8U3C6gToxa1TR16stXzuNOvGaOs_G93lEm9vvLyJen5WptkWsnVENuHNZkV5sHjcrnP0qvCSdmYazTxBZbqyYx7WPMsmiLmVHZI2Crvgz7dFEvekzqCJ_8cAsdEHYu_hBtNGTaTmi0yRDaRjI_VV46ZWR8rkT9t6Y25niuKeaeR0G_mEpHLJOEkfGGbhSec9BQYPQL-m-Hzh3ND1d_y9J2UC5BQki6p2Xw8BrgJQjeA7QqdYLn2l29I8WnERgp7Ag2IUmTIT0Mt9nL2yidX-GRMpVtgnF8XGH6lIhJq3XZzkMW4Ek1Wey2YkIqRYPRGHCAfY0KBraQ9wmO-chC2gcB2dpxxbzKWtDW4ifBPdea-XifYShU0kZVbmApaQMJX1IUKp636E0RZIOksvEhNAcnzXfvHCOZnkqFXvH4-AvStt-6b4b9vd12yjt3gt2cVeSKEkXR-WtGZ2ij19F4u4Wmhqp=w575-h923-no" height=600px />
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4NzkyNzA2OSwtMTMzODUwMTk0MywxNz
-UwNzU4Mzg1LDE3OTIzNzE1MzYsNDg0MzM4Mjc2LDIwOTkzNTc4
-NjJdfQ==
+eyJoaXN0b3J5IjpbLTgzMzQ5NDcxNCwxOTg3OTI3MDY5LC0xMz
+M4NTAxOTQzLDE3NTA3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgy
+NzYsMjA5OTM1Nzg2Ml19
 -->
