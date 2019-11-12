@@ -164,7 +164,8 @@ int select (int nfds, fd_set *readfds, fd_set *writefds, fd_set *errorfds, struc
 - void FD_CLR(int fd, fd_set *fset);
 	- fdset의 fdbit를 0으로 설정;
 
+<img src
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4ND
-MzODI3NiwyMDk5MzU3ODYyXX0=
+eyJoaXN0b3J5IjpbMTU3ODgxMjc4OCwxNzUwNzU4Mzg1LDE3OT
+IzNzE1MzYsNDg0MzM4Mjc2LDIwOTkzNTc4NjJdfQ==
 -->
