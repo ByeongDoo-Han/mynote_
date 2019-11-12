@@ -298,11 +298,11 @@ fd = open(/tmp/fifo", O_WRONLY);
 ```
 - O_NONBLOCK -> read/write에 대한 non_block이 아닌 **open에 대한 non_block**
 - 일반 open 호출은 다른 프로세스가 읽기 또는 쓰기를 위해 open될 때까지 blocking
-- Non-blocking open의 경우, 상대 프로세스가 준비되지 않으면, -1 return (errno=
+- Non-blocking open의 경우, 상대 프로세스가 준비되지 않으면, **-1 return (errno=ENXIO)**
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzQ5NDk5NjcsLTEzMzg1MDE5NDMsMT
-c1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3
-ODYyXX0=
+eyJoaXN0b3J5IjpbMTk4NzkyNzA2OSwtMTMzODUwMTk0MywxNz
+UwNzU4Mzg1LDE3OTIzNzE1MzYsNDg0MzM4Mjc2LDIwOTkzNTc4
+NjJdfQ==
 -->
