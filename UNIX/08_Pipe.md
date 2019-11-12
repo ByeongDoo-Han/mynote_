@@ -269,12 +269,14 @@ int child(int p[2]){
 ```
 
 ### FIFO 
-|  |  |
-|--|--|
-|  |  |
+- 
+> **pipe** -> parent - child 즉, 동일 ancestor를 갖는 프로세스간의 연결
+> **FIFO** -> 모든 프로세스들을 연결 가능
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjYzNjE4MjksLTEzMzg1MDE5NDMsMT
-c1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3
-ODYyXX0=
+eyJoaXN0b3J5IjpbMTk3NDk1MDAxLC0xMzM4NTAxOTQzLDE3NT
+A3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgyNzYsMjA5OTM1Nzg2
+Ml19
 -->
