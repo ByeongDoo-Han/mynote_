@@ -296,11 +296,13 @@ mkfifo("/tmp/fifo", 0666);
 fd = open(/tmp/fifo", O_WRONLY); 
 // 또는 fd=open("/tmp/fifo", O_WRONLY | O_NONBLOCK);
 ```
-- O_NONBLOCK -> read
+- O_NONBLOCK -> read/write에 대한 non_block이 아닌 **open에 대한 non_block**
+- 일반 open 호출은 다른 프로세스가 읽기 또는 쓰기를 위해 open될 때까지 blocking
+- Non-blocking open의 경우, 상대 프로세스가 준비되지 않으면, -1 return (errno=
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTAxNzA2NDksLTEzMzg1MDE5NDMsMT
+eyJoaXN0b3J5IjpbLTExMzQ5NDk5NjcsLTEzMzg1MDE5NDMsMT
 c1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3
 ODYyXX0=
 -->
