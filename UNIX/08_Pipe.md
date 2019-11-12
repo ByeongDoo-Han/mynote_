@@ -124,8 +124,13 @@ fcntl(filedes, F_SETFL, O_NONBLOCK);
 	- 읽기전용 -> pipe가 empty면 즉시 return -1
 	- 쓰기전용 -> pipe가 full이면 즉시 return -1
 	- 이 경우, errno는 **EAGAIN**
-	- 
+=> fcntl은 pipe가 empty한지 full한지를 계속 확인한다. (**CPU 계속 소모**)
+
+### pipe를 이용한 Client-Server
+- Client는 하나의 pipe로 request를 write
+- Server는 여러 개의 pipe로 request를 read
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjYxMjc0NzAsNDg0MzM4Mjc2LDIwOT
+eyJoaXN0b3J5IjpbLTEwMDIzMDMyNzYsNDg0MzM4Mjc2LDIwOT
 kzNTc4NjJdfQ==
 -->
