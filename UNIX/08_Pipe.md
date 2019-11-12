@@ -269,14 +269,20 @@ int child(int p[2]){
 ```
 
 ### FIFO 
-- 
-> **pipe** -> parent - child 즉, 동일 ancestor를 갖는 프로세스간의 연결
-> **FIFO** -> 모든 프로세스들을 연결 가능
+- pipe와 FIFo
+	- **pipe** -> parent - child 즉, 동일 ancestor를 갖는 프로세스간의 연결
+	- **FIFO** -> 모든 프로세스들을 연결 가능
 
+- UNIX의 file 이름을 부여 받음
+	- (소유자, 크기, 연관 Permission을 가짐)
+	- 일반 file처럼, open, close, read, write, remove가 가능
+
+<사용법>
+1. FIFO 만들
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3NDk1MDAxLC0xMzM4NTAxOTQzLDE3NT
+eyJoaXN0b3J5IjpbMjMyMjExNTg0LC0xMzM4NTAxOTQzLDE3NT
 A3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgyNzYsMjA5OTM1Nzg2
 Ml19
 -->
