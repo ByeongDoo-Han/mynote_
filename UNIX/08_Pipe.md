@@ -279,12 +279,22 @@ int child(int p[2]){
 
 <사용법>
 1. FIFO 만들기
-2. FIFO open -> (O_RDONLY | O_WRONLY),
-> O_RDWR 쓰는경우?
+2. FIFO open -> (O_RDONLY | O_WRONLY), mode (실행 option은 의미없음)
+> O_RDWR 쓰는경우? 
+3. file에 read 또는 write
 
+```c
+#include <sys/types.h>
+#include <sys/stat.h>
+int mkfifo(const char *pathname, mode_t mode);
+```
 
+ex)
+```c
+mkfifo("/tmp/fifo", 0666);
+fd = open(/tmp/fifo", O_WRONLY); // 또는 fd=open("/tmp/fifo",
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxMTQ2MzM2MCwtMTMzODUwMTk0MywxNz
-UwNzU4Mzg1LDE3OTIzNzE1MzYsNDg0MzM4Mjc2LDIwOTkzNTc4
-NjJdfQ==
+eyJoaXN0b3J5IjpbNjk3MDEwMjc2LC0xMzM4NTAxOTQzLDE3NT
+A3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgyNzYsMjA5OTM1Nzg2
+Ml19
 -->
