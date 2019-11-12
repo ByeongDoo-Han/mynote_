@@ -110,8 +110,9 @@ int main(void) {
 ```
 ### non-Blocking read / non-Blocking write
 
+- Parent가 여러 Child로 부터 data를 받는 상황
 - 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM5ODI4OTk2LDIwOTkzNTc4NjJdfQ==
+eyJoaXN0b3J5IjpbNDg0MzM4Mjc2LDIwOTkzNTc4NjJdfQ==
 -->
