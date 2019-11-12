@@ -146,8 +146,13 @@ int select (int nfds, fd_set *readfds, fd_set *writefds, fd_set *errorfds, struc
 ```
 
 <인자>
-- nfds : 
+- nfds : server가 관심이 있는 file descriptor의 최대 번호
+- readdfs : 읽기 가능한 file descriptor
+- writefds : 쓰기 가능한 file descriptor
+- errorfds : 오류 발생한 file descriptor를 bit pattern으로 표현
+- timeout : timeout 값 설정
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5Mzk4ODc5Nyw0ODQzMzgyNzYsMjA5OT
+eyJoaXN0b3J5IjpbMTc5MjM3MTUzNiw0ODQzMzgyNzYsMjA5OT
 M1Nzg2Ml19
 -->
