@@ -283,18 +283,24 @@ int child(int p[2]){
 > O_RDWR 쓰는경우? 
 3. file에 read 또는 write
 
+#### FIFO 형식
 ```c
 #include <sys/types.h>
 #include <sys/stat.h>
 int mkfifo(const char *pathname, mode_t mode);
 ```
 
-ex)
+#### FIFO 예시
 ```c
 mkfifo("/tmp/fifo", 0666);
-fd = open(/tmp/fifo", O_WRONLY); // 또는 fd=open("/tmp/fifo",
+fd = open(/tmp/fifo", O_WRONLY); 
+// 또는 fd=open("/tmp/fifo", O_WRONLY | O_NONBLOCK);
+```
+- O_NONBLOCK -> read
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk3MDEwMjc2LC0xMzM4NTAxOTQzLDE3NT
-A3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgyNzYsMjA5OTM1Nzg2
-Ml19
+eyJoaXN0b3J5IjpbLTIwMTAxNzA2NDksLTEzMzg1MDE5NDMsMT
+c1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3
+ODYyXX0=
 -->
