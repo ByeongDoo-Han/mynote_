@@ -129,8 +129,14 @@ fcntl(filedes, F_SETFL, O_NONBLOCK);
 ### pipe를 이용한 Client-Server
 - Client는 하나의 pipe로 request를 write
 - Server는 여러 개의 pipe로 request를 read
-- 
+- 3 Client - 1 Server 가정
+	- 3 C 다 안보냄 -> Server는 blocking
+	- 1 C만 보냄 -> 누구인지 찾아서 read
+	- 2 C보냄 -> 순서대로 찾아서 read (in the order)
+
+### Select System call
+- 지정된 file descriptor 집합 중 어느 것이 읽기/쓰기가 가능한지 표시
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDIzMDMyNzYsNDg0MzM4Mjc2LDIwOT
+eyJoaXN0b3J5IjpbLTE5MTE1MDY0OTIsNDg0MzM4Mjc2LDIwOT
 kzNTc4NjJdfQ==
 -->
