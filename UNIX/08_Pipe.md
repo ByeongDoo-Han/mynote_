@@ -136,7 +136,18 @@ fcntl(filedes, F_SETFL, O_NONBLOCK);
 
 ### Select System call
 - 지정된 file descriptor 집합 중 어느 것이 읽기/쓰기가 가능한지 표시
+- select가 읽기, 쓰기를 해주는 것은 아님!! ->**읽기, 쓰기가 가능한 pipe가 어디있는지 알려줌**
+- 읽기, 쓰기가 가능한 file descriptor이 없으면 blocking
+- 영구적 blocking을 막기위한 -> timeout
+
+```c
+#include <sys/time.h>
+int select (int nfds, fd_set *readfds, fd_set *writefds, fd_set *errorfds, struct timeval *timeout);
+```
+
+<인자>
+- nfds : 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTE1MDY0OTIsNDg0MzM4Mjc2LDIwOT
-kzNTc4NjJdfQ==
+eyJoaXN0b3J5IjpbLTI5Mzk4ODc5Nyw0ODQzMzgyNzYsMjA5OT
+M1Nzg2Ml19
 -->
