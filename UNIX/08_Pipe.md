@@ -278,11 +278,13 @@ int child(int p[2]){
 	- 일반 file처럼, open, close, read, write, remove가 가능
 
 <사용법>
-1. FIFO 만들
+1. FIFO 만들기
+2. FIFO open -> (O_RDONLY | O_WRONLY),
+> O_RDWR 쓰는경우?
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjMyMjExNTg0LC0xMzM4NTAxOTQzLDE3NT
-A3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgyNzYsMjA5OTM1Nzg2
-Ml19
+eyJoaXN0b3J5IjpbMTIxMTQ2MzM2MCwtMTMzODUwMTk0MywxNz
+UwNzU4Mzg1LDE3OTIzNzE1MzYsNDg0MzM4Mjc2LDIwOTkzNTc4
+NjJdfQ==
 -->
