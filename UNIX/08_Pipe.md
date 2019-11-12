@@ -108,12 +108,19 @@ int main(void) {
 	exit(0);
 }
 ```
-### non-Blocking read / non-Blocking write
+### non-Blocking read / non-Blocking write => fcntl
 
 - Parent가 여러 Child로 부터 data를 받는 상황
 <img src="https://lh3.googleusercontent.com/Y93d4QBMf-SPIckcpd1fRUsWDtK_Lxh6Gs915ciyBayHxo_3FHCxqtQZhRLHJmANdLPWPOAHxBp5Iivy5PoO9Pw-bSDF1P1cBSKX0WkDn6rLXl4c23vSVO-fjDsuZFodOrJDtqEL-cTEz3nbZCuEWdz0j9yHGzWb-Kf2zzYUiH-naF7DqYFTlm4ODgsTfuWreP6m9bGHedxhgGTwDscHt9Idxnyi6JFwqd8WC6RwVK9TI1641JKqEG9sDzMU9rogkoVq4jMLVDIftIXPHPnVdxH1S60nTpkfFjg986saRdBMZolkARejmjYxkPWXFCSODzkBdolRKeRrTi0h5rZ2jUOZqyeuHEKyxme-nBDBoPX83ISy5HjUTFtwR-CzW_okTwe7mK6Fx2qllwyOWX_5MXbm61Abtbla-XJbcG9AtEyEcP86l0zqnL5mVSdEQ4BhVRO3IBdflS-T75-SvdFms2nRckpdlQbCyp4_GmFme09nviQqioT_X68dlH9J9GXp5A4__yped7Bc3UYkP0tqqPU01sPeh3g-MhGIY-F2MEu5H7gnq1PR3mTgy1wDRzfVHXyR7942UMXYS0uM2OO58hc_uSH9ztiVac1yxY3PVCFqESz0xyjhKJM0aXIgZ9XdfDalyKw0aZQ-Yl098JAnwMvfZz4ETerAWohD1MF_FfNIOBqs_7b9kWgur2ZZjJCpJ0vhj6LpqSGE4li9e1fmtyU07rA7Nx067lp5tL7Nw4RrX3pM=w968-h849-no" width=500px/>
 
+=>여러 pipe를 차례로 polling 하는 경우;
+
+```c
+#include <fcntl.h>
+fcntl(filedes, F_SETFL, O_NONBLOCK);
+```
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTk0NTYwNTEsNDg0MzM4Mjc2LDIwOT
-kzNTc4NjJdfQ==
+eyJoaXN0b3J5IjpbLTYzMTQ1NjYxNCw0ODQzMzgyNzYsMjA5OT
+M1Nzg2Ml19
 -->
