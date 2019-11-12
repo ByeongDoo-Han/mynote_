@@ -152,7 +152,15 @@ int select (int nfds, fd_set *readfds, fd_set *writefds, fd_set *errorfds, struc
 - errorfds : 오류 발생한 file descriptor를 bit pattern으로 표현
 - timeout : timeout 값 설정
 
+<img src="https://lh3.googleusercontent.com/gf71LCxUfUojUS5rnRUdyaxMyxp31kYG6xhYINIj9X2rMZS25zsbA2VHN9Pf2-rJjQOsNARlQrzQZYWZkjxvtc8LjA5jdF2dbuYKvF2m7F8WT6CzOWkwzppDHmsYGxDFsU1wLmUQ_J6O1D9qytC0PVYsI4qAgQtPYBgEA6jsB5YcpJ7kcF-0d8lwKbJu5iuYVdmi44Z2VCF44vW-SfYPX8-ceDLjE5euy1dT2AjTf1tel5kSvXujw-61VOz_MGIMeTWUOqGiSQ0zFTY31EBnu6r2vAzEs18iOdY0qMBtud7gCghaKUYABKHYgp2_eliWripTPfV6cGmF5qRkTolyhhYx-cJooI2deaa-Kp1Bsvpw9eb0txI0V3C9Os1GnBI6gOkk-435QGhU_EpBkvc7MKg1mip0h8OcHYhXTJt-U-gUT6h-Uy1seip3Hrpkt_Qm-76R_ik2RRTvJWd4UnFthAsK_ntCmHhQ1ql0fjgENvOIGrk_K0udcftYKla8ln1USvqwiJW3KzVPBzYe-tN2Z25YjuykCmYyN8LWIoUhCmGDvVdDG9xLcR8g8uM6IdG6fbk44DhbUNaWfzg6gEJrPByLwRsqSbQuBoKEsctyp0zx_f1O4SqYS31UtzFGKsXJOYyBv_sVN7A79Fo1LdfYVXef67zaXgptzTkAtvYWvxc3Z4P-JtZA039CA0tUqEndKwv0NUKddyz9o4Wf2enPcoBhHmJkUM4ECRlSr3CiL3xH52oy=w968-h745-no" width=500px />
+
+### fd_set 관련 매크로
+- void FD_ZERO(fd_set *fdset);
+	- fdset 초기화;
+- void FD_SET(int fd, fd_set *fdset);
+	- fdset의 fd bit를 1로 설정;
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5MjM3MTUzNiw0ODQzMzgyNzYsMjA5OT
-M1Nzg2Ml19
+eyJoaXN0b3J5IjpbMTk2MjM1MDAyOSwxNzkyMzcxNTM2LDQ4ND
+MzODI3NiwyMDk5MzU3ODYyXX0=
 -->
