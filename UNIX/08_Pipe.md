@@ -119,8 +119,13 @@ int main(void) {
 #include <fcntl.h>
 fcntl(filedes, F_SETFL, O_NONBLOCK);
 ```
-
+<인자>
+- filedes
+	- 읽기전용 -> pipe가 empty면 즉시 return -1
+	- 쓰기전용 -> pipe가 full이면 즉시 return -1
+	- 이 경우, errno는 **EAGAIN**
+	- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzMTQ1NjYxNCw0ODQzMzgyNzYsMjA5OT
-M1Nzg2Ml19
+eyJoaXN0b3J5IjpbLTEwMjYxMjc0NzAsNDg0MzM4Mjc2LDIwOT
+kzNTc4NjJdfQ==
 -->
