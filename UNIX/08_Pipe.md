@@ -159,8 +159,12 @@ int select (int nfds, fd_set *readfds, fd_set *writefds, fd_set *errorfds, struc
 	- fdset 초기화;
 - void FD_SET(int fd, fd_set *fdset);
 	- fdset의 fd bit를 1로 설정;
+- int FD_ISSET(int fd, fd_set *fset);
+	- fdset의 fd bit가 1인지 검사;
+- void FD_CLR(int fd, fd_set *fset);
+	- fdset의 fdbit를 0으로 설정;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2MjM1MDAyOSwxNzkyMzcxNTM2LDQ4ND
+eyJoaXN0b3J5IjpbMTc1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4ND
 MzODI3NiwyMDk5MzU3ODYyXX0=
 -->
