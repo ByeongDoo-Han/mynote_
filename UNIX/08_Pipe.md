@@ -186,6 +186,8 @@ timeout이
 - 0이 아닌 값 -> read/write가 없는 경우 정해진 시간 후에 return
 
 #### select system call 예제 code
+> 전체적인 select문을 이해할 수 있는 code !!
+
 ```c
 #define MSGSIZE 6
 
@@ -264,10 +266,15 @@ int child(int p[2]){
         write(p[1], msg2, MSGSIZE);
         exit(0);
 }
-
 ```
+
+### FIFO 
+|  |  |
+|--|--|
+|  |  |
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI3OTE0MjYsLTEzMzg1MDE5NDMsMTc1MD
-c1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3ODYy
-XX0=
+eyJoaXN0b3J5IjpbLTE1NjYzNjE4MjksLTEzMzg1MDE5NDMsMT
+c1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3
+ODYyXX0=
 -->
