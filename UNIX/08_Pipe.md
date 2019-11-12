@@ -184,7 +184,13 @@ timeout이
 - NULL -> 해당 event가 발생 시까지 blocking
 - 0 -> non-blocking
 - 0이 아닌 값 -> read/write가 없는 경우 정해진 시간 후에 return
+
+#### select system call 예제 code
+```c
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzg1MDE5NDMsMTc1MDc1ODM4NSwxNz
-kyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3ODYyXX0=
+eyJoaXN0b3J5IjpbLTE1MTEyNDM5NjYsLTEzMzg1MDE5NDMsMT
+c1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4NDMzODI3NiwyMDk5MzU3
+ODYyXX0=
 -->
