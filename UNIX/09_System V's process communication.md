@@ -30,7 +30,7 @@ struct ipc_perm {
 	mode_t mode; // permission readOnly = 4, writeOnly = 2(execution은 의미 없음);
 ```
 
-### IPC 정보 검색 및 삭제
+## IPC 정보 검색 및 삭제
 - ipc 관련 정보 검색
 	- $ipcs
 - ipc 삭제
@@ -40,7 +40,7 @@ struct ipc_perm {
 		-  -q msqid : message queue id
 		-  -s semid : semaphore id
 
-### FIFO vs Message queue
+## FIFO vs Message queue
 <img src="https://lh3.googleusercontent.com/CW186bXkjbsjCtZ6l_56wZfTLWLx03WE703O-pXeGeD8qVI1Y4dNQAErgCSpqkLYELYNJdYud00I_LieMuEOUrZY3UvD8zsh_6gs2MFAtSNqMmVyv1GSBwhyKx0O4V8Fdj3lpvG7GVPtYDbWfpIIhvyLPPggPyKbz7G2T_JVxalONkge5JAyrrdm1VZqJgkZUR41BUP4gF4_cPGYrPoStS7grO3EzN_Jd339oiz_6xhjJ31uhNCuXp8N9uGKVNLmk3ag8VwXK-z1f9O1dvMkIKXxL75GTYbmMmHlXMgT6C22T9jfasNPayBZaigaY1tq2c56NcAeiBZNs_nJ4gkt1_TX_t1fYaXe55-aSigIFkiq1T6ho51UBRC9VcyJR-ma4SSFyoYzPp4tCWnbPqedZcn9DZ4BdXmw_k-cAr5NN0QEWHyL9pjueoU7xKHp3-89PjD7aqTFVfgyPcaJ7mBmu51giBo2nxYMclUG5X02ZjLE51ON7e8nFIfirqr3vUjtDprh0QebzbP9-TaCwuNJsH-KbMxvgojOvvzsAcpHSdfh2WwkFfUvrqZuUQglqs8JOS8F16WMflGyXVyfooK0af3O7l-avO8ze_MT61WppECMeHjv94XI-UlBYcDIyQ5ZZDszOEgIU5YNE7EuqkDJFp7jds36wi1TFplZemCFyATv0vYeAqO-q7TKeb_-Wxq5nfG2Zmt_LAPanxJmiJYPdr4gXXyOlPW49w0PLR_ObuBAQ7Sb=w968-h434-no" width=600px/>
 
 1. Message queue는 1개의 queue만 있어도 되고 각 child process는 고유 msqid를 가짐, 		  FIFO는 여러개의 FIFO와 dest id와 src id를 통해 출, 목적지에 대한 확인이 가능
@@ -48,13 +48,13 @@ struct ipc_perm {
 2.  <Input 5개 중 3개만 읽고 종료하는 경우>
 message queue -> 남아있다.
 FIFO -> 남은것은 flush된다.
-### message passing
+## message passing
 - message queue를 통한 message 전달
 	- msgget : queue 생성
 	- msgsnd : message 보내기
 	- msgrcv : mssage 받기
 
-### msgget System call
+## msgget System call
 ```c
 #include <sys/msg.h>
 int msgget(key_t key, int permflags)
@@ -71,7 +71,7 @@ int msgget(key_t key, int permflags)
 	> message queue 초기화시 4명 중 queue 생성에 성공한 사람을 확인하기 위해 => 처음 만든 사람, 실패한 사람 -> -1 return
 - return 값 : 음수가 아닌 queue identifier
 
-### msgsnd System call
+## msgsnd System call
 ```c
 #include <sys/msg.h>
 int msgsnd(int mqid, const void* message, size_t size, int flags);
@@ -86,7 +86,7 @@ int msgsnd(int mqid, const void* message, size_t size, int flags);
 	- flag가 설정 되지 않으면 (즉, 0이면), 성공시 까지 blocking
 - return 값은 0 or -1
 
-#### <message의 구조>
+### <message의 구조>
 - long type의 정수 값을 갖는 mtype과 임의의 message의 내용으로 구성.
 - message의 size는 message 내용의 크기만.
 
@@ -98,7 +98,7 @@ int msgsnd(int mqid, const void* message, size_t size, int flags);
 	}
 	```
 	- **mtype은 즉, message id (보내는 사람 id)를 의미**
-### msgrcv System call
+## msgrcv System call
 ```c
 #include <sys/msg.h>
 int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
@@ -126,5 +126,5 @@ int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
 	- 실패시 return -1
 	- access permission 때문에 실패한 경우 errono = EACCESS
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
