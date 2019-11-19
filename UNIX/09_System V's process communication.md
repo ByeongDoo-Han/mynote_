@@ -43,11 +43,12 @@ struct ipc_perm {
 ## FIFO vs Message queue
 <img src="https://lh3.googleusercontent.com/CW186bXkjbsjCtZ6l_56wZfTLWLx03WE703O-pXeGeD8qVI1Y4dNQAErgCSpqkLYELYNJdYud00I_LieMuEOUrZY3UvD8zsh_6gs2MFAtSNqMmVyv1GSBwhyKx0O4V8Fdj3lpvG7GVPtYDbWfpIIhvyLPPggPyKbz7G2T_JVxalONkge5JAyrrdm1VZqJgkZUR41BUP4gF4_cPGYrPoStS7grO3EzN_Jd339oiz_6xhjJ31uhNCuXp8N9uGKVNLmk3ag8VwXK-z1f9O1dvMkIKXxL75GTYbmMmHlXMgT6C22T9jfasNPayBZaigaY1tq2c56NcAeiBZNs_nJ4gkt1_TX_t1fYaXe55-aSigIFkiq1T6ho51UBRC9VcyJR-ma4SSFyoYzPp4tCWnbPqedZcn9DZ4BdXmw_k-cAr5NN0QEWHyL9pjueoU7xKHp3-89PjD7aqTFVfgyPcaJ7mBmu51giBo2nxYMclUG5X02ZjLE51ON7e8nFIfirqr3vUjtDprh0QebzbP9-TaCwuNJsH-KbMxvgojOvvzsAcpHSdfh2WwkFfUvrqZuUQglqs8JOS8F16WMflGyXVyfooK0af3O7l-avO8ze_MT61WppECMeHjv94XI-UlBYcDIyQ5ZZDszOEgIU5YNE7EuqkDJFp7jds36wi1TFplZemCFyATv0vYeAqO-q7TKeb_-Wxq5nfG2Zmt_LAPanxJmiJYPdr4gXXyOlPW49w0PLR_ObuBAQ7Sb=w968-h434-no" width=600px/>
 
-1. Message queue는 1개의 queue만 있어도 되고 각 child process는 고유 msqid를 가짐, 		  FIFO는 여러개의 FIFO와 dest id와 src id를 통해 출, 목적지에 대한 확인이 가능
+1. **Message queue**는 1개의 queue만 있어도 되고 각 child process는 고유 msqid를 가짐,  
+**FIFO**는 여러개의 FIFO와 dest id와 src id를 통해 출, 목적지에 대한 확인이 가능
 
 2.  <Input 5개 중 3개만 읽고 종료하는 경우>
-message queue -> 남아있다.
-FIFO -> 남은것은 flush된다.
+**message queue** -> 남아있다.
+**FIFO** -> 남은것은 flush된다.
 ## message passing
 - message queue를 통한 message 전달
 	- msgget : queue 생성
@@ -126,5 +127,6 @@ int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
 	- 실패시 return -1
 	- access permission 때문에 실패한 경우 errono = EACCESS
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbLTE1MTA0MTEwMSwtMTA0MTQ0Mzg5MSwxOT
+YyMjY3NzQ0XX0=
 -->
