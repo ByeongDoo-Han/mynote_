@@ -100,7 +100,7 @@ int msgsnd(int mqid, const void* message, size_t size, int flags);
 		char mtext[SOMEVALUE];	// message 내용
 	}
 	```
-	- **mtype은 즉, message id (보내는 사람 id)를 의미**
+	- **=> mtype은 즉, message id (보내는 사람 id)를 의미**
 ## msgrcv System call
 ```c
 #include <sys/msg.h>
@@ -129,6 +129,6 @@ int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
 	- 실패시 return -1
 	- access permission 때문에 실패한 경우 errono = EACCESS
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU0MTUxMDIyLC0zNDk4NTk5MzMsLTEwND
+eyJoaXN0b3J5IjpbNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwND
 E0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
