@@ -69,8 +69,8 @@ int msgget(key_t key, int permflags)
 		- 이 flag가 설정 되지 않은 경우에는, queue가 존재하는 경우에만 return;
 	- | IPC_EXCL
 		- 해당 queue가 존재하지 않는 경우만 성공, 아니면 -1 return
-	> message queue 초기화시 4명 중 queue 생성에 성공한 사람을 확인하기 위해 
-	> => 처음 만든 사람, 실패한 사람 -> -1 return
+	> message queue 초기화시 4명 중 queue 생성에 성공한 사람을 확인하기 위해 => 처음 만든 사람
+	> 실패한 사람(처음 만든사람이 아닌경우) -> -1 return
 
 - return 값 : 음수가 아닌 queue identifier
 
@@ -129,6 +129,6 @@ int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
 	- 실패시 return -1
 	- access permission 때문에 실패한 경우 errono = EACCESS
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTIwMTk1NjMsLTEwNDE0NDM4OTEsMT
-k2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOT
+YyMjY3NzQ0XX0=
 -->
