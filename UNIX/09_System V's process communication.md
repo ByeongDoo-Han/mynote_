@@ -144,7 +144,11 @@ while(msgrcv(qid, &msg, sizeof(int), 1, 0) > 0) {
 }
 ```
 
+## msgctl 시스템 호출
+- msgctl 호출
+	- message queue에 대한 정보 획득
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MjI4MTU1Miw1OTYwODM0MDUsLTM0OT
+eyJoaXN0b3J5IjpbLTc1ODMwMTY5Myw1OTYwODM0MDUsLTM0OT
 g1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
 -->
