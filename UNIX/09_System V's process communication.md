@@ -210,10 +210,14 @@ int semget(key_t key, int nsems, int permflags);
 - permflags : 0600, IPC_CREAT, IPC_EXCL, ...
 	- (default : IPC_CREAT | IPC_EXCL -> return != -1)
 	- **IPC_EXCL** : semaphore은 초기값이 매우 중요!!
-		- 
+		- -1 -> semaphore 이미
+		- 정상값 
+		- 0 -> critical section에 못들어간
+		- 10 -> critical section이 아님
+		- **\*\*=> 1명만 만들고 + 초기화**
 - return 값 : semaphore 집합 id
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDg1NTAxMDksMTk5MjA5ODA3OSw3Mz
+eyJoaXN0b3J5IjpbLTIwMjQxOTUyNDAsMTk5MjA5ODA3OSw3Mz
 c5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4
 OTEsMTk2MjI2Nzc0NF19
 -->
