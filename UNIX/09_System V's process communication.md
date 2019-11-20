@@ -216,9 +216,14 @@ int semget(key_t key, int nsems, int permflags);
 		- 10 -> critical section이 아님
 		- **\*\*=> 1명만 만들고 + 초기화**
 - return 값 : semaphore 집합 id
+- 집합 내 각 semaphore와 연관된 값
+	- semval : semaphore 값 (semaphore 값의 초기화 필요)
+	- sempid : 최근 semaphore를 access한 process id
+	- semncnt : semaphore 값이 증가하기를 기다리는 process 수
+	- semzcnt : semaphore 값이 0이 되기를 기다리는 process 수
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NDE3NTg3NywtMTM2MTU2OTAxMSwxOT
+eyJoaXN0b3J5IjpbMTMyMTc2NjI5NSwtMTM2MTU2OTAxMSwxOT
 kyMDk4MDc5LDczNzk3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkz
 MywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
 -->
