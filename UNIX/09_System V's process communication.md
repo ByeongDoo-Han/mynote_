@@ -173,8 +173,19 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	- time_t msg_rtime;					// last receipt time
 	- time_t msg_ctime;					// last s/r time
 
+## Semaphore
+- p(sem) or wait(sem)
+	```c
+	if(sem>0)
+		decrement sem by one;
+	else {
+		wait until sem becomes non-zero;
+		then decrement;
+	}
+	```
+- v(sem) or si
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MD
-gzNDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0
-NF19
+eyJoaXN0b3J5IjpbLTg0MDU4NDg1OSwxOTkyMDk4MDc5LDczNz
+k3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5
+MSwxOTYyMjY3NzQ0XX0=
 -->
