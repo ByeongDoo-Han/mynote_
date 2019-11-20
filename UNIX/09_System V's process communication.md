@@ -205,11 +205,15 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 int semget(key_t key, int nsems, int permflags);
 ```
 #### <인자>
-- key : semaphore 집합 이름
+- key : semaphore 집합 이름 (semaphore는 여러개)
 - nsems : semaphore 집합 내의 semaphre 수
-- 
+- permflags : 0600, IPC_CREAT, IPC_EXCL, ...
+	- (default : IPC_CREAT | IPC_EXCL -> return != -1)
+	- **IPC_EXCL** : semaphore은 초기값이 매우 중요!!
+		- 
+- return 값 : semaphore 집합 id
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTg1OTgwOSwxOTkyMDk4MDc5LDczNz
-k3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5
-MSwxOTYyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbLTE4NDg1NTAxMDksMTk5MjA5ODA3OSw3Mz
+c5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4
+OTEsMTk2MjI2Nzc0NF19
 -->
