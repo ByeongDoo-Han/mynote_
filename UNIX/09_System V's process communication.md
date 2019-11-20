@@ -147,8 +147,23 @@ while(msgrcv(qid, &msg, sizeof(int), 1, 0) > 0) {
 ## msgctl 시스템 호출
 - msgctl 호출
 	- message queue에 대한 정보 획득
+	- message queue 제거
+
+- 사용법
+```c
+#include <sys/msg.h>
+int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
+```
+
+#### <인자>
+- mqid : message queue identifier
+- command =
+	- IPC_STAT : msg queue의 상태 정보 확인
+	- IPC_RMID : msg_queue 삭제
+- msqid_ds 구조 :
+	- struct ipc_perm msg_perm 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1ODMwMTY5Myw1OTYwODM0MDUsLTM0OT
-g1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbLTEzOTk1NzM0MTMsNTk2MDgzNDA1LC0zND
+k4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
