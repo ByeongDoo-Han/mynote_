@@ -137,9 +137,14 @@ struct q_entry{
 }
 struct q_entry msg;
 qid=msgget(0111, 0600 | IPC_CREAT);
-while(msgrcv(qid, &ms
+while(msgrcv(qid, &msg, sizeof(int), 1, 0) > 0) {
+	msg.mtype=2;
+	msg.mnum=msg.mnum + 8;
+	msgsnd(qid, &msg, sizeof(int), 0);
+}
+```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MDg1Nzg2Miw1OTYwODM0MDUsLTM0OT
+eyJoaXN0b3J5IjpbMTg1MjI4MTU1Miw1OTYwODM0MDUsLTM0OT
 g1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
 -->
