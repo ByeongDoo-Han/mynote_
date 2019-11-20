@@ -216,8 +216,9 @@ int semget(key_t key, int nsems, int permflags);
 		- 10 -> critical section이 아님
 		- **\*\*=> 1명만 만들고 + 초기화**
 - return 값 : semaphore 집합 id
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mz
-c5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4
-OTEsMTk2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbLTc2NDE3NTg3NywtMTM2MTU2OTAxMSwxOT
+kyMDk4MDc5LDczNzk3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkz
+MywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
 -->
