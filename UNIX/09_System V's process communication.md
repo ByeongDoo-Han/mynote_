@@ -128,7 +128,18 @@ int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
 	- receive 성공 시 :받은 message의 길이
 	- 실패시 return -1
 	- access permission 때문에 실패한 경우 errono = EACCESS
+
+### message 송수신의 예
+```c
+struct q_entry{
+	long mtype;
+	int mnum;
+}
+struct q_entry msg;
+qid=msgget(0111, 0600 | IPC_CREAT);
+while(msgrcv(qid, &ms
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwND
-E0NDM4OTEsMTk2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbMTI2MDg1Nzg2Miw1OTYwODM0MDUsLTM0OT
+g1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
 -->
