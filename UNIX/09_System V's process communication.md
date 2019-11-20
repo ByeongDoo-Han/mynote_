@@ -190,9 +190,26 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 		restart first process in wait queue;	// 확인할 수 있는 함수가 존재
 	```
 
+- 사용예 : 전형적인 critical section
+	```
+	p(sem);
+	someting interesting;
+	v(sem);
+	```
 
+## Semget System call
+```c
+#include <sys/sem.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+int semget(key_t key, int nsems, int permflags);
+```
+#### <인자>
+- key : semaphore 집합 이름
+- nsems : semaphore 집합 내의 semaphre 수
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMzNTY1NTY3LDE5OTIwOTgwNzksNzM3OT
-cxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkx
-LDE5NjIyNjc3NDRdfQ==
+eyJoaXN0b3J5IjpbLTEwMTg1OTgwOSwxOTkyMDk4MDc5LDczNz
+k3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5
+MSwxOTYyMjY3NzQ0XX0=
 -->
