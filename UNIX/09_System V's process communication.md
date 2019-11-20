@@ -161,9 +161,16 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	- IPC_STAT : msg queue의 상태 정보 확인
 	- IPC_RMID : msg_queue 삭제
 - msqid_ds 구조 :
-	- struct ipc_perm msg_perm 
+	- struct ipc_perm msg_perm;	// 소유권
+	- msgqnum_t msg_qnum;			// msg 수
+	- msglen_t msg_qbytes;			// bytes 수
+	- pid_t msg_lspid;						// last sender
+	- pid_t msg_lrpid;						// last receiver
+	- time_t msg_stime;					// last sending time
+	- time_t msg_rtime;					// last receipt time
+	- time_t msg_ctime;					// last s/r time
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTk1NzM0MTMsNTk2MDgzNDA1LC0zND
-k4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbLTcyMjg2MjUwNiw1OTYwODM0MDUsLTM0OT
+g1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
 -->
