@@ -176,16 +176,21 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 ## Semaphore
 - p(sem) or wait(sem)
 	```c
-	if(sem>0)
+	if(sem>0)	// 빼기전에 sem>0인지 확인 (UNIX의 semaphore 값은 음수가 없음!!)
 		decrement sem by one;
 	else {
 		wait until sem becomes non-zero;
 		then decrement;
 	}
 	```
-- v(sem) or si
+- v(sem) or signal(sem)
+	```
+	increment sem by one;
+	if(queue of waiting processes not empty)
+		restart first process in wait queue;
+	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0MDU4NDg1OSwxOTkyMDk4MDc5LDczNz
+eyJoaXN0b3J5IjpbMTUxNjQ5MjczOCwxOTkyMDk4MDc5LDczNz
 k3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5
 MSwxOTYyMjY3NzQ0XX0=
 -->
