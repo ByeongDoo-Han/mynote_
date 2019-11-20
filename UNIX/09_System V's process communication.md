@@ -178,19 +178,21 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	```c
 	if(sem>0)	// 빼기전에 sem>0인지 확인 (UNIX의 semaphore 값은 음수가 없음!!)
 		decrement sem by one;
-	else {
+	else {		// blocking (sem == 0)
 		wait until sem becomes non-zero;
 		then decrement;
 	}
 	```
 - v(sem) or signal(sem)
 	```
-	increment sem by one;
-	if(queue of waiting processes not empty)
-		restart first process in wait queue;
+	increment sem by one;		// (원래) : -5 (queue에 기다리는 사람 5명)
+	if(queue of waiting processes not empty)	// (unix)는 음수가 허용되지 않아 
+		restart first process in wait queue;	// 확인할 수 있는 함수가 존재
 	```
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNjQ5MjczOCwxOTkyMDk4MDc5LDczNz
-k3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5
-MSwxOTYyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbNzMzNTY1NTY3LDE5OTIwOTgwNzksNzM3OT
+cxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkx
+LDE5NjIyNjc3NDRdfQ==
 -->
