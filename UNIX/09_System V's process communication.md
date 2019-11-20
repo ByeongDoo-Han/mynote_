@@ -136,13 +136,16 @@ struct q_entry{
 	int mnum;
 }
 struct q_entry msg;
-qid=msgget(0111, 0600 | IPC_CREAT);
+qid=msgget(0111, 0600 | IPC_CREAT);		// <-> open과 차이점 (open할때 RW설정)
 while(msgrcv(qid, &msg, sizeof(int), 1, 0) > 0) {
 	msg.mtype=2;
 	msg.mnum=msg.mnum + 8;
 	msgsnd(qid, &msg, sizeof(int), 0);
 }
 ```
+
+> 0600 -> 나만 읽고 쓰기 가능
+> 0644 -> 상대방 읽기 가능
 
 ## msgctl 시스템 호출
 - msgctl 호출
@@ -171,6 +174,6 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	- time_t msg_ctime;					// last s/r time
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyMjg2MjUwNiw1OTYwODM0MDUsLTM0OT
-g1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5OD
+U5OTMzLC0xMDQxNDQzODkxLDE5NjIyNjc3NDRdfQ==
 -->
