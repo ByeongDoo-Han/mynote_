@@ -330,12 +330,17 @@ struct sembuf {
 if(semval >= |sem_op|)
 	set semval to semval - |sem_op|;	// 현재 semval에서 sem_op의 절대값 빼기
 else
-	wait until semval reaches or exceeds |sem_op|;	// 뺄수 있을때 까지 
+	wait until semval reaches or exceeds |sem_op|;	// 뺄수 있을때 까지 대기
 	then set semval to semval - |sem_op|;
 ```
+
+#### UNIX Semaphore는?
+FIFO queue(순서대로 queue를 진입, 진출)가 아니라 **Non-FIFO queue**사용
+=> 뺄 수 있는 첫번째 사람을 깨움
+=> 영원히 blocking 될 수도 있다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMDAzNzUzMSw4ODM0NDE5OTQsMTMyMT
-c2NjI5NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5
-Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOT
-YyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbODAwODYyMzUzLDg4MzQ0MTk5NCwxMzIxNz
+Y2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjky
+LDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkxLDE5Nj
+IyNjc3NDRdfQ==
 -->
