@@ -261,13 +261,30 @@ union semun {
 	struct semid_ds *buf;
 	ushort *array;
 };
-
 union semun arg;
+
 semid = semget((key_t) 0123, 1, 0600 | IPC_CREAT | IPC_EXCL);
 arg.val = 3;
 semctl(semid, 0, SETVAL, arg);
+```
+// 2
+```c
+union semun {
+	int val;
+	struct semid_ds *buf;
+	ushort *array;
+};
+union semun arg;
+ushort buf[3];
+
+semid = semget((key_t) 0246, 3, 0600 | IPC_CREAT | IPC_EXCL);
+for(i=0;i<3;i++)
+	buf[i] = i+1;
+arg.array=buf;
+semctl(semid, 0, SETALL
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTY1NDI1NjI2LDEzMjE3NjYyOTUsLTEzNj
+eyJoaXN0b3J5IjpbMzAwNzE4OTgwLDEzMjE3NjYyOTUsLTEzNj
 E1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1
 LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
