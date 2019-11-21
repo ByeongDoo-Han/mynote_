@@ -232,9 +232,16 @@ int semctl(int semid, int sem_num, int command, union semun arg);
 - semid : semaphore identifier
 - sem_num : 집합 내 특정 semaphore 지정
 - command :
-	- 
+	- IPC_STAT : 상태 정보를 arg.stat에 저장
+	- IPC_RMID : semaphore 집합 삭제
+	- <단일 semaphore에 영향을 미치는 기능>
+	- GETVAL : semval 값 return
+	- SETVAL : seval 값을 arg.val 값으로 지정
+	- GETPID : sempid 값을 return
+	- GETNCNT : semncnt 값을 return
+	- GETZCNT : semzcnt 값을 return
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQyNTk4NTIyLDEzMjE3NjYyOTUsLTEzNj
+eyJoaXN0b3J5IjpbNDY2MDg0Mjc0LDEzMjE3NjYyOTUsLTEzNj
 E1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1
 LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
