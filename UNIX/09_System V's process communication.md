@@ -327,10 +327,15 @@ struct sembuf {
 **sem_op의 음수값**
 - 음수 : p() or wait() 연산
 ```
-if(semval >
+if(semval >= |sem_op|)
+	set semval to semval - |sem_op|;	// 현재 semval에서 sem_op의 절대값 빼기
+else
+	wait until semval reaches or exceeds |sem_op|;	// 뺄수 있을때 까지 
+	then set semval to semval - |sem_op|;
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTE4ODEzMTMsODgzNDQxOTk0LDEzMj
-E3NjYyOTUsLTEzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2
-OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMT
-k2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbMTUxMDAzNzUzMSw4ODM0NDE5OTQsMTMyMT
+c2NjI5NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5
+Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOT
+YyMjY3NzQ0XX0=
 -->
