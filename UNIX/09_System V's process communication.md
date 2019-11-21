@@ -305,6 +305,7 @@ int semop(int semid, struct sembuf *op_array, size_t num_ops);
 	> **구조체 배열을 사용**
 	> producer - consumer
 	> wait x 2, signal x2 -> 함께 요청하는게 가능
+
 ### struct sembuf
 구조체 변수 or 구조체 배열
 ```c
@@ -340,8 +341,8 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 => **영원히 blocking 될 수도 있다.**
 => **semaphore 하나로 해결할 수 있다.**(Semaphore를 최소로 사용하는 것을 생각해보기!!)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg5NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNz
-Y2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjky
-LDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkxLDE5Nj
-IyNjc3NDRdfQ==
+eyJoaXN0b3J5IjpbLTEzMTE4MjkxMDcsOTg5NzY4MDMxLDg4Mz
+Q0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgw
+NzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMD
+QxNDQzODkxLDE5NjIyNjc3NDRdfQ==
 -->
