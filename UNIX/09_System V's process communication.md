@@ -281,10 +281,11 @@ semid = semget((key_t) 0246, 3, 0600 | IPC_CREAT | IPC_EXCL);
 for(i=0;i<3;i++)
 	buf[i] = i+1;
 arg.array=buf;
-semctl(semid, 0, SETALL
+semctl(semid, 0, SETALL, arg);
+```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwNzE4OTgwLDEzMjE3NjYyOTUsLTEzNj
+eyJoaXN0b3J5IjpbODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNj
 E1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1
 LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
