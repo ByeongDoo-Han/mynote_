@@ -302,7 +302,11 @@ int semop(int semid, struct sembuf *op_array, size_t num_ops);
 	- 구조체 변수
 	- 구조체 배열 -> **한꺼번에**
 
+	> **구조체 배열을 사용**
+	> producer - consumer
+	> wait x 2, signal x2 -> 함께 요청하는게 가능
 ### struct sembuf
+구조체 변수 or 구조체 배열
 ```c
 struct sembuf {
 	unsigned short sem_num;
@@ -311,9 +315,12 @@ struct sembuf {
 };
 ```
 - sem_num : semaphore index
-- sem_op : 수행 할 연산 (양의 정수 
+- sem_op : 수행 할 연산
+	- 양의 정수 -> signal (+1)
+	- 음의 정수 -> wait(-1)
+	- 0 -> semval 변화 X, wait 걸렸을 때 sem
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcxNjU4MTcxLDg4MzQ0MTk5NCwxMzIxNz
+eyJoaXN0b3J5IjpbMTA4OTcwNzA2LDg4MzQ0MTk5NCwxMzIxNz
 Y2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjky
 LDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkxLDE5Nj
 IyNjc3NDRdfQ==
