@@ -174,6 +174,9 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	- time_t msg_ctime;					// last s/r time
 
 ## Semaphore
+
+<img src="https://lh3.googleusercontent.com/ZIZf7fGX-UTxhPR0W_fXbKz16ewn_Fh24wa3-rl1PJFVodAHs6rmEauKcEKY9XMKjSqUKoM1ZaXKoFP9LawTerExK62RvLvm6YJf94JOEtsNGUDPhqE9Y7R1YWKgQSpayFkbI2Ioj6f5Xh6t_nVrxMS2cNwEBNyMpaVWEc1-Nlkh-C3hc_Sp0qiphb_l_OGn0ZculmB4-Z76iD1QgXGIUKqgzJhBi5_hDAgYzNG-4UfLUP3I9w64xb3odcnx404G2jfl3lg99iUhIsEh5bW1Z_KzYpQL_LQcYRlVMfxqo48cpBhvlvnQmy5OC-7hrp-gpQOaTHlyfsJSCR4ndvV7rVREIJr0N_aFatESPXsyVQSbbM30kvHfkQZX4u3T3CVMeNAg1mICYKr0TYuza2ircCgscjj4cGcRYiFYmi5Qb4LqErkdT-SLacILXuDMkfebZnkenthkmvFjALOnnDT8KTtpCs57BHUs9AniYeMn0NcEsKa2IxQLTB2FR-T52_mXhEklJ8PO2NkK_QqdG5oRW_zhzrHGn1e5jmsQesMQ7-wyRmhVh077_SnuHUzEg9gszgbyqEg1gok9YGEUa8wH8JzeLGRpOYwH0WgCNGPEj8Gx9A0T9sMenOXAXCv7uK5ucmGeKZ9xRkTOZCj2Gk4e6IeRgrxqIvZRGzhxk6m52svthMI9pq1j91wzb9WgkCGMXXNoPaBfrkGlW0nOX_-Sd5NUacJNDAt_tlgczxuliQXx-Uxw=w915-h904-no" width=600px />
+
 - p(sem) or wait(sem)
 	```c
 	if(sem>0)	// 빼기전에 sem>0인지 확인 (UNIX의 semaphore 값은 음수가 없음!!)
@@ -285,7 +288,8 @@ semctl(semid, 0, SETALL, arg);
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNj
-E1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1
-LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbLTgyMjM4ODM1OSw4ODM0NDE5OTQsMTMyMT
+c2NjI5NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5
+Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOT
+YyMjY3NzQ0XX0=
 -->
