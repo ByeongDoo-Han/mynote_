@@ -292,10 +292,14 @@ semctl(semid, 0, SETALL, arg);
 int semop(int semid, struct sembuf *op_array, size_t num_ops);
 ```
 #### <인자>
-- semid : semaphore iden
+- semid : semaphore identifier
+- oparray : 수행 할 연산 지정
+- num_ops : op_array내의 sembuf의 수 (여러 개의 semaphore에 대한 연산을 동시에 지정할 수 있음.)
+
+##
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMTgwNDk0MSw4ODM0NDE5OTQsMTMyMT
-c2NjI5NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5
-Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOT
-YyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbLTIxMzU4MTczNzUsODgzNDQxOTk0LDEzMj
+E3NjYyOTUsLTEzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2
+OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMT
+k2MjI2Nzc0NF19
 -->
