@@ -286,6 +286,8 @@ for(i=0;i<3;i++)
 arg.array=buf;
 semctl(semid, 0, SETALL, arg);
 ```
+> #### Union
+> 공간은 하나인데 (인작
 ## Semop System call
 ```c
 #include <sys/sem.h>
@@ -296,9 +298,18 @@ int semop(int semid, struct sembuf *op_array, size_t num_ops);
 - oparray : 수행 할 연산 지정
 - num_ops : op_array내의 sembuf의 수 (여러 개의 semaphore에 대한 연산을 동시에 지정할 수 있음.)
 
-##
+### struct sembuf
+```c
+struct sembuf {
+	unsigned short sem_num;
+	short sem_op;
+	short sem_flg;
+};
+```
+- sem_num : semaphore index
+- sem_op : 수행 할 연산 (양의 정수 똔ㄴ
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzU4MTczNzUsODgzNDQxOTk0LDEzMj
+eyJoaXN0b3J5IjpbLTEwMzQ5MjUzOTUsODgzNDQxOTk0LDEzMj
 E3NjYyOTUsLTEzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2
 OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMT
 k2MjI2Nzc0NF19
