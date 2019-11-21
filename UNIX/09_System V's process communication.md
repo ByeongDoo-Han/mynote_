@@ -240,8 +240,20 @@ int semctl(int semid, int sem_num, int command, union semun arg);
 	- GETPID : sempid 값을 return
 	- GETNCNT : semncnt 값을 return
 	- GETZCNT : semzcnt 값을 return
+	- <semaphore 집합 전체에 영향을 미치는 기능>
+	- GETALL : 모든 semval 값을 arg.array에 저장
+	- SETALL : arg.array값으로 모든 semval 값을 지정
+
+#### struct semun arg;
+```c
+union semun {
+	int val;
+	struct semid_ds *buf;
+	unsigned short *array;
+};
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY2MDg0Mjc0LDEzMjE3NjYyOTUsLTEzNj
+eyJoaXN0b3J5IjpbMTU0MjA2ODE0LDEzMjE3NjYyOTUsLTEzNj
 E1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1
 LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
