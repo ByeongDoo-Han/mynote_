@@ -318,9 +318,12 @@ struct sembuf {
 - sem_op : 수행 할 연산
 	- 양의 정수 -> signal (+1)
 	- 음의 정수 -> wait(-1)
-	- 0 -> semval 변화 X, wait 걸렸을 때 sem
+	- 0 -> semval 변화 X, semval이 0이 될때까지 wait
+- sem_flg
+	- IPC_NOWAIT : signal 의미없음, wait 걸렸을때 sem-1하고 pass
+	- SEM_UNDO : (지금사용X) 프로세스 종료시 semaphore을 초기값으로 복구하고 종료, process
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4OTcwNzA2LDg4MzQ0MTk5NCwxMzIxNz
+eyJoaXN0b3J5IjpbNjcyMjg5NTU1LDg4MzQ0MTk5NCwxMzIxNz
 Y2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjky
 LDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkxLDE5Nj
 IyNjc3NDRdfQ==
