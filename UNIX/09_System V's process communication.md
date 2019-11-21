@@ -252,8 +252,22 @@ union semun {
 	unsigned short *array;
 };
 ```
+
+## semaphore 만들고 초기값 설정하기
+// 1
+```c
+union semun {
+	int val;
+	struct semid_ds *buf;
+	ushort *array;
+};
+
+union semun arg;
+semid = semget((key_t) 0123, 1, 0600 | IPC_CREAT | IPC_EXCL);
+arg.val = 3;
+semctl(semid, 0, SETVAL, arg);
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MjA2ODE0LDEzMjE3NjYyOTUsLTEzNj
+eyJoaXN0b3J5IjpbNTY1NDI1NjI2LDEzMjE3NjYyOTUsLTEzNj
 E1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1
 LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
