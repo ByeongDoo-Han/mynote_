@@ -222,8 +222,9 @@ int semget(key_t key, int nsems, int permflags);
 	- semncnt : semaphore 값이 증가하기를 기다리는 process 수
 	- semzcnt : semaphore 값이 0이 되기를 기다리는 process 수
 
+##
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMTc2NjI5NSwtMTM2MTU2OTAxMSwxOT
-kyMDk4MDc5LDczNzk3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkz
-MywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbODI5OTQ5MTcsMTMyMTc2NjI5NSwtMTM2MT
+U2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OTYwODM0MDUs
+LTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
 -->
