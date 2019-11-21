@@ -287,7 +287,9 @@ arg.array=buf;
 semctl(semid, 0, SETALL, arg);
 ```
 > #### Union
-> 공간은 하나인데 (인작
+> 공간은 하나인데 (인자가 하나인데) 안에 담긴 변수를 지정해서 사용가능
+> ( 특정 경우에 따라 인자의 자료형이 달라짐)
+
 ## Semop System call
 ```c
 #include <sys/sem.h>
@@ -295,8 +297,10 @@ int semop(int semid, struct sembuf *op_array, size_t num_ops);
 ```
 #### <인자>
 - semid : semaphore identifier
-- oparray : 수행 할 연산 지정
-- num_ops : op_array내의 sembuf의 수 (여러 개의 semaphore에 대한 연산을 동시에 지정할 수 있음.)
+- oparray : 수행 할 연산 지정(수행할 연산 pointer)
+- num_ops : op_array내의 sembuf의 수 (연산 몇개?, 여러 개의 semaphore에 대한 연산을 동시에 지정할 수 있음.)
+	- 구조체 변수
+	- 구조체 배열 -> **한꺼번에**
 
 ### struct sembuf
 ```c
@@ -307,10 +311,10 @@ struct sembuf {
 };
 ```
 - sem_num : semaphore index
-- sem_op : 수행 할 연산 (양의 정수 똔ㄴ
+- sem_op : 수행 할 연산 (양의 정수 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzQ5MjUzOTUsODgzNDQxOTk0LDEzMj
-E3NjYyOTUsLTEzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2
-OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMT
-k2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbNzcxNjU4MTcxLDg4MzQ0MTk5NCwxMzIxNz
+Y2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjky
+LDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkxLDE5Nj
+IyNjc3NDRdfQ==
 -->
