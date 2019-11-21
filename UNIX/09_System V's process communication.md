@@ -239,14 +239,14 @@ int semctl(int semid, int sem_num, int command, union semun arg);
 	- IPC_RMID : semaphore 집합 삭제
 	- <단일 semaphore에 영향을 미치는 기능>
 	- GETVAL : semval 값 return
-	- SETVAL : seval 값을 arg.val 값으로 지정
+	- SETVAL : seval 값을 arg.val 값으로 지정 (정확한 값을 정해주어야함)
 	- GETPID : sempid 값을 return
 	- GETNCNT : semncnt 값을 return
 	- GETZCNT : semzcnt 값을 return
 	- <semaphore 집합 전체에 영향을 미치는 기능>
 	- GETALL : 모든 semval 값을 arg.array에 저장
 	- SETALL : arg.array값으로 모든 semval 값을 지정
-
+- semun arg : 명령에 필요한 정보
 #### struct semun arg;
 ```c
 union semun {
@@ -286,9 +286,15 @@ for(i=0;i<3;i++)
 arg.array=buf;
 semctl(semid, 0, SETALL, arg);
 ```
-
+## Semop System call
+```c
+#include <sys/sem.h>
+int semop(int semid, struct sembuf *op_array, size_t num_ops);
+```
+#### <인자>
+- semid : semaphore iden
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyMjM4ODM1OSw4ODM0NDE5OTQsMTMyMT
+eyJoaXN0b3J5IjpbLTQwMTgwNDk0MSw4ODM0NDE5OTQsMTMyMT
 c2NjI5NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5
 Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOT
 YyMjY3NzQ0XX0=
