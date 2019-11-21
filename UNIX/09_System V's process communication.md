@@ -222,9 +222,19 @@ int semget(key_t key, int nsems, int permflags);
 	- semncnt : semaphore 값이 증가하기를 기다리는 process 수
 	- semzcnt : semaphore 값이 0이 되기를 기다리는 process 수
 
-##
+## Semctl System call
+```c
+#include <sys/sem.h>
+int semctl(int semid, int sem_num, int command, union semun arg);
+```
+
+#### <인자>
+- semid : semaphore identifier
+- sem_num : 집합 내 특정 semaphore 지정
+- command :
+	- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI5OTQ5MTcsMTMyMTc2NjI5NSwtMTM2MT
-U2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OTYwODM0MDUs
-LTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbNDQyNTk4NTIyLDEzMjE3NjYyOTUsLTEzNj
+E1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1
+LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
