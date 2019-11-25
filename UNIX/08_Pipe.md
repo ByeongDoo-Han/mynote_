@@ -122,8 +122,8 @@ fcntl(filedes, F_SETFL, O_NONBLOCK);
 ```
 <인자>
 - filedes
-	- 읽기전용 -> pipe가 empty면 즉시 return -1
-	- 쓰기전용 -> pipe가 full이면 즉시 return -1
+	- 가 읽기전용이고 pipe가 empty면 즉시 return -1
+	- 가 쓰기전용이고 pipe가 full이면 즉시 return -1
 	- 이 경우, errno는 **EAGAIN**
 => fcntl은 pipe가 empty한지 full한지를 계속 확인한다. (**CPU 계속 소모**)
 
@@ -307,8 +307,8 @@ fd = open(/tmp/fifo", O_WRONLY);
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2NjY3MTY5MSw3Mjc0MjcxMDcsLTE2Nj
-QzMTM0OTMsMTI3Nzc5NTY1NSwxOTg3OTI3MDY5LC0xMzM4NTAx
-OTQzLDE3NTA3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgyNzYsMj
-A5OTM1Nzg2Ml19
+eyJoaXN0b3J5IjpbMTcxMjc3MzMzMywtNDY2NjcxNjkxLDcyNz
+QyNzEwNywtMTY2NDMxMzQ5MywxMjc3Nzk1NjU1LDE5ODc5Mjcw
+NjksLTEzMzg1MDE5NDMsMTc1MDc1ODM4NSwxNzkyMzcxNTM2LD
+Q4NDMzODI3NiwyMDk5MzU3ODYyXX0=
 -->
