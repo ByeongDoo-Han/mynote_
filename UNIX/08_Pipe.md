@@ -77,8 +77,9 @@ int main() {
 **-> 알아서 blocking하는 점 순서를 자동으로 맞춰준다.**
 
 ### pipe 닫기
-- 쓰기 전용 pipe 닫기 : 다른 write가 없는 경우, read를 위해 기다리던 process들에게 0을 return (EOF와 같은 효과)
 - 읽기 전용 pipe 닫기 : 더 이상 reader가 없으면, wrtier들은 SIGPIPE signal을 받는다. SIgnal handling이 되지 않으면 process는 종료; signal handling이 되면, signal 처리 후 write는 -1을 return;
+- 쓰기 전용 pipe 닫기 : 다른 write가 없는 경우, read를 위해 기다리던 process들에게 0을 return (EOF와 같은 효과)
+
 
 #### 양방향 예제 code
 <img src="https://lh3.googleusercontent.com/wampVbl82XMCrMLDpIoK08yd6DIxBvjfpJM0KvAJz-fBvtNAqo5jJWN1sQRXqNKcmkOA_GKJLnD-Td_m8WQw-aStrDYSDK180ZB76IUnCVvwXNj5X8wbQx9rZXv96XyjnFA0QWieTbnAd8GhZJG5DPhpTLs4fLlcO2Jaw6fJqzFj7g4DDOHuxxW-80Cm3G6LCtqy0FKOlcrPfkuzbtCeBvoXWQ_VCbVtUu2F5yHAbovDXiJY761tL7gHheocq0Zhn-TCGfKqUHgOHMZUOgIEAOigUUlZbecC0-jGuqILn0tQa9Tx9dDkrBzcANUC-S5E-gL_qUHh42frRPSIHHvV2-PdOps5Vfufg6BLeHzmGVmxCUhoqIvwBSXnpwuDWGja90XSNTxawQEieYEjGIQro5eaGfmVopiib3ks8F24YhnHl2EOGMVLT8Q9zJBZ8or5KBqzuqxxvs6tUhVwxM8HMxykoKfId4PqQlQLosBgMd-Ca-PctrQVRx8sSrZ9Pv3rqKHxo0RnrMg3Dp5uQY1JB2Rpftda1Vi800gcqd_8TFn6TlEpajiKhS8dKqEZqTuwHbczjwmQcBdgAZF3h06R_sEzn2KBohcg7EBIFF8elrz_FMsxAWd1EMIxRvq96REID2AFxulgZywwBhDtntkhib9eZ1cjPZIqMGKn-s5_MhKoGXebWbd7MfBT-S0tzhuaoSCG4ThnxjBbJULaXrzCqEMArZA1m5AuZCypPQe82XkTbGIg=w1430-h920-no" width=500px />
@@ -306,8 +307,8 @@ fd = open(/tmp/fifo", O_WRONLY);
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI3NDI3MTA3LC0xNjY0MzEzNDkzLDEyNz
-c3OTU2NTUsMTk4NzkyNzA2OSwtMTMzODUwMTk0MywxNzUwNzU4
-Mzg1LDE3OTIzNzE1MzYsNDg0MzM4Mjc2LDIwOTkzNTc4NjJdfQ
-==
+eyJoaXN0b3J5IjpbLTQ2NjY3MTY5MSw3Mjc0MjcxMDcsLTE2Nj
+QzMTM0OTMsMTI3Nzc5NTY1NSwxOTg3OTI3MDY5LC0xMzM4NTAx
+OTQzLDE3NTA3NTgzODUsMTc5MjM3MTUzNiw0ODQzMzgyNzYsMj
+A5OTM1Nzg2Ml19
 -->
