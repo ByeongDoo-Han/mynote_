@@ -290,6 +290,9 @@ int main(void){
 ```
 ## lab13-2
 Server는 세개의 client들과 데이터를 주고받기 위한 FIFO를 만들고, 각 client는 미리 정해진 이름의 FIFO로 접속하여, 표준 입력으로 입력된 정수를 Server에게 전송합니다. +8을한뒤 client에게 다시 돌려보내고 client는 돌려받은 정수를 표준 출력으로 출력. 입출력 반복은 5회 후 종료 client로 부터 입력을 blocking으로 기다리기 위해 select문장을 사용
+
+<img src="https://lh3.googleusercontent.com/vXIVn5WKpfcLZ4ChsEj4Vy0ug2eylYTpIcSbDAeFNEB05i2ELIREx478HjRpKVUcj1t47DqGiAJ1jWOSu1a-NgNgNcrN3e1IcVjEZwZYI8Z9SJ5AJfHD6rW4esrmRfbDlfIHomHhpfqTHOBZRk8ZAEM4-z3nYI98BCY44xcQrxm-_Q3UmR5cqJPzNvtoyL_ywhiHYXAjKvHRjkhS0IILOIBIOWFsJLyDJfulFJ46wzvcgTMc7cNWAqsPutpg4n1SFinb1tS2pMjaUO-r-EXghBlXk4bi2ISPgU1Sw3uHG5uhLyme03TGNcGIr65g2Zw82Je94A1D6ECzMRJWgyMrOXRErg9LcCvNxHZSIzYPAI0Sy1aFX5weZcNjJaSShuHxi58LMCRaIvKMy-C1fzOwvytceCApYqQoIJS35TgmULK4Nw2LVoECFnhfIj4AcxSJQqH0v0j9WbqxOjwBAWv1Y2O4eT7bX3ojLq9wfW4MVc8lnleTFAAZduSNVSSjsadQayji4GNFnLZXoigRtHPuIFJkK0aAUQzHC4MsVY8_c6iKD_FablGW2nYd2frkUghMKlqtZuTv2H8BEEVMDz7P4tSRZZxorLBEYKpoB3Oie0yOHWm8tP7vxwq_qQKpsvd7-rkBK0adFEuCPccJQd8xD122FEmVIN0dzzaXRvJm36niCu1ANaV-fSZ1395sbd-JZ_hfe1Tot6QjqCK19ZTmFliIeYF7aEg-aEEUM59sRg6n_S1-=w992-h904-no" width=600px />
+
 ### Client
 ```c
 #include "../Myheader.h"
@@ -414,5 +417,5 @@ int main(int argc, char** argv){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTM1MTE4MDJdfQ==
+eyJoaXN0b3J5IjpbMjE4NjEzOTY5LC0xNTEzNTExODAyXX0=
 -->
