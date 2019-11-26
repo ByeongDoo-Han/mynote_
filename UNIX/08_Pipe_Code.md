@@ -2,6 +2,9 @@
 
 ## lab12-1
 > parent process는 세 개의 child process를 만들고, parent process에서 child process로의 단방향 통신이 가능 한 pipe를 만듭니다. parent process는 외부 입력으로 정수를 12개 입력 받아, 세 child process에게 순서대로 보냅니다. child process는 자신이 받은 정수를 자신의 프로세스 id와 함께 출력 합니다. parent process는 모든 정수를 전달 한 후 정수 -1을 전달하고, -1을 전달 받으면 child process는 종료 합니다. 모든 child process의 종료를 확인 한 후 parent process는 종료 합니다.
+
+<img src="https://lh3.googleusercontent.com/UrTGH2h2FYW6L0QpTscaD7_p2Cl6TnnL34cc8-B9CerN5z1_RGbxKy-JRmC0fcwZDvN0D6Ne7LyB6tVhiuKt2vltHBJ291elDO6KcQRh9LNC1D0HYt5FIQTGTWPCYJiNmsQE75oaO8tYhEgzJcrS9iqK6KVgPD73eUSLdkyR1fHSytzaOXFKrRN6muUYxn0_H4Kld_av6uaXzbmqbvSAZe9I1ruPHi8nLXNY10fGtVvWhgfXXOL7Kv1C0I-ioTq9vvimvucqnh66h8QBpsFOy0V0Yyx66LzP2_o3FTtoA1av5P3yKJfOe7rP9onSmYWMmx8ItCGRs2EjE4ULSTwoVI9NlK8_mQ5eLXctqhazjUgZoqjoqjE4ZkMx4CI0vABgIgr5ZAwplnEJneY3p7bdbxlQPq12sWxYtPwJACk2PZs411ywvDGavRBnaFPf6WKpaQ5Malwy6_mSCeW3l45WRpBVB0d68tDlVsFfvDW95CWwFjUDMs8K0N1VpXmV-VlmcfKDgnZ0yL97dZbUkJeGwwfxyZAq511-Z1m3hmBBGGgCPZxNMaYNbLQm2lT-0GdAJy-8UqVfvZraEH3TijjKbjzkBt09TP5T4Einy1BSD9VBeKGodgVvyGqrBimVnCg9_mybyYjRy68gATTtN61IHguQ79WsT6d8P68GziN0fXhoP-5LEXE7-wGsVjM2oo9F4O3-kpeUm5jmhzzC0OHLQxwCGeMKhpAnK-MK7_WG24eTA0dj=w1396-h834-no" width=600px/>
+
 ```c
 // lab12-1
 
@@ -58,6 +61,9 @@ int main(){
 
 ## lab12-2
 > parent process는 세 개의 child process를 만들고, 모든 child process가 종료 한 후 종료 합니다. 각 child process는 자신의 순서가 될 때까지 대기 하였다가, 1초씩 쉬면서 (sleep (1); 사용) 자신의 process id(getpid(); 사용)를 5회 출력하는 작업을 한 후 종료 합니다. child process의 id 츨력 순서는 생성 순서의 역순이며, 이와 같은 순서 동기화 작업은 pipe를 이용하여 진행 합니다.
+
+<img src="https://lh3.googleusercontent.com/CVn2Zopos-ql0h2HEiA17AuL6Lul-gRG00d0_sd-o1SBIKs1tVr5BHx_HiN7yMhLJoesPFWsfwMdy_bdaX8TltiNJY6bYQwG5KuP-h5a63F917Rx2ia0FKsJF9VruzAzFO-XiCkPEt9ZNssTN7yDWMGfWciHxphbYW8fYIJ7YI36YpfdxjCE0fitdrb-ZahDgfRSJ5XsAV7H4QVdI8a5jNfVgLtBGdbGrIlUVcdZzV_BD331CKcJnf4r2AZpcCVPBTTJdbg0hOLtYF53Rm8R6wFq7oZ1e0p8j8tD9ZXR9wAK3QpKq3Ym9pkBijOi_NkDp7zzZlEkt-5TlutSwEuBUhVvY1p0nbcqrHoMhl1N8W2THrvSkfVKWX6Q1OKBGNB7TqJj0LX5ygBqUEd2Hj7JrRqqRze05ik3JiQs6d6qVZUZlUxpGYqlijMcLRoEaDdHSPx6_o0IR8QaEXwNQXrkQgRVtWn1XUc6lpOXlr5GxfVvci-dAdjqHFhWjlVdOX8JKUZ1YpvnSD6iJ8YtoDJUR4UMyBveqaZCAuvSI8oJdvKsh_GrUTWF8XKFGOLBLqOVi_A_ZmihEN04IIAuIVK15a9zGoUDKkB5dKJWCOYTDa6caJpV84bSb9u1vg43Pu8uzNzoHPEflaI2meF9Q4vEzzF6Qz9Igd1nzGtpZGccWDOBko_zb8T-jb3OaZXZ9fU6NcIkN2rV8hJmTyjH34sZtSYf_P7PHzuGSTU_zBqoNuD7TZSI=w1222-h732-no" width=600px/>
+
 ```c
 // lab12-2
 
@@ -222,7 +228,7 @@ int main(void) {
 }
 ```
 ## lab13-1
-FIFO를 이용하여 통신하는 두 프로그램. 프로그램 A는 외부 입력으로 정수를 입력 받아 프로그램 B에게 전달하고, 프로그램 B는 전달받은 정수에 +8을 한 뒤 프로글매 A에 돌려줍니다.(-1 입력시 두프로그램 종료)
+> FIFO를 이용하여 통신하는 두 프로그램. 프로그램 A는 외부 입력으로 정수를 입력 받아 프로그램 B에게 전달하고, 프로그램 B는 전달받은 정수에 +8을 한 뒤 프로글매 A에 돌려줍니다.(-1 입력시 두프로그램 종료)
 ### Reader
 ```c
 #include "../Myheader.h"
@@ -289,7 +295,7 @@ int main(void){
 }
 ```
 ## lab13-2
-Server는 세개의 client들과 데이터를 주고받기 위한 FIFO를 만들고, 각 client는 미리 정해진 이름의 FIFO로 접속하여, 표준 입력으로 입력된 정수를 Server에게 전송합니다. +8을한뒤 client에게 다시 돌려보내고 client는 돌려받은 정수를 표준 출력으로 출력. 입출력 반복은 5회 후 종료 client로 부터 입력을 blocking으로 기다리기 위해 select문장을 사용
+> Server는 세개의 client들과 데이터를 주고받기 위한 FIFO를 만들고, 각 client는 미리 정해진 이름의 FIFO로 접속하여, 표준 입력으로 입력된 정수를 Server에게 전송합니다. +8을한뒤 client에게 다시 돌려보내고 client는 돌려받은 정수를 표준 출력으로 출력. 입출력 반복은 5회 후 종료 client로 부터 입력을 blocking으로 기다리기 위해 select문장을 사용
 
 <img src="https://lh3.googleusercontent.com/vXIVn5WKpfcLZ4ChsEj4Vy0ug2eylYTpIcSbDAeFNEB05i2ELIREx478HjRpKVUcj1t47DqGiAJ1jWOSu1a-NgNgNcrN3e1IcVjEZwZYI8Z9SJ5AJfHD6rW4esrmRfbDlfIHomHhpfqTHOBZRk8ZAEM4-z3nYI98BCY44xcQrxm-_Q3UmR5cqJPzNvtoyL_ywhiHYXAjKvHRjkhS0IILOIBIOWFsJLyDJfulFJ46wzvcgTMc7cNWAqsPutpg4n1SFinb1tS2pMjaUO-r-EXghBlXk4bi2ISPgU1Sw3uHG5uhLyme03TGNcGIr65g2Zw82Je94A1D6ECzMRJWgyMrOXRErg9LcCvNxHZSIzYPAI0Sy1aFX5weZcNjJaSShuHxi58LMCRaIvKMy-C1fzOwvytceCApYqQoIJS35TgmULK4Nw2LVoECFnhfIj4AcxSJQqH0v0j9WbqxOjwBAWv1Y2O4eT7bX3ojLq9wfW4MVc8lnleTFAAZduSNVSSjsadQayji4GNFnLZXoigRtHPuIFJkK0aAUQzHC4MsVY8_c6iKD_FablGW2nYd2frkUghMKlqtZuTv2H8BEEVMDz7P4tSRZZxorLBEYKpoB3Oie0yOHWm8tP7vxwq_qQKpsvd7-rkBK0adFEuCPccJQd8xD122FEmVIN0dzzaXRvJm36niCu1ANaV-fSZ1395sbd-JZ_hfe1Tot6QjqCK19ZTmFliIeYF7aEg-aEEUM59sRg6n_S1-=w992-h904-no" width=600px />
 
@@ -379,7 +385,7 @@ int main(void){
 ```
 
 ## lab13-3.c
-네개의 프로세스가 동기화 하며 자신의 pid를 5회 출력하는 프로그램 작성, main 함수의 arguments로 동기화에 참여하는 전체 프로세스 중 자신의 출력 순서를 입력받음. 순서대로 pid를 출력 (FIFO사용)
+> 네개의 프로세스가 동기화 하며 자신의 pid를 5회 출력하는 프로그램 작성, main 함수의 arguments로 동기화에 참여하는 전체 프로세스 중 자신의 출력 순서를 입력받음. 순서대로 pid를 출력 (FIFO사용)
 ```c
 #include "../Myheader.h"
 
@@ -417,5 +423,6 @@ int main(int argc, char** argv){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE4NjEzOTY5LC0xNTEzNTExODAyXX0=
+eyJoaXN0b3J5IjpbLTExMjA1ODEzOTgsLTE1MTM1MTE4MDJdfQ
+==
 -->
