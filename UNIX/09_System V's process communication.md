@@ -28,6 +28,7 @@ struct ipc_perm {
 	uid_t uid; // 소유자 uid;
 	gid_t gid; // 소유자 gid;
 	mode_t mode; // permission readOnly = 4, writeOnly = 2(execution은 의미 없음);
+}
 ```
 
 ## IPC 정보 검색 및 삭제
@@ -341,8 +342,8 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 => **영원히 blocking 될 수도 있다.**
 => **semaphore 하나로 해결할 수 있다.**(Semaphore를 최소로 사용하는 것을 생각해보기!!)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTE4MjkxMDcsOTg5NzY4MDMxLDg4Mz
-Q0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgw
-NzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMD
-QxNDQzODkxLDE5NjIyNjc3NDRdfQ==
+eyJoaXN0b3J5IjpbMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5OD
+k3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1Njkw
+MTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0zND
+k4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
