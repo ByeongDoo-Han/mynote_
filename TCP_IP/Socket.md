@@ -52,7 +52,8 @@ int WSACleanup( void );
 
 ## Socket Address
 ### SOCKADDR_IN
-```c
+
+```cpp
 typedef struct sockaddr_in {
     ADDRESS_FAMILY sin_family; 	// 주소 체계
     USHORT sin_port; 			// 16bit  TCP/UDP Port번호
@@ -99,12 +100,14 @@ typedef struct sockaddr_in {
 	 - sockaddr의 크기와 sockaddr_in의 크기를 일치시키기기위해 삽입된 멤버
 
 ### SOCKADDR
-```c
+
+```cpp
 typedef struct sockaddr {
     ADDRESS_FAMILY sa_family;           // 주소체계
     CHAR sa_data[14];                   // 주소정보
 } SOCKADDR, *PSOCKADDR, FAR *LPSOCKADDR;
 ```
+
 #### <인자>
  - sa_data
    - 주소 정보를 저장하는 멤버
@@ -314,6 +317,6 @@ int main(void) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3NTk5NjQ5NSwxODA1ODU0MjYxLC00Mj
+eyJoaXN0b3J5IjpbLTkyNDQ0NDAzNSwxODA1ODU0MjYxLC00Mj
 g3Njk1MjldfQ==
 -->
