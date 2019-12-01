@@ -116,25 +116,29 @@ typedef struct sockaddr {
 
 ### 바이트 정렬 함수
 매개변수는 항상 unsigned 타입의 정수값이어야 한다
-```c
+
+```cpp
 u_short htons()		// host to network short
 u_long htonl()		// host to network long
 u_short ntohs();	// network to host short
 u_long ntohl();		// network to host long
 ```
+
 #### <특징>
  - CPU마다 정수값을 저장하는 방식이 다르다
  - 데이터가 그대로 저장되기도 하지만 거꾸로 저장되기도 한다
  - 저장순서가 다르기 때문에 그냥 데이터 송수신을 하면 문제가 발생된다
  - 네트워크에서는 빅엔디안 방식으로 통일하여 데이터를 전송
  - 바이드 정렬 함수를 이용하면 된다
+
 #### <방식>
  - 빅엔디안(Big Endian) - 상위바이트의 값을 작은 번지수에 저장하는 방식
  - 리틀엔디안(Little Endian) - 상위바이트의 값을 큰 번지수에 저장하는 방식
 
 
 ---
-```c
+
+```cpp
 #pragma comment(lib,"ws2_32")
 #include<stdio.h>
 #include<WinSock2.h>
@@ -164,21 +168,25 @@ int main(void) {
  - 네트워크 바이트로 정렬하여 변환한다
 
 ### inet_addr
-```c
+
+```cpp
 unsigned long inet_addr(
     const char * cp	// 문자열 형태의 아이피 주소
 );
 ```
+
 > visual 2019에서 사용하기 위해 아래와 같은 매크로 선언이 include문 전에 필요
 > **#define _WINSOCK_DEPRECATED_NO_WARNINGS**
 > 또는
 > inet_pton을 사용할 것
+
 - #### <반환값>
 	- 성공 -> 32bit로 변환된 ip주소
 	- 실패 -> -1을 반환
 
 ### inet_pton
-```c
+
+```cpp
 INT inet_pton(
     INT Family, //주소체계
     PCSTR pszAddrString,// 문자열형태의 IP주소
@@ -186,7 +194,8 @@ INT inet_pton(
 );
 ```
 ### inet_ntop
-```c
+
+```cpp
 PCSTR inet_ntop(
     INT             Family, //주소체계
     const VOID *    pAddr, //변환된 ip주소 저장공간의 주소
@@ -198,7 +207,8 @@ PCSTR inet_ntop(
 ### inet_ntoa
 - 정수로 변환된 IP주소를 문자열로 바꾸는 함수
 - 호스트 바이트로 정렬 변환한다
-```c
+
+```cpp
 char * inet_ntoa(
     struct in_addr in	// 32bit의 ip주소
 );
@@ -210,7 +220,8 @@ char * inet_ntoa(
 
 
 ## Socket 생성
-```c
+
+```cpp
 //동적라이브러리...DLL을 불러와야 WinSock2.h에 있는 함수들을 사용할수 있다...
 #pragma comment(lib,"ws2_32")
 #include<stdio.h>
@@ -241,6 +252,7 @@ int main(void) {
 ```
 
 ## IP주소 변환
+
 ```cpp
 #pragma comment(lib,"ws2_32")
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
@@ -279,6 +291,7 @@ int main(void) {
 ```
 
 ## socket 생성 & IP 설정
+
 ```cpp
 #pragma comment(lib,"ws2_32")
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
@@ -301,5 +314,6 @@ int main(void) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwNTg1NDI2MSwtNDI4NzY5NTI5XX0=
+eyJoaXN0b3J5IjpbMTI3NTk5NjQ5NSwxODA1ODU0MjYxLC00Mj
+g3Njk1MjldfQ==
 -->
