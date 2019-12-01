@@ -43,7 +43,8 @@ int WSAStartup(
 ```
 
 ### 종료함수 WSACleanup
-```c
+
+```cpp
 int WSACleanup( void );
 ```
  - 소켓의 자원을 반환하는 함수
@@ -300,5 +301,5 @@ int main(void) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTA2MDQzMTcsLTQyODc2OTUyOV19
+eyJoaXN0b3J5IjpbMTgwNTg1NDI2MSwtNDI4NzY5NTI5XX0=
 -->
