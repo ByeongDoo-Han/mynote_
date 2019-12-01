@@ -19,7 +19,8 @@
  > winsock.h -> 95년도에 winsock2.h로 버전 업이 되었다...
 
 ### WSAData
-```c
+
+```cpp
 typedef struct WSAData {
         WORD wVersion; //윈도우 소켓의 버전
         WORD wHighVersion;//최상위 윈도우 소켓 버전
@@ -33,7 +34,8 @@ typedef struct WSAData {
 
 ## Window Socket 실행 및 초기화 함수
 ### 실행함수 WSAStartup
-```c
+
+```cpp
 int WSAStartup(
     _In_ WORD wVersionRequested, // - WinSock의 버전
     _Out_ LPWSADATA lpWSAData // WSADATA의 주소값
@@ -298,5 +300,5 @@ int main(void) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyODc2OTUyOV19
+eyJoaXN0b3J5IjpbLTE1MTA2MDQzMTcsLTQyODc2OTUyOV19
 -->
