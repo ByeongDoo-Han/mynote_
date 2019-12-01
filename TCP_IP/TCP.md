@@ -11,7 +11,7 @@
 | 신뢰성데이터전송 | 비신뢰성데이터전송 |
 | 1:1 통신 | 1:1통신 or 1:통신 |
 
-예) 전화
+#### 예) 전화
 | 받는 사람 | 거는 사람 |
 |--|--|
 | 전화 | 전화 |
@@ -22,7 +22,8 @@
 | 대화 | 대화 |
 | 전화 끊기 | 전화 끊기 |
 
-Server-Client
+
+#### Server-Client
 |Server| Client |
 |--|--|
 | Socket 생성 - socket | Socket 생성 - socket |
@@ -303,5 +304,5 @@ int main(void) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzQyNzk2OTEsLTg1NDY1MTE0N119
+eyJoaXN0b3J5IjpbMTk5MzA3NzM5MywtODU0NjUxMTQ3XX0=
 -->
