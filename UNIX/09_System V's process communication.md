@@ -21,6 +21,7 @@
 	- 해당 파일의 st_dev, st_ino와 id로 key값 생성
 
 ## IPC 객체 상태 구조
+
 ```c
 struct ipc_perm {
 	uid_t cuid; // 생성자의 uid;
@@ -57,6 +58,7 @@ struct ipc_perm {
 	- msgrcv : mssage 받기
 
 ## msgget System call
+
 ```c
 #include <sys/msg.h>
 int msgget(key_t key, int permflags)
@@ -76,6 +78,7 @@ int msgget(key_t key, int permflags)
 - return 값 : 음수가 아닌 queue identifier
 
 ## msgsnd System call
+
 ```c
 #include <sys/msg.h>
 int msgsnd(int mqid, const void* message, size_t size, int flags);
@@ -95,6 +98,7 @@ int msgsnd(int mqid, const void* message, size_t size, int flags);
 - message의 size는 message 내용의 크기만.
 
 - message 구조체의 예;
+
 	```c
 	struct mymsg{
 		long mtype;		// message type (양의 정수)
@@ -131,13 +135,17 @@ int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
 	- access permission 때문에 실패한 경우 errono = EACCESS
 
 ### message 송수신의 예
+
 ```c
 struct q_entry{
 	long mtype;
 	int mnum;
 }
+
 struct q_entry msg;
+
 qid=msgget(0111, 0600 | IPC_CREAT);		// <-> open과 차이점 (open할때 RW설정)
+
 while(msgrcv(qid, &msg, sizeof(int), 1, 0) > 0) {
 	msg.mtype=2;
 	msg.mnum=msg.mnum + 8;
@@ -342,8 +350,9 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 => **영원히 blocking 될 수도 있다.**
 => **semaphore 하나로 해결할 수 있다.**(Semaphore를 최소로 사용하는 것을 생각해보기!!)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5OD
-k3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1Njkw
-MTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0zND
-k4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbMTI0ODgxMDM2NiwxNjU3OTEyNDgyLC0xMz
+ExODI5MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMyMTc2NjI5
+NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OT
+YwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3
+NzQ0XX0=
 -->
