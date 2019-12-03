@@ -240,6 +240,7 @@ int semget(key_t key, int nsems, int permflags);
 	- semzcnt : semaphore 값이 0이 되기를 기다리는 process 수
 
 ## Semctl System call
+
 ```c
 #include <sys/sem.h>
 int semctl(int semid, int sem_num, int command, union semun arg);
@@ -262,6 +263,7 @@ int semctl(int semid, int sem_num, int command, union semun arg);
 	- SETALL : arg.array값으로 모든 semval 값을 지정
 - semun arg : 명령에 필요한 정보
 #### struct semun arg;
+
 ```c
 union semun {
 	int val;
@@ -272,6 +274,7 @@ union semun {
 
 ## semaphore 만들고 초기값 설정하기
 // 1
+
 ```c
 union semun {
 	int val;
@@ -284,7 +287,9 @@ semid = semget((key_t) 0123, 1, 0600 | IPC_CREAT | IPC_EXCL);
 arg.val = 3;
 semctl(semid, 0, SETVAL, arg);
 ```
+
 // 2
+
 ```c
 union semun {
 	int val;
@@ -300,11 +305,13 @@ for(i=0;i<3;i++)
 arg.array=buf;
 semctl(semid, 0, SETALL, arg);
 ```
+
 > #### Union
 > 공간은 하나인데 (인자가 하나인데) 안에 담긴 변수를 지정해서 사용가능
 > ( 특정 경우에 따라 인자의 자료형이 달라짐)
 
 ## Semop System call
+
 ```c
 #include <sys/sem.h>
 int semop(int semid, struct sembuf *op_array, size_t num_ops);
@@ -322,6 +329,7 @@ int semop(int semid, struct sembuf *op_array, size_t num_ops);
 
 ### struct sembuf
 구조체 변수 or 구조체 배열
+
 ```c
 struct sembuf {
 	unsigned short sem_num;
@@ -341,6 +349,7 @@ struct sembuf {
 ### UNIX의 특별한 Semaphore
 **sem_op의 음수값**
 - 음수 : p() or wait() 연산
+
 ```
 if(semval >= |sem_op|)
 	set semval to semval - |sem_op|;	// 현재 semval에서 sem_op의 절대값 빼기
@@ -355,7 +364,7 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 => **영원히 blocking 될 수도 있다.**
 => **semaphore 하나로 해결할 수 있다.**(Semaphore를 최소로 사용하는 것을 생각해보기!!)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1NzMzNTI1MiwxNjU3OTEyNDgyLC0xMz
+eyJoaXN0b3J5IjpbMTg4MzI0ODQzOCwxNjU3OTEyNDgyLC0xMz
 ExODI5MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMyMTc2NjI5
 NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OT
 YwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3
