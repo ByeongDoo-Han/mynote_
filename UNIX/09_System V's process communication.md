@@ -18,6 +18,7 @@
 	#include<sys/ipc.h>
 	key_t ftok(const char *path, int id);
 	```
+	
 	- 해당 파일의 st_dev, st_ino와 id로 key값 생성
 
 ## IPC 객체 상태 구조
@@ -51,6 +52,7 @@ struct ipc_perm {
 2.  <Input 5개 중 3개만 읽고 종료하는 경우>
 **message queue** -> 남아있다.
 **FIFO** -> 남은것은 flush된다.
+
 ## message passing
 - message queue를 통한 message 전달
 	- msgget : queue 생성
@@ -106,7 +108,9 @@ int msgsnd(int mqid, const void* message, size_t size, int flags);
 	}
 	```
 	- **=> mtype은 즉, message id (보내는 사람 id)를 의미**
+
 ## msgrcv System call
+
 ```c
 #include <sys/msg.h>
 int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
@@ -221,6 +225,7 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 #include <sys/ipc.h>
 int semget(key_t key, int nsems, int permflags);
 ```
+
 #### <인자>
 - key : semaphore 집합 이름 (semaphore는 여러개)
 - nsems : semaphore 집합 내의 semaphre 수
@@ -262,6 +267,7 @@ int semctl(int semid, int sem_num, int command, union semun arg);
 	- GETALL : 모든 semval 값을 arg.array에 저장
 	- SETALL : arg.array값으로 모든 semval 값을 지정
 - semun arg : 명령에 필요한 정보
+
 #### struct semun arg;
 
 ```c
@@ -316,6 +322,7 @@ semctl(semid, 0, SETALL, arg);
 #include <sys/sem.h>
 int semop(int semid, struct sembuf *op_array, size_t num_ops);
 ```
+
 #### <인자>
 - semid : semaphore identifier
 - oparray : 수행 할 연산 지정(수행할 연산 pointer)
@@ -337,6 +344,7 @@ struct sembuf {
 	short sem_flg;
 };
 ```
+
 - sem_num : semaphore index
 - sem_op : 수행 할 연산
 	- 양의 정수 -> signal (+1)
@@ -346,6 +354,7 @@ struct sembuf {
 	- IPC_NOWAIT : signal 의미없음, wait 걸렸을때 sem-1하고 pass
 	- SEM_UNDO : (지금사용X) 프로세스 종료시 semaphore을 초기값으로 복구하고 종료, process간 semaphore 동기화가 어려울 수 있다.
 	- 그 외 -> **0**으로 설정할 것!!
+
 ### UNIX의 특별한 Semaphore
 **sem_op의 음수값**
 - 음수 : p() or wait() 연산
@@ -364,7 +373,7 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 => **영원히 blocking 될 수도 있다.**
 => **semaphore 하나로 해결할 수 있다.**(Semaphore를 최소로 사용하는 것을 생각해보기!!)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4MzI0ODQzOCwxNjU3OTEyNDgyLC0xMz
+eyJoaXN0b3J5IjpbMTI4NTU2MDAzMiwxNjU3OTEyNDgyLC0xMz
 ExODI5MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMyMTc2NjI5
 NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OT
 YwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3
