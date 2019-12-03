@@ -162,6 +162,7 @@ while(msgrcv(qid, &msg, sizeof(int), 1, 0) > 0) {
 	- message queue 제거
 
 - 사용법
+
 ```c
 #include <sys/msg.h>
 int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
@@ -187,6 +188,7 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 <img src="https://lh3.googleusercontent.com/ZIZf7fGX-UTxhPR0W_fXbKz16ewn_Fh24wa3-rl1PJFVodAHs6rmEauKcEKY9XMKjSqUKoM1ZaXKoFP9LawTerExK62RvLvm6YJf94JOEtsNGUDPhqE9Y7R1YWKgQSpayFkbI2Ioj6f5Xh6t_nVrxMS2cNwEBNyMpaVWEc1-Nlkh-C3hc_Sp0qiphb_l_OGn0ZculmB4-Z76iD1QgXGIUKqgzJhBi5_hDAgYzNG-4UfLUP3I9w64xb3odcnx404G2jfl3lg99iUhIsEh5bW1Z_KzYpQL_LQcYRlVMfxqo48cpBhvlvnQmy5OC-7hrp-gpQOaTHlyfsJSCR4ndvV7rVREIJr0N_aFatESPXsyVQSbbM30kvHfkQZX4u3T3CVMeNAg1mICYKr0TYuza2ircCgscjj4cGcRYiFYmi5Qb4LqErkdT-SLacILXuDMkfebZnkenthkmvFjALOnnDT8KTtpCs57BHUs9AniYeMn0NcEsKa2IxQLTB2FR-T52_mXhEklJ8PO2NkK_QqdG5oRW_zhzrHGn1e5jmsQesMQ7-wyRmhVh077_SnuHUzEg9gszgbyqEg1gok9YGEUa8wH8JzeLGRpOYwH0WgCNGPEj8Gx9A0T9sMenOXAXCv7uK5ucmGeKZ9xRkTOZCj2Gk4e6IeRgrxqIvZRGzhxk6m52svthMI9pq1j91wzb9WgkCGMXXNoPaBfrkGlW0nOX_-Sd5NUacJNDAt_tlgczxuliQXx-Uxw=w915-h904-no" width=600px />
 
 - p(sem) or wait(sem)
+
 	```c
 	if(sem>0)	// 빼기전에 sem>0인지 확인 (UNIX의 semaphore 값은 음수가 없음!!)
 		decrement sem by one;
@@ -196,6 +198,7 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	}
 	```
 - v(sem) or signal(sem)
+
 	```
 	increment sem by one;		// (원래) : -5 (queue에 기다리는 사람 5명)
 	if(queue of waiting processes not empty)	// (unix)는 음수가 허용되지 않아 
@@ -203,6 +206,7 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	```
 
 - 사용예 : 전형적인 critical section
+
 	```
 	p(sem);
 	someting interesting;
@@ -210,6 +214,7 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	```
 
 ## Semget System call
+
 ```c
 #include <sys/sem.h>
 #include <sys/types.h>
@@ -350,7 +355,7 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 => **영원히 blocking 될 수도 있다.**
 => **semaphore 하나로 해결할 수 있다.**(Semaphore를 최소로 사용하는 것을 생각해보기!!)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0ODgxMDM2NiwxNjU3OTEyNDgyLC0xMz
+eyJoaXN0b3J5IjpbLTc1NzMzNTI1MiwxNjU3OTEyNDgyLC0xMz
 ExODI5MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMyMTc2NjI5
 NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OT
 YwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3
