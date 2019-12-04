@@ -424,8 +424,17 @@ int *shmat(int shmid, const void *daddr, int shmflag);
 - return 값 : 
 	- 성공 -> process 내의 유효주소
 	- 실패 -> (void *)-1
+
+## shmdt System call
+- 공유메모리 영역을 프로세스의 논리적 주소 공간으로부터 떼어낸다.
+
+```c
+int shmdt(memptr);
+```
+
+#
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTk4OTExNjIsLTE4MTM0NzQ5OTYsMT
+eyJoaXN0b3J5IjpbLTE5MTc3Njk3MjMsLTE4MTM0NzQ5OTYsMT
 E5MzU5MTg5NywxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4
 MjkxMDcsOTg5NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC
 0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4
