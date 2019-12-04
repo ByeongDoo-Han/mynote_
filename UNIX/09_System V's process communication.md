@@ -446,12 +446,22 @@ int shmdt(memptr);
 - struct databuf의 데이터 5개를 저장할 공유 메모리 생성 후 부착
 ```buf3=(struct databuf *)shmat(shmid3, 0, 0);```
 
-### ㄱ
+### 공유 메모리 사용 예시
+- 표준 입력으로 읽은 문자열을 공유 메모리 공간에 저장 후 출력
+	```
+	n = read(0,buf1, 512);
+	write(1, buf1, n);
+	```	
+
+- 표준 입력으로 읽은 10개의 정수를 공유 메모리 공간에 저장 후 출력
+```
+for(i=0;i<10;i++)
+	scanf("%d"
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NjYxMjI1LC0xMjg3NDQ1NDI1LC0xND
+eyJoaXN0b3J5IjpbODM1NDU4NjAyLC0xMjg3NDQ1NDI1LC0xND
 EwOTM3MjI3LC0xODEzNDc0OTk2LDExOTM1OTE4OTcsMTI4NTU2
 MDAzMiwxNjU3OTEyNDgyLC0xMzExODI5MTA3LDk4OTc2ODAzMS
 w4ODM0NDE5OTQsMTMyMTc2NjI5NSwtMTM2MTU2OTAxMSwxOTky
