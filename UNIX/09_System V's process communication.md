@@ -400,12 +400,18 @@ int shmget(key_t key, size_t size, int permflag);
 ```shmid1 = shmget(0111, 512, 0600|IPC_CREAT);```
 
 - 10개의 정수를 저장할 공유 메모리 생성
-```shmid2 = shmget(0112, 1
+```shmid2 = shmget(0112, 10*sizeof(int), 0600|IPC_CREAT);```
+
+- struct databuf의 데이터 5개를 저장할 공유 메모리 생성
+```shmid3 = shmget(0113, 5*sizeof(struct databuf), 0600|IPC_CREAT);```
+
+## shmat System call
+- shmget 호출에 의해 할당된 메모리 영역을 자신의 논리적 자료 공간에 부착 (즉, 만들고 나서 정
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMTYzNTI2LC0xODEzNDc0OTk2LDExOT
-M1OTE4OTcsMTI4NTU2MDAzMiwxNjU3OTEyNDgyLC0xMzExODI5
-MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMyMTc2NjI5NSwtMT
-M2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OTYwODM0
-MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX
-0=
+eyJoaXN0b3J5IjpbLTYwMjAwMjI5MywtMTgxMzQ3NDk5NiwxMT
+kzNTkxODk3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgy
+OTEwNyw5ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLT
+EzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgz
+NDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF
+19
 -->
