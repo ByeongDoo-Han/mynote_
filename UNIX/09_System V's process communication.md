@@ -376,13 +376,27 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 # Shared Memory
 <img src="https://lh3.googleusercontent.com/WYlFQZlrT1MYP2kSbVbpcnEHl2r24NhfRI-DJ7D7_gU-d-eI2On7T1g-5vaNFr7xU12XHSrD8lncaYk4GrCNg4Hu4KATz8iDZDcgmgxAJpG3OiOA116yBvCMapHuDjt-il0Qw7wqmkJ8N2qAN3YxZkO2ELOqTENb0JeXAqj6IXnELAi5mSBmrSy6r5qmR3309H7Qs6ETUZngzUMmucug7Ug6KZmy-hmBIhXbKALBbnEoRB1mAjP9tUOt_eA5Qsm95sAlz_vBIG3j8wLwpxsXN8LsNVoHRpuPxqdaYzmLBz3eeCv0RTMo0_whUpzWcXDYpApxGmoi44HFvSTEbYR5yCL-WknVlNBQYa-o_UZn55BBJ6G9rZLQXMGa4Y4attKmieCD-hg3p5ii5Sk5BS-MVGVeUJT0pK3RSSJZXtme8h2TfukG0lwLYISr_oVHte3hhJxgr1a7FadDHGOqpi4LdHW-sozdkt6uOlMsovWW9L8PI18dVT8KEAvzQPI63qjDOTICWGEm0p13FBXlT2Z5Ek2fdJ5o05sdmUo1oqPpIh5gmlG3_eueuKXaq-4dvosT-AdeoBhBPKKN5zW6Bidas58MscCOoqx_ZRoyGniGI0A_H-xVB25xXbgU1Q7PfDnngMVWxVMTP967GWBA-hQ1ZEnGxK6g4hAkC2kOeQQt2etj6OBaDlkRj13p3R4ElErdGCDVuyi4iQOw2G2vBhkFNcJdfUta3ykO9oKNaErdFRiKzbIm=w1028-h904-no" width=670px/>
 
-- 둘 이상의 프로세스가 물리적 메모리의 일보를 공유(
+- 둘 이상의 프로세스가 물리적 메모리의 일보를 공유(**동기화 필요**)
 - 가장 효율적인 IPC기법
+
+## shmget System call
+
+```c
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+int shmget(key_t key, size_t size, int permflag);
+```
+
+#### <인자>
+- key : 공유 메모리 영역의 identifier
+- size : 공유 메모리 영역의 최소 크기
+- permflag : access permission | IPC_CREAT | IPC_EXCL
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNzA4NDgyMCwtMTgxMzQ3NDk5NiwxMT
-kzNTkxODk3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgy
-OTEwNyw5ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLT
-EzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgz
-NDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF
-19
+eyJoaXN0b3J5IjpbOTg2ODM5OTAwLC0xODEzNDc0OTk2LDExOT
+M1OTE4OTcsMTI4NTU2MDAzMiwxNjU3OTEyNDgyLC0xMzExODI5
+MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMyMTc2NjI5NSwtMT
+M2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OTYwODM0
+MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX
+0=
 -->
