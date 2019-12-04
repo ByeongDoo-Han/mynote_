@@ -396,7 +396,6 @@ int shmget(key_t key, size_t size, int permflag);
 
 ### 공유 메모리 생성 예시
 - 512 byte의 문자를 저장할 공유 메모리 생성
-
 ```shmid1 = shmget(0111, 512, 0600|IPC_CREAT);```
 
 - 10개의 정수를 저장할 공유 메모리 생성
@@ -408,10 +407,10 @@ int shmget(key_t key, size_t size, int permflag);
 ## shmat System call
 - shmget 호출에 의해 할당된 메모리 영역을 자신의 논리적 자료 공간에 부착 (**즉, 만들고 나서 사용하고자하는 자료형으로 정확히 지정해주어야함!!**)
 
-```c
-#include <sys/shm.h>
-int *shmat(int shmid, const void *daddr, int shmflag);
-```
+	```c
+	#include <sys/shm.h>
+	int *shmat(int shmid, const void *daddr, int shmflag);
+	```
 
 #### <인자>
 - shmid : 공유 메모리 identifier
@@ -475,10 +474,11 @@ int shmdt(memptr);
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMT
-QxMDkzNzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1
-NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMz
-EsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1NjkwMTEsMTk5
-MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5Mz
-MsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
+eyJoaXN0b3J5IjpbLTE5NjkwMzQ3MTUsMTc3MTc1NTc2MywtMT
+I4NzQ0NTQyNSwtMTQxMDkzNzIyNywtMTgxMzQ3NDk5NiwxMTkz
+NTkxODk3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgyOT
+EwNyw5ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEz
+NjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzND
+A1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
+
 -->
