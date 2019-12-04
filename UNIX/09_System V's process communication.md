@@ -432,9 +432,13 @@ int *shmat(int shmid, const void *daddr, int shmflag);
 int shmdt(memptr);
 ```
 
-#
+#### <인자>
+- memptr : 공유 메모리 영역에 대한 유효주소
+- return 값 : 0 or -1
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTc3Njk3MjMsLTE4MTM0NzQ5OTYsMT
+eyJoaXN0b3J5IjpbLTE0MTA5MzcyMjcsLTE4MTM0NzQ5OTYsMT
 E5MzU5MTg5NywxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4
 MjkxMDcsOTg5NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC
 0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4
