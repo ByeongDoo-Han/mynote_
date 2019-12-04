@@ -438,14 +438,23 @@ int shmdt(memptr);
 
 ### shmat를 이용한 공유 메모리 부착 예시
 - 512byte의 문자를 저장할 공유 메모리 생성 후 부착
-```buf1 = (char *)shmat
+```buf1 = (char *)shmat(shmid1, 0, 0);```
+
+- 10개의 정수를 저장할 공유 메모리 생성 후 부착
+```buf2=(int *)shmat(shmid2, 0, 0);```
+
+- struct databuf의 데이터 5개를 저장할 공유 메모리 생성 후 부착
+```buf3=(struct databuf *)shmat(shmid3, 0, 0);```
+
+### ㄱ
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODQ4ODU0MDMsLTEyODc0NDU0MjUsLT
-E0MTA5MzcyMjcsLTE4MTM0NzQ5OTYsMTE5MzU5MTg5NywxMjg1
-NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4MjkxMDcsOTg5NzY4MD
-MxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MDExLDE5
-OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OT
-MzLC0xMDQxNDQzODkxLDE5NjIyNjc3NDRdfQ==
+eyJoaXN0b3J5IjpbMTA0NjYxMjI1LC0xMjg3NDQ1NDI1LC0xND
+EwOTM3MjI3LC0xODEzNDc0OTk2LDExOTM1OTE4OTcsMTI4NTU2
+MDAzMiwxNjU3OTEyNDgyLC0xMzExODI5MTA3LDk4OTc2ODAzMS
+w4ODM0NDE5OTQsMTMyMTc2NjI5NSwtMTM2MTU2OTAxMSwxOTky
+MDk4MDc5LDczNzk3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkzMy
+wtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
 -->
