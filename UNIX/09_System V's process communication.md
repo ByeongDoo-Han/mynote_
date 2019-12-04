@@ -468,16 +468,17 @@ int shmdt(memptr);
 	```
 
 - struct databuf의 데이터 중 d_nread와 d_buf 출력하기
-```
-for(i=0;i<5;i++
-
+	```
+	for(i=0;i<5;i++)
+		printf("%d ... %s", (buf3+i)->d_nread, (buf3+i)->d_buf);
+	```
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzQ2NjA1NTEsLTEyODc0NDU0MjUsLT
-E0MTA5MzcyMjcsLTE4MTM0NzQ5OTYsMTE5MzU5MTg5NywxMjg1
-NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4MjkxMDcsOTg5NzY4MD
-MxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MDExLDE5
-OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OT
-MzLC0xMDQxNDQzODkxLDE5NjIyNjc3NDRdfQ==
+eyJoaXN0b3J5IjpbMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMT
+QxMDkzNzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1
+NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMz
+EsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1NjkwMTEsMTk5
+MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5Mz
+MsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
 -->
