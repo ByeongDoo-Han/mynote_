@@ -406,12 +406,25 @@ int shmget(key_t key, size_t size, int permflag);
 ```shmid3 = shmget(0113, 5*sizeof(struct databuf), 0600|IPC_CREAT);```
 
 ## shmat System call
-- shmget 호출에 의해 할당된 메모리 영역을 자신의 논리적 자료 공간에 부착 (즉, 만들고 나서 정
+- shmget 호출에 의해 할당된 메모리 영역을 자신의 논리적 자료 공간에 부착 (**즉, 만들고 나서 사용하고자하는 자료형으로 정확히 지정해주어야함!!**)
+
+```c
+#include <sys/shm.h>
+int *shmat(int shmid, const void *daddr, int shmflag);
+```
+
+#### <인자>
+- shmid : 공유 메모리 identifier
+- daddr :
+	- process address space 내의 부착위치
+	- NULL인 경우 시스템이 위치 결정
+- shmflag :
+	- SHM_RDO
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMjAwMjI5MywtMTgxMzQ3NDk5NiwxMT
-kzNTkxODk3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgy
-OTEwNyw5ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLT
-EzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgz
-NDA1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF
-19
+eyJoaXN0b3J5IjpbLTE5NzEyMjU3NTYsLTE4MTM0NzQ5OTYsMT
+E5MzU5MTg5NywxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4
+MjkxMDcsOTg5NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC
+0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4
+MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkxLDE5NjIyNjc3ND
+RdfQ==
 -->
