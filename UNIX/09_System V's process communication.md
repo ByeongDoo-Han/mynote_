@@ -419,9 +419,13 @@ int *shmat(int shmid, const void *daddr, int shmflag);
 	- process address space 내의 부착위치
 	- NULL인 경우 시스템이 위치 결정
 - shmflag :
-	- SHM_RDO
+	- SHM_RDONLY : 공유 메모리에 대해 읽기만 가능
+	- 0 : 공유 메모리에 대해 읽기 / 쓰기 가능
+- return 값 : 
+	- 성공 -> process 내의 유효주소
+	- 실패 -> (void *)-1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzEyMjU3NTYsLTE4MTM0NzQ5OTYsMT
+eyJoaXN0b3J5IjpbLTEzNTk4OTExNjIsLTE4MTM0NzQ5OTYsMT
 E5MzU5MTg5NywxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4
 MjkxMDcsOTg5NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC
 0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4
