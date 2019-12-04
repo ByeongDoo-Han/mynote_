@@ -454,17 +454,30 @@ int shmdt(memptr);
 	```	
 
 - 표준 입력으로 읽은 10개의 정수를 공유 메모리 공간에 저장 후 출력
+	```
+	for(i=0;i<10;i++)
+		scanf("%d", buf2+i);
+	for(i=0;i<10;i++)
+		printf("%d\n", *(buf2+i));
+	```
+
+- struct databuf의 데이터 중 d_nread에 10씩 더하기
+	```
+	for(i=0;i<5;i++)
+		(buf3+i)->d_nread += 10;
+	```
+
+- struct databuf의 데이터 중 d_nread와 d_buf 출력하기
 ```
-for(i=0;i<10;i++)
-	scanf("%d"
+for(i=0;i<5;i++
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM1NDU4NjAyLC0xMjg3NDQ1NDI1LC0xND
-EwOTM3MjI3LC0xODEzNDc0OTk2LDExOTM1OTE4OTcsMTI4NTU2
-MDAzMiwxNjU3OTEyNDgyLC0xMzExODI5MTA3LDk4OTc2ODAzMS
-w4ODM0NDE5OTQsMTMyMTc2NjI5NSwtMTM2MTU2OTAxMSwxOTky
-MDk4MDc5LDczNzk3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkzMy
-wtMTA0MTQ0Mzg5MSwxOTYyMjY3NzQ0XX0=
+eyJoaXN0b3J5IjpbLTEyMzQ2NjA1NTEsLTEyODc0NDU0MjUsLT
+E0MTA5MzcyMjcsLTE4MTM0NzQ5OTYsMTE5MzU5MTg5NywxMjg1
+NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4MjkxMDcsOTg5NzY4MD
+MxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MDExLDE5
+OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OT
+MzLC0xMDQxNDQzODkxLDE5NjIyNjc3NDRdfQ==
 -->
