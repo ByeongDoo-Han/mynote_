@@ -392,8 +392,17 @@ int shmget(key_t key, size_t size, int permflag);
 - key : 공유 메모리 영역의 identifier
 - size : 공유 메모리 영역의 최소 크기
 - permflag : access permission | IPC_CREAT | IPC_EXCL
+- return 값 : 공유 메모리 영역의 identifier
+
+### 공유 메모리 생성 예시
+- 512 byte의 문자를 저장할 공유 메모리 생성
+
+```shmid1 = shmget(0111, 512, 0600|IPC_CREAT);```
+
+- 10개의 정수를 저장할 공유 메모리 생성
+```shmid2 = shmget(0112, 1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg2ODM5OTAwLC0xODEzNDc0OTk2LDExOT
+eyJoaXN0b3J5IjpbMjAyMTYzNTI2LC0xODEzNDc0OTk2LDExOT
 M1OTE4OTcsMTI4NTU2MDAzMiwxNjU3OTEyNDgyLC0xMzExODI5
 MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMyMTc2NjI5NSwtMT
 M2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OTYwODM0
