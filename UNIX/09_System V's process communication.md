@@ -53,7 +53,7 @@ struct ipc_perm {
 **message queue** -> 남아있다.
 **FIFO** -> 남은것은 flush된다.
 
-## message passing
+# message passing
 - message queue를 통한 message 전달
 	- msgget : queue 생성
 	- msgsnd : message 보내기
@@ -187,7 +187,7 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 	- time_t msg_rtime;					// last receipt time
 	- time_t msg_ctime;					// last s/r time
 
-## Semaphore
+# Semaphore
 
 <img src="https://lh3.googleusercontent.com/ZIZf7fGX-UTxhPR0W_fXbKz16ewn_Fh24wa3-rl1PJFVodAHs6rmEauKcEKY9XMKjSqUKoM1ZaXKoFP9LawTerExK62RvLvm6YJf94JOEtsNGUDPhqE9Y7R1YWKgQSpayFkbI2Ioj6f5Xh6t_nVrxMS2cNwEBNyMpaVWEc1-Nlkh-C3hc_Sp0qiphb_l_OGn0ZculmB4-Z76iD1QgXGIUKqgzJhBi5_hDAgYzNG-4UfLUP3I9w64xb3odcnx404G2jfl3lg99iUhIsEh5bW1Z_KzYpQL_LQcYRlVMfxqo48cpBhvlvnQmy5OC-7hrp-gpQOaTHlyfsJSCR4ndvV7rVREIJr0N_aFatESPXsyVQSbbM30kvHfkQZX4u3T3CVMeNAg1mICYKr0TYuza2ircCgscjj4cGcRYiFYmi5Qb4LqErkdT-SLacILXuDMkfebZnkenthkmvFjALOnnDT8KTtpCs57BHUs9AniYeMn0NcEsKa2IxQLTB2FR-T52_mXhEklJ8PO2NkK_QqdG5oRW_zhzrHGn1e5jmsQesMQ7-wyRmhVh077_SnuHUzEg9gszgbyqEg1gok9YGEUa8wH8JzeLGRpOYwH0WgCNGPEj8Gx9A0T9sMenOXAXCv7uK5ucmGeKZ9xRkTOZCj2Gk4e6IeRgrxqIvZRGzhxk6m52svthMI9pq1j91wzb9WgkCGMXXNoPaBfrkGlW0nOX_-Sd5NUacJNDAt_tlgczxuliQXx-Uxw=w915-h904-no" width=600px />
 
@@ -372,10 +372,14 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 => 뺄 수 있는 첫번째 사람을 깨움
 => **영원히 blocking 될 수도 있다.**
 => **semaphore 하나로 해결할 수 있다.**(Semaphore를 최소로 사용하는 것을 생각해보기!!)
+
+# Shared Memory
+- 둘 이상의 프로세스가 물리적 메모리의 일보를 공유
+- 가장 효율적인 IPCㄱ
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4NTU2MDAzMiwxNjU3OTEyNDgyLC0xMz
-ExODI5MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMyMTc2NjI5
-NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MTY5Miw1OT
-YwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwxOTYyMjY3
-NzQ0XX0=
+eyJoaXN0b3J5IjpbLTEyNTI1NDQyNywxMjg1NTYwMDMyLDE2NT
+c5MTI0ODIsLTEzMTE4MjkxMDcsOTg5NzY4MDMxLDg4MzQ0MTk5
+NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNz
+M3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQz
+ODkxLDE5NjIyNjc3NDRdfQ==
 -->
