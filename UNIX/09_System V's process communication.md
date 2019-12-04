@@ -177,15 +177,19 @@ int msgctl(int mqid, int command, struct msqid_ds *msg_stat);
 - command =
 	- IPC_STAT : msg queue의 상태 정보 확인
 	- IPC_RMID : msg_queue 삭제 ( 3번째 인자값 = 0)
-- msqid_ds 구조 :
-	- struct ipc_perm msg_perm;	// 소유권
-	- msgqnum_t msg_qnum;			// msg 수
-	- msglen_t msg_qbytes;			// bytes 수
-	- pid_t msg_lspid;						// last sender
-	- pid_t msg_lrpid;						// last receiver
-	- time_t msg_stime;					// last sending time
-	- time_t msg_rtime;					// last receipt time
-	- time_t msg_ctime;					// last s/r time
+	- 
+	```c
+	struct msqid_ds {
+		struct ipc_perm msg_perm;	// 소유권
+		msgqnum_t msg_qnum;			// msg 수
+		msglen_t msg_qbytes;			// bytes 수
+		pid_t msg_lspid;						// last sender
+		pid_t msg_lrpid;						// last receiver
+		time_t msg_stime;					// last sending time
+		time_t msg_rtime;					// last receipt time
+		time_t msg_ctime;					// last s/r time
+	}
+	```
 
 # Semaphore
 
@@ -474,11 +478,11 @@ int shmdt(memptr);
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NjkwMzQ3MTUsMTc3MTc1NTc2MywtMT
-I4NzQ0NTQyNSwtMTQxMDkzNzIyNywtMTgxMzQ3NDk5NiwxMTkz
-NTkxODk3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgyOT
-EwNyw5ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEz
-NjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzND
-A1LC0zNDk4NTk5MzMsLTEwNDE0NDM4OTEsMTk2MjI2Nzc0NF19
-
+eyJoaXN0b3J5IjpbMTYyODI3OTEzNSwtMTk2OTAzNDcxNSwxNz
+cxNzU1NzYzLC0xMjg3NDQ1NDI1LC0xNDEwOTM3MjI3LC0xODEz
+NDc0OTk2LDExOTM1OTE4OTcsMTI4NTU2MDAzMiwxNjU3OTEyND
+gyLC0xMzExODI5MTA3LDk4OTc2ODAzMSw4ODM0NDE5OTQsMTMy
+MTc2NjI5NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDczNzk3MT
+Y5Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0MTQ0Mzg5MSwx
+OTYyMjY3NzQ0XX0=
 -->
