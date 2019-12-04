@@ -375,9 +375,9 @@ FIFO queue(순서대로 queue를 진입(-1), 진출(+1))가 아니라 **Non-FIFO
 
 # Shared Memory
 - 둘 이상의 프로세스가 물리적 메모리의 일보를 공유
-- 가장 효율적인 IPCㄱ
+- 가장 효율적인 IPC기법
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTI1NDQyNywxMjg1NTYwMDMyLDE2NT
+eyJoaXN0b3J5IjpbMTE5MzU5MTg5NywxMjg1NTYwMDMyLDE2NT
 c5MTI0ODIsLTEzMTE4MjkxMDcsOTg5NzY4MDMxLDg4MzQ0MTk5
 NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNz
 M3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQz
