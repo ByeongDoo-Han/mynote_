@@ -11,7 +11,7 @@
 | 신뢰성데이터전송 | 비신뢰성데이터전송 |
 | 1:1 통신 | 1:1통신 or 1:통신 |
 
-예) 전화
+#### 예) 전화
 | 받는 사람 | 거는 사람 |
 |--|--|
 | 전화 | 전화 |
@@ -22,7 +22,8 @@
 | 대화 | 대화 |
 | 전화 끊기 | 전화 끊기 |
 
-Server-Client
+
+#### Server-Client
 |Server| Client |
 |--|--|
 | Socket 생성 - socket | Socket 생성 - socket |
@@ -41,6 +42,7 @@ SOCKET socket(
     int protocol	// 사용할 프로토콜(통신방법)지정
 );
 ```
+
 #### <인자>
 - type
   - TCP - SOCK_STREAM
@@ -49,6 +51,7 @@ SOCKET socket(
   - TCP - IPPROTO_TCP
   - UDP - IPPROTO_UDP
   - 주소체계와 소켓 타입만으로 운영체제가 자동으로 지원된다
+
 #### <반환값>
 - 반환값 
 	- 성공 -> 소켓 반환
@@ -56,6 +59,7 @@ SOCKET socket(
 
 
 ## Socket종료 함수
+
 ```cpp
 int closesocket( SOCKET s );	
 ```
@@ -67,6 +71,7 @@ int closesocket( SOCKET s );
 ## Socket 정의 함수(bind 함수)
  - 서버의 IP주소와 포트번호를 결정하는 함수
  - 사용할 소켓을 정의 한다
+
 ```cpp
 int bind(
 	SOCKET s,					// 접속을 허용할 소켓을 지정한다
@@ -97,6 +102,7 @@ int listen(
 ## Socket 연결 요청 함수(connect 함수)
  - 클라이언트에서 사용하는 함수
  - 접속할 서버와 논리적인 연결을 설정하는 함수
+
 ```cpp
 int connect( 
 	SOCKET s,					// 접속을 허용할 소켓을 지정한다
@@ -112,6 +118,7 @@ int connect(
  - 클라이언트와 통실할 새로운 소켓을 생성후 리턴
  - 접속할 클라이언트의 IP/PORT를 알수 있다
  - 연결 신호가 들어올때까지 대기하고 있다가 신호가 들어왔을때 실행된다
+
 ```cpp
 SOCKET accept(
 	SOCKET s,				// TCP포트의 활성화 상태의 소켓
@@ -124,6 +131,7 @@ SOCKET accept(
 
 ##  TCP에서의 데이터 송수신 함수
 ### 데이터 수신 함수(recv)
+
 ```cpp
 int recv(
 	SOCKET s,	// 대상과 연결된 소켓
@@ -136,6 +144,7 @@ int recv(
  - 성공시 데이터 크기 반환 실패시에는 SOCKET_ERROR를 반환
 
 ### 데이터 송신 함수(send) 
+
 ```cpp
 int send(
 	SOCKET s,			// 대상과 연결된 소켓
@@ -148,6 +157,7 @@ int send(
  - 성공시 데이터 크기 반환 실패시에는 SOCKET_ERROR를 반환
 
 ## Server code
+
 ```cpp
 #pragma comment(lib, "ws2_32")
 #include <WinSock2.h>
@@ -233,6 +243,7 @@ int main(void) {
 ```
 
 ## Client Code
+
 ```cpp
 #pragma comment(lib, "ws2_32")
 #include <WinSock2.h>
@@ -293,5 +304,5 @@ int main(void) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1NDY1MTE0N119
+eyJoaXN0b3J5IjpbMTk5MzA3NzM5MywtODU0NjUxMTQ3XX0=
 -->
