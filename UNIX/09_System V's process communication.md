@@ -553,6 +553,7 @@ int fcntl(int filedes, int cmd, struct flock *ldata);
 ```
 
 - lock 정보는 fork()에 의해 계승되지 않는다.
+	- 한 process가 lock하면 다른 child는 동시에 lock이 아닌 기다려야한다.
 - 모든 lock은 프로세스 종료 시 자동으로 unlock 된다.
 
 ### 교착상태 (Deadlock)
@@ -587,7 +588,7 @@ int main(void) {
 				write(fd, &num, sizeof(int));
 
 				lock.l_type=F_UNLCK;
-				lock.l_start=-sizeof(int);
+				lock.l_start=-sizeof(int);	// -sizeof(int)인 이유? -> 쓰는만큼 풀어야함
 				fcntl(fd, F_SETLK, &lock);
 		}
 
@@ -602,11 +603,11 @@ int main(void) {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODA4Nzk2NTMsLTI2MTM5NDUxNCw3OD
-I0MzA2NDMsLTE5NjkwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0
-NTQyNSwtMTQxMDkzNzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxOD
-k3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5
-ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1Nj
-kwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0z
-NDk4NTk5MzNdfQ==
+eyJoaXN0b3J5IjpbNTU2MjgyNTIxLC0yNjEzOTQ1MTQsNzgyND
+MwNjQzLC0xOTY5MDM0NzE1LDE3NzE3NTU3NjMsLTEyODc0NDU0
+MjUsLTE0MTA5MzcyMjcsLTE4MTM0NzQ5OTYsMTE5MzU5MTg5Ny
+wxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4MjkxMDcsOTg5
+NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MD
+ExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5
+ODU5OTMzXX0=
 -->
