@@ -476,13 +476,24 @@ int shmdt(memptr);
 		printf("%d ... %s", (buf3+i)->d_nread, (buf3+i)->d_buf);
 	```
 
+## shmctl System call
+
+```c
+#include <sys/shm.h>
+int shmctl (int shmid, int command, struct shmid_ds *shm_stat)
+```
+
+- command
+	- IPC_STAT
+	- IPC_RMID
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgyNDMwNjQzLC0xOTY5MDM0NzE1LDE3Nz
-E3NTU3NjMsLTEyODc0NDU0MjUsLTE0MTA5MzcyMjcsLTE4MTM0
-NzQ5OTYsMTE5MzU5MTg5NywxMjg1NTYwMDMyLDE2NTc5MTI0OD
-IsLTEzMTE4MjkxMDcsOTg5NzY4MDMxLDg4MzQ0MTk5NCwxMzIx
-NzY2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNj
-kyLDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQxNDQzODkxLDE5
-NjIyNjc3NDRdfQ==
+eyJoaXN0b3J5IjpbLTY4MDg0NjU3Nyw3ODI0MzA2NDMsLTE5Nj
+kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
+NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
+IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
+NDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1NjkwMTEsMTk5MjA5OD
+A3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEw
+NDE0NDM4OTFdfQ==
 -->
