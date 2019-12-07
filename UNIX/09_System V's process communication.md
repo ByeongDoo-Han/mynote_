@@ -503,6 +503,15 @@ P1과 P2의 실행 후 X의 값은?
 ### locking : 특정 record에 대한 다른 프로세스의 읽기/쓰기 제한
  - read lock : 읽기는 허용, 쓰기는 제한
  - write lock : 읽기, 쓰기 모두 제한
+	```
+	Lock
+	Read X
+	X = X + 100
+	Write X
+	UnLock
+	---------
+	=>write lock
+	```
 
 ### unlocking : 제한 해제
 
@@ -584,11 +593,11 @@ int main(void) {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2MTM5NDUxNCw3ODI0MzA2NDMsLTE5Nj
-kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
-NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
-IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
-NDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1NjkwMTEsMTk5MjA5OD
-A3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEw
-NDE0NDM4OTFdfQ==
+eyJoaXN0b3J5IjpbLTE0MTQ3OTc5OTMsLTI2MTM5NDUxNCw3OD
+I0MzA2NDMsLTE5NjkwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0
+NTQyNSwtMTQxMDkzNzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxOD
+k3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5
+ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1Nj
+kwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0z
+NDk4NTk5MzNdfQ==
 -->
