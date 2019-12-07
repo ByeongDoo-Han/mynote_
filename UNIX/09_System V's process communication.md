@@ -511,20 +511,28 @@ P1과 P2의 실행 후 X의 값은?
 int fcntl(int filedes, int cmd, struct flock *ldata);
 ```
 
-#### 
+#### <인자>
 - filedes : lock을 설정하려는 file의 descriptor
 	- read-lock은 O_RDONLY / O_RDWR로 open된 file에 한해서 적용 가능
 	- write-lock은 O_WRONLY / O_RDWR로 open된 file에 한해서 적용 가능
-- cd
+- cmd
+	- F_GETLK : lock 정보 얻기
+		- 해당 정보는 세번째 인수에 저장
+	- F_SETLK : non-blocking locking or unlocking
+		- lock 설정에 관한 자세한 정보는 세번째 인수에 저장
+	- F_SETLKW : blocking locking
+		- lock 설정에 관한 자세한 정보는 세번째 인수에 저장
+- struct flock *ldata
+	- short l_type
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTk1MDI1NSw3ODI0MzA2NDMsLTE5Nj
-kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
-NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
-IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
-NDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1NjkwMTEsMTk5MjA5OD
-A3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEw
-NDE0NDM4OTFdfQ==
+eyJoaXN0b3J5IjpbNzMyMjI3ODksNzgyNDMwNjQzLC0xOTY5MD
+M0NzE1LDE3NzE3NTU3NjMsLTEyODc0NDU0MjUsLTE0MTA5Mzcy
+MjcsLTE4MTM0NzQ5OTYsMTE5MzU5MTg5NywxMjg1NTYwMDMyLD
+E2NTc5MTI0ODIsLTEzMTE4MjkxMDcsOTg5NzY4MDMxLDg4MzQ0
+MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MDExLDE5OTIwOTgwNz
+ksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5ODU5OTMzLC0xMDQx
+NDQzODkxXX0=
 -->
