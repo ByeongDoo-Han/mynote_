@@ -487,9 +487,22 @@ int shmctl (int shmid, int command, struct shmid_ds *shm_stat)
 	- IPC_STAT
 	- IPC_RMID
 
+## record locking
+
+- 필요성
+```
+현재 : X = 100
+P1											P2
+Read X									Read X
+X = X + 100							X = X + 200
+Write X									Write X
+
+P1과 P2의 실행 후 X의 값은?
+```
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4MDg0NjU3Nyw3ODI0MzA2NDMsLTE5Nj
+eyJoaXN0b3J5IjpbLTcxOTgzODk1MCw3ODI0MzA2NDMsLTE5Nj
 kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
 NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
 IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
