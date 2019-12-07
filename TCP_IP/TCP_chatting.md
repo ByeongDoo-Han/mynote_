@@ -152,7 +152,7 @@ int main(void) {
 		printf("송신 데이터 입력하세요 : ");
 		scanf_s("%s", buf, sizeof(buf));
 		int size = send(sock, buf, strlen(buf) + 1, 0);
-		if (strcmp(buf, "EXIT") == 0) {
+		if (strcmp(buf, "EXIT") == 0 || strcmp(buf, "exit") == 0) {
 			/*close socket*/
 			err = closesocket(sock);
 			if (err != SOCKET_ERROR)
@@ -186,5 +186,5 @@ int main(void) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY3ODE0MjI4XX0=
+eyJoaXN0b3J5IjpbMTg3NTYzNDgwOSw5Njc4MTQyMjhdfQ==
 -->
