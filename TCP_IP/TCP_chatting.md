@@ -130,7 +130,7 @@ int main(void) {
 	addr.sin_port = htons(12121);
 	inet_pton(AF_INET, "192.168.0.103", &addr.sin_addr);
 
-	err = connect(sock, (SOCKADDR*)&addr, sizeof(addr));
+	err = connect(sock, (SOCKADDR*)& addr, sizeof(addr));
 	if (err != SOCKET_ERROR) {
 		printf("연결 성공!!\n");
 	}
@@ -145,33 +145,32 @@ int main(void) {
 		printf("송신 데이터 입력하세요 : ");
 		scanf_s("%s", buf, sizeof(buf));
 		int size = send(sock, buf, strlen(buf) + 1, 0);
-		if (strcmp(buf, "EXIT") == 0 || strcmp(buf, "exit") == 0) {
-
+		if (!strcmp(buf, "EXIT") || !strcmp(buf, "exit")) {
+			printf("종료합니다.\n");
 			break;
 		}
-		else {
-			printf("송신 데이터의 크기 : %dbyte\n", size);
-			memset(buf, 0, sizeof(buf));
-			size = recv(sock, buf, sizeof(buf), 0);
-			if (strcmp(buf, "EXIT") == 0) {
-				/*close socket*/
-				err = closesocket(sock);
-				if (err != SOCKET_ERROR)
-					printf("종료 성공!\n");
-				else {
-					printf("종료 실패!\n");
-					return err;
-				}
-				break;
-			}
-			printf("받은 데이터 : %s\n", buf);
-			printf("받은 데이터 크기 : %dbyte\n", size);
+		printf("송신 데이터의 크기 : %dbyte\n", size);
+		memset(buf, 0, sizeof(buf));
+		size = recv(sock, buf, sizeof(buf), 0);
+		if (!strcmp(buf, "EXIT") || !strcmp(buf, "exit")) {
+			printf("상대방의 요청에 의해 종료합니다.\n");
+			break;
 		}
+		printf("받은 데이터 : %s\n", buf);
+		printf("받은 데이터 크기 : %dbyte\n", size);
 	}
-	
+	/*close socket*/
+	err = closesocket(sock);
+	if (err != SOCKET_ERROR) {
+		printf("종료 성공\n");
+	}
+	else {
+		printf("종료 실패\n");
+		return err;
+	}
 	WSACleanup();
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyMjQ3MTk2NSw5Njc4MTQyMjhdfQ==
+eyJoaXN0b3J5IjpbLTQxODA5MDg3NCw5Njc4MTQyMjhdfQ==
 -->
