@@ -500,9 +500,12 @@ Write X									Write X
 P1과 P2의 실행 후 X의 값은?
 ```
 
-
+### locking
+ : 특정 record에 대한 다른 프로세스의 읽기/쓰기 제한
+ - read lock : 읽기는 허용, 쓰기는 제한
+ - write l
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxOTgzODk1MCw3ODI0MzA2NDMsLTE5Nj
+eyJoaXN0b3J5IjpbLTE4NTYzNzIxNSw3ODI0MzA2NDMsLTE5Nj
 kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
 NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
 IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
