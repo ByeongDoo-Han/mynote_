@@ -541,10 +541,17 @@ int fcntl(int filedes, int cmd, struct flock *ldata);
 	- pid_t l_pid : F_GETLK의 경우만 유효
 		- 누가 해당 file에 lock을 걸었나?
 
+### locking
+
 <img src="https://lh3.googleusercontent.com/yDLVDWyJ0Vdp6q2FuKXpKkUMFsF2_ey7Okitz0eJg4OEKJ4CPusq1YiaZ632_daMa1DpweEXPWHRVY2WvkiluX5pVhdU-21eusoSneZrQwOiwDm4uRY7BwPSHpXQE5dpy5f_GiTPuHBIgk5lftalkx46hDrDOy2SNyhZiZs7Shh2rajLtE8UFGyAZDfiJtSLaRx6TDOQNZkvSY7tahA31DXGlfyolDGg92lGb-Q5lyR5Tfu2Gz6QrDzcWXQIwcYQ88aWXOQWdd21iIN769VNsmx_G4jYCQzhldN_vbmm8jB9mfy1LQhUwUCLvzJ5XSEBv5BmzQDM6nCmft9FaNVzukjyDq1rgNBhwo5o56kB3m0LSGcOGcXpBrQUW9PRXJtcbYfTDgjuCPx7HXtKiATuwvpJbBkIbwMQblhqx2ELNH2BLg5sMn8M9wM1cNkj8_bZ4jzMYEQaR-eUHz50-9qyDldzRFHkDytv9U0v0EQ1b993uSNuGvliipx2Y58J_bWL883hZJm4w4dp3OqhVK5HnOy2NhuH_yX7VhSbND7zSYX-FT6WKQ0yGxkUPA13FHnlaDH1iageJND3CYAR09OXzYIgq4P2a5UnAklBRim8_ywsu1xifYD2DvL-hC-BOAcYzTJTeS3Zq_hPKjWGQk-kKC01IcOeRGe6owG77jMYDMKcKlRRviFtd-6vseiLdh4q9ZyMTN-O4GUpQ7ixdwHVkvFA568LnNu_gdfjoPjB_v3w9_mo=w896-h318-no" width=600px/>
 
 ```
+	lock(6)
+	l_whence = SEEK_CUR
+	l_start = 6
+	l_len = 4
 ```
+
 - lock 정보는 fork()에 의해 계승되지 않는다.
 - 모든 lock은 프로세스 종료 시 자동으로 unlock 된다.
 
@@ -595,11 +602,11 @@ int main(void) {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjEyNDMzLC0yNjEzOTQ1MTQsNzgyND
-MwNjQzLC0xOTY5MDM0NzE1LDE3NzE3NTU3NjMsLTEyODc0NDU0
-MjUsLTE0MTA5MzcyMjcsLTE4MTM0NzQ5OTYsMTE5MzU5MTg5Ny
-wxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4MjkxMDcsOTg5
-NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MD
-ExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5
-ODU5OTMzXX0=
+eyJoaXN0b3J5IjpbLTEwODA4Nzk2NTMsLTI2MTM5NDUxNCw3OD
+I0MzA2NDMsLTE5NjkwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0
+NTQyNSwtMTQxMDkzNzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxOD
+k3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5
+ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1Nj
+kwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0z
+NDk4NTk5MzNdfQ==
 -->
