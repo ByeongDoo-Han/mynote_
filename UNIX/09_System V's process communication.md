@@ -526,12 +526,16 @@ int fcntl(int filedes, int cmd, struct flock *ldata);
 	- short l_type : lock의 type
 		- F_RDLCK, F_WRLCK, F_UNLCK
 	- short l_whence
-		- SEEK_SET, SEEK_CUR, SE
+		- SEEK_SET, SEEK_CUR, SEEK_END
+	- off_t l_start : l_whence로 부터의 변위를 표현된 locked record의 시작 위치
+	- off_t l_len : locked record의 길이
+	- pid_t l_pid : F_GETLK의 경우만 유효
+		- 누가 해당 file에 lock을 걸었나?
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1MzAzMTMxMyw3ODI0MzA2NDMsLTE5Nj
+eyJoaXN0b3J5IjpbLTEwNDg5NTQ1OCw3ODI0MzA2NDMsLTE5Nj
 kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
 NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
 IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
