@@ -568,14 +568,27 @@ int main(void) {
 				lseek(fd, -sizeof(int), SEEK_CUR);
 				write(fd, &num, sizeof(int));
 
-				lock.l_t
+				lock.l_type=F_UNLCK;
+				lock.l_start=-sizeof(int);
+				fcntl(fd, F_SETLK, &lock);
+		}
+
+		lseek(fd, 0, SEEK_SET);
+		for(i=0;i<10;i++){
+				read(fd, &num, sizeof(int));
+				printf("%d\n", num);
+		}
+
+		return 0;
+}
+```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1NjA4NDQyLDc4MjQzMDY0MywtMTk2OT
-AzNDcxNSwxNzcxNzU1NzYzLC0xMjg3NDQ1NDI1LC0xNDEwOTM3
-MjI3LC0xODEzNDc0OTk2LDExOTM1OTE4OTcsMTI4NTU2MDAzMi
-wxNjU3OTEyNDgyLC0xMzExODI5MTA3LDk4OTc2ODAzMSw4ODM0
-NDE5OTQsMTMyMTc2NjI5NSwtMTM2MTU2OTAxMSwxOTkyMDk4MD
-c5LDczNzk3MTY5Miw1OTYwODM0MDUsLTM0OTg1OTkzMywtMTA0
-MTQ0Mzg5MV19
+eyJoaXN0b3J5IjpbLTI2MTM5NDUxNCw3ODI0MzA2NDMsLTE5Nj
+kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
+NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
+IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
+NDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1NjkwMTEsMTk5MjA5OD
+A3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0zNDk4NTk5MzMsLTEw
+NDE0NDM4OTFdfQ==
 -->
