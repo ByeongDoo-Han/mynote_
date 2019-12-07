@@ -527,9 +527,9 @@ int fcntl(int filedes, int cmd, struct flock *ldata);
 - cmd
 	- F_GETLK : lock 정보 얻기
 		- 해당 정보는 세번째 인수에 저장
-	- F_SETLK : non-blocking locking or unlocking
+	- F_SETLK(**UNLOCK**) : non-blocking locking or unlocking 
 		- lock 설정에 관한 자세한 정보는 세번째 인수에 저장
-	- F_SETLKW : blocking locking
+	- F_SETLKW(**LOCK**) : blocking locking 
 		- lock 설정에 관한 자세한 정보는 세번째 인수에 저장
 - struct flock *ldata
 	- short l_type : lock의 type
@@ -593,11 +593,11 @@ int main(void) {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTQ3OTc5OTMsLTI2MTM5NDUxNCw3OD
-I0MzA2NDMsLTE5NjkwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0
-NTQyNSwtMTQxMDkzNzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxOD
-k3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5
-ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOTUsLTEzNjE1Nj
-kwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2MDgzNDA1LC0z
-NDk4NTk5MzNdfQ==
+eyJoaXN0b3J5IjpbNDkzMTcwNzQ4LC0yNjEzOTQ1MTQsNzgyND
+MwNjQzLC0xOTY5MDM0NzE1LDE3NzE3NTU3NjMsLTEyODc0NDU0
+MjUsLTE0MTA5MzcyMjcsLTE4MTM0NzQ5OTYsMTE5MzU5MTg5Ny
+wxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4MjkxMDcsOTg5
+NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MD
+ExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5
+ODU5OTMzXX0=
 -->
