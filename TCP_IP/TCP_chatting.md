@@ -150,6 +150,7 @@ int main(void) {
 			break;
 		}
 		printf("송신 데이터의 크기 : %dbyte\n", size);
+
 		memset(buf, 0, sizeof(buf));
 		size = recv(sock, buf, sizeof(buf), 0);
 		if (!strcmp(buf, "EXIT") || !strcmp(buf, "exit")) {
@@ -172,5 +173,5 @@ int main(void) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxODA5MDg3NCw5Njc4MTQyMjhdfQ==
+eyJoaXN0b3J5IjpbLTE5Mjk5NDE3NzIsOTY3ODE0MjI4XX0=
 -->
