@@ -30,7 +30,7 @@ int main(void) {
 	addr.sin_port = htons(12121);
 	inet_pton(AF_INET, "192.168.0.103", &addr.sin_addr);
 
-	err = bind(sock, (SOCKADDR*)&addr, sizeof(addr));
+	err = bind(sock, (SOCKADDR*)& addr, sizeof(addr));
 	if (err != SOCKET_ERROR) {
 		printf("바인드 성공!\n");
 	}
@@ -54,7 +54,7 @@ int main(void) {
 	SOCKADDR_IN clsaddr = { NULL };
 	int clslen = sizeof(clsaddr);
 
-	cls = accept(sock, (SOCKADDR*)&clsaddr, &clslen);
+	cls = accept(sock, (SOCKADDR*)& clsaddr, &clslen);
 	if (cls == INVALID_SOCKET) {
 		printf("클라이언트 소켓 생성 실패!!\n");
 		return cls;
@@ -68,40 +68,33 @@ int main(void) {
 		char buf[128] = { NULL };
 
 		int size = recv(cls, buf, sizeof(buf), 0);
-		if (strcmp(buf, "EXIT") == 0) {
-			/*close socket*/
-			err = closesocket(sock);
-			if (err != SOCKET_ERROR) {
-				printf("종료 성공\n");
-			}
-			else {
-				printf("종료 실패\n");
-				return err;
-			}
+		if (!strcmp(buf, "EXIT") || !strcmp(buf, "exit")) {
+			printf("상대방의 요청에 의해 종료합니다.\n");
 			break;
 		}
-		else {
-			printf("수신 데이터의 크기 : %dbyte\n", size);
-			printf("수신 데이터 : %s\n", buf);
 
-			memset(buf, 0, sizeof(buf));
-			printf("송신 데이터를 입력하세요 : ");
-			scanf_s("%s", buf, sizeof(buf));
-			size = send(cls, buf, strlen(buf) + 1, 0);
-			if (strcmp(buf, "EXIT") == 0) {
-				/*close socket*/
-				err = closesocket(sock);
-				if (err != SOCKET_ERROR) {
-					printf("종료 성공\n");
-				}
-				else {
-					printf("종료 실패\n");
-					return err;
-				}
-				break;
-			}
-			printf("송신 데이터의 크기 : %dbyte\n", size);
+		printf("수신 데이터의 크기 : %dbyte\n", size);
+		printf("수신 데이터 : %s\n", buf);
+
+		memset(buf, 0, sizeof(buf));
+		printf("송신 데이터를 입력하세요 : ");
+		scanf_s("%s", buf, sizeof(buf));
+		size = send(cls, buf, strlen(buf) + 1, 0);
+		if (!strcmp(buf, "EXIT") || !strcmp(buf, "exit")) {
+			printf("종료합니다.\n");
+			break;
 		}
+		printf("송신 데이터의 크기 : %dbyte\n", size);
+	}
+
+	/*close socket*/
+	err = closesocket(sock);
+	if (err != SOCKET_ERROR) {
+		printf("종료 성공\n");
+	}
+	else {
+		printf("종료 실패\n");
+		return err;
 	}
 	WSACleanup();
 }
@@ -153,14 +146,7 @@ int main(void) {
 		scanf_s("%s", buf, sizeof(buf));
 		int size = send(sock, buf, strlen(buf) + 1, 0);
 		if (strcmp(buf, "EXIT") == 0 || strcmp(buf, "exit") == 0) {
-			/*close socket*/
-			err = closesocket(sock);
-			if (err != SOCKET_ERROR)
-				printf("종료 성공!\n");
-			else {
-				printf("종료 실패!\n");
-				return err;
-			}
+
 			break;
 		}
 		else {
@@ -182,9 +168,10 @@ int main(void) {
 			printf("받은 데이터 크기 : %dbyte\n", size);
 		}
 	}
+	
 	WSACleanup();
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NTYzNDgwOSw5Njc4MTQyMjhdfQ==
+eyJoaXN0b3J5IjpbMTUyMjQ3MTk2NSw5Njc4MTQyMjhdfQ==
 -->
