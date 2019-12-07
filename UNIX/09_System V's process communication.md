@@ -534,8 +534,26 @@ int fcntl(int filedes, int cmd, struct flock *ldata);
 
 <img src="https://lh3.googleusercontent.com/yDLVDWyJ0Vdp6q2FuKXpKkUMFsF2_ey7Okitz0eJg4OEKJ4CPusq1YiaZ632_daMa1DpweEXPWHRVY2WvkiluX5pVhdU-21eusoSneZrQwOiwDm4uRY7BwPSHpXQE5dpy5f_GiTPuHBIgk5lftalkx46hDrDOy2SNyhZiZs7Shh2rajLtE8UFGyAZDfiJtSLaRx6TDOQNZkvSY7tahA31DXGlfyolDGg92lGb-Q5lyR5Tfu2Gz6QrDzcWXQIwcYQ88aWXOQWdd21iIN769VNsmx_G4jYCQzhldN_vbmm8jB9mfy1LQhUwUCLvzJ5XSEBv5BmzQDM6nCmft9FaNVzukjyDq1rgNBhwo5o56kB3m0LSGcOGcXpBrQUW9PRXJtcbYfTDgjuCPx7HXtKiATuwvpJbBkIbwMQblhqx2ELNH2BLg5sMn8M9wM1cNkj8_bZ4jzMYEQaR-eUHz50-9qyDldzRFHkDytv9U0v0EQ1b993uSNuGvliipx2Y58J_bWL883hZJm4w4dp3OqhVK5HnOy2NhuH_yX7VhSbND7zSYX-FT6WKQ0yGxkUPA13FHnlaDH1iageJND3CYAR09OXzYIgq4P2a5UnAklBRim8_ywsu1xifYD2DvL-hC-BOAcYzTJTeS3Zq_hPKjWGQk-kKC01IcOeRGe6owG77jMYDMKcKlRRviFtd-6vseiLdh4q9ZyMTN-O4GUpQ7ixdwHVkvFA568LnNu_gdfjoPjB_v3w9_mo=w896-h318-no" width=600px/>
 
+- lock 정보는 fork()에 의해 계승되지 않는다.
+- 모든 lock은 프로세스 종료 시 자동으로 unlock 된다.
+
+### 교착상태 (Deadlock)
+- 교착상태란?
+- 교착상태 검색 가능?
+	- F_SETLKW 명령에 대해 -1 return
+	- errno는 EDEADLK
+
+### locking의 사용 예
+
+```c
+int main(void) {
+		int fd, i, num;
+		struct flock lock;
+
+		fd=op
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2NjY0OTEwMCw3ODI0MzA2NDMsLTE5Nj
+eyJoaXN0b3J5IjpbLTY2OTg0OTUzMiw3ODI0MzA2NDMsLTE5Nj
 kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
 NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
 IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
