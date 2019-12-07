@@ -500,18 +500,27 @@ Write X									Write X
 P1과 P2의 실행 후 X의 값은?
 ```
 
-### locking
- : 특정 record에 대한 다른 프로세스의 읽기/쓰기 제한
+### locking : 특정 record에 대한 다른 프로세스의 읽기/쓰기 제한
  - read lock : 읽기는 허용, 쓰기는 제한
  - write lock : 읽기, 쓰기 모두 제한
 
-### unlocking
-: 제한 해제
+### unlocking : 제한 해제
+
+```c
+#include <fcntl.h>
+int fcntl(int filedes, int cmd, struct flock *ldata);
+```
+
+#### 
+- filedes : lock을 설정하려는 file의 descriptor
+	- read-lock은 O_RDONLY / O_RDWR로 open된 file에 한해서 적용 가능
+	- write-lock은 O_WRONLY / O_RDWR로 open된 file에 한해서 적용 가능
+- cd
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyODgzMjg4Niw3ODI0MzA2NDMsLTE5Nj
+eyJoaXN0b3J5IjpbLTExNTk1MDI1NSw3ODI0MzA2NDMsLTE5Nj
 kwMzQ3MTUsMTc3MTc1NTc2MywtMTI4NzQ0NTQyNSwtMTQxMDkz
 NzIyNywtMTgxMzQ3NDk5NiwxMTkzNTkxODk3LDEyODU1NjAwMz
 IsMTY1NzkxMjQ4MiwtMTMxMTgyOTEwNyw5ODk3NjgwMzEsODgz
