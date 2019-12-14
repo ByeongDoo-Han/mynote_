@@ -16,8 +16,8 @@ struct _edges {
 	int weight;
 };
 typedef struct _digraph {
-	Vertices vertex[101];
-	Edges edges[1001];
+	Vertices vertex[102];
+	Edges edges[1002];
 }digraph;
 
 digraph digrp;
@@ -58,6 +58,7 @@ void buildGraph() {
 
 void BellmanFordShortestPath(Vertices* s) {
 	Vertices* u, * z;
+	int min;
 	for (int i = 1; i <= n; i++) {										// 1. for each v E G.vertices();
 		digrp.vertex[i].d_label = INFINITE;								//		d(v) <- INFINITE
 	}
@@ -67,7 +68,12 @@ void BellmanFordShortestPath(Vertices* s) {
 		for (int j = 1; j <= m; j++) {									//		for each e E G.edges()
 			u = &digrp.vertex[digrp.edges[j].origin];					//			u <- G.origin(e)
 			z = &digrp.vertex[digrp.edges[j].dest];						//			z <- G.opposite(u, e)
-			z->d_label = z->d_label < (u->d_label + digrp.edges[j].weight) ? z->d_label : (u->d_label + digrp.edges[j].weight);	// d(z) <- min (d(z), d(u) + w(u,z))
+			if (u->d_label == INFINITE || digrp.edges[j].weight == INFINITE)
+				continue;
+			min = u->d_label + digrp.edges[j].weight;
+			if (z->d_label > min) {	// d(z) <- min (d(z), d(u) + w(u,z))
+				z->d_label = min;
+			}
 		}
 	}
 }
