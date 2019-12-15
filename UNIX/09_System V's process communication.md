@@ -361,7 +361,7 @@ struct sembuf {
 
 ### UNIX의 특별한 Semaphore
 
-> 기존 운영체제에서 배운 Counting Semaphore + 
+> 기존 운영체제에서 배운 Counting Semaphore + Binary Semaphore를 합친 것이 UNIX의 Semaphore
 
 **sem_op의 음수값**
 - 음수 : p() or wait() 연산
@@ -606,11 +606,11 @@ int main(void) {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5OTk3OTA0NCw1NTYyODI1MjEsLTI2MT
-M5NDUxNCw3ODI0MzA2NDMsLTE5NjkwMzQ3MTUsMTc3MTc1NTc2
-MywtMTI4NzQ0NTQyNSwtMTQxMDkzNzIyNywtMTgxMzQ3NDk5Ni
-wxMTkzNTkxODk3LDEyODU1NjAwMzIsMTY1NzkxMjQ4MiwtMTMx
-MTgyOTEwNyw5ODk3NjgwMzEsODgzNDQxOTk0LDEzMjE3NjYyOT
-UsLTEzNjE1NjkwMTEsMTk5MjA5ODA3OSw3Mzc5NzE2OTIsNTk2
-MDgzNDA1XX0=
+eyJoaXN0b3J5IjpbLTIwMTExODA5NTcsNTU2MjgyNTIxLC0yNj
+EzOTQ1MTQsNzgyNDMwNjQzLC0xOTY5MDM0NzE1LDE3NzE3NTU3
+NjMsLTEyODc0NDU0MjUsLTE0MTA5MzcyMjcsLTE4MTM0NzQ5OT
+YsMTE5MzU5MTg5NywxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEz
+MTE4MjkxMDcsOTg5NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mj
+k1LC0xMzYxNTY5MDExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5
+NjA4MzQwNV19
 -->
