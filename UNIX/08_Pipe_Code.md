@@ -187,7 +187,7 @@ int child(int p[2]){
 
 ```
 
-## FIFO
+# FIFO
 ### Reader
 ```c
 #include "../Myheader.h"
@@ -423,6 +423,6 @@ int main(int argc, char** argv){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjA1ODEzOTgsLTE1MTM1MTE4MDJdfQ
-==
+eyJoaXN0b3J5IjpbMTk5MTAxMDg5MSwtMTEyMDU4MTM5OCwtMT
+UxMzUxMTgwMl19
 -->
