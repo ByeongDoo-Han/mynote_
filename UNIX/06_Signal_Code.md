@@ -1,5 +1,7 @@
 ## Signal
-### t1.c -> child는 1초간격으로 "... child ...\n"를 print, parent는 child 생성후 5초 후에 SIGINT를 보내서 child를 종료시킴
+### t1.c 
+
+child는 1초간격으로 "... child ...\n"를 print, parent는 child 생성후 5초 후에 SIGINT를 보내서 child를 종료시킴
 ```c
 // signal handling 안하는 code
 int main(void) {
@@ -28,7 +30,9 @@ int main(void) {
 }
 ```
 
-### t2.c -> child는 1초간격으로 "... child ...\n"를 print, parent는 child 생성후 5초 후에 SIGINT를 보내고 child는 SIGNAL을 받고 catchint 함수를 실행하고 종료.
+### t2.c 
+
+child는 1초간격으로 "... child ...\n"를 print, parent는 child 생성후 5초 후에 SIGINT를 보내고 child는 SIGNAL을 받고 catchint 함수를 실행하고 종료.
 ```c
 // signal handling 하는 code
 void catchint(int);
@@ -387,5 +391,5 @@ void catchalarm(int signo){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc5MTM2Njg1XX0=
+eyJoaXN0b3J5IjpbLTExNjcyOTE3ODUsODc5MTM2Njg1XX0=
 -->
