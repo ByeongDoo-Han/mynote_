@@ -71,8 +71,11 @@ void catchint(int signo){
 }
 ```
 
-### p1.c -> parent는 1 sec 간격으로 child에게 SIGUSR1보냄, 이에 SIGNAL받은 child는 자신의 pid를 3번 print하고 종료
+### p1.c
+parent는 1 sec 간격으로 child에게 SIGUSR1보냄, 이에 SIGNAL받은 child는 자신의 pid를 3번 print하고 종료
+
 > lab9-1
+
 ```c
 void printpid(int signo){
 	int i;
@@ -121,7 +124,9 @@ int main(void) {
 ```
 
 ### p2.c -> child가 생성의 역순으로 pid를 출력하는 동기화작업
+
 > lab9-2
+
 ```c
 void printpid(){
 	int i;
@@ -281,7 +286,8 @@ void catchsig(int signo){
 ```
 ### t5.c
 
-flags = SA_SIGINFOㄹ
+flags = SA_SIGINFO로 더 많은 정보를 출력한다.
+
 ```c
 void catchint(int, siginfo_t *, ucontext_t *);
 
@@ -393,5 +399,5 @@ void catchalarm(int signo){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0MTgxNjAyMSw4NzkxMzY2ODVdfQ==
+eyJoaXN0b3J5IjpbMTkzMzY4NjQyOSw4NzkxMzY2ODVdfQ==
 -->
