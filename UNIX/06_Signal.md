@@ -65,7 +65,7 @@ int kill(pid_t pid, int sig);
 		
 		> 위와 같은 예제의 코드로 
 		> 1. pid == -1로 실행한 결과 shell까지 튕김(sender포함)
-		> 2. pid == 0로 실행한 결과 a.out2만 튕김
+		> 2. pid == 0로 실행한 결과 a.out1만 튕김
 		
 
 - 호출 process에게 sig를 보낸다.
@@ -240,6 +240,6 @@ int pause(void);
 - signal이(어떤 signal 상관없이) 포착되면; 처리 routine 수행 & -1 return;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NDg4NDA2OSw4OTAxODM0MzgsMTAwOT
-gwNzkzNF19
+eyJoaXN0b3J5IjpbLTg2MTQ3MDA4NCwtNzk0ODg0MDY5LDg5MD
+E4MzQzOCwxMDA5ODA3OTM0XX0=
 -->
