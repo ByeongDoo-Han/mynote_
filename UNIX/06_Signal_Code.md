@@ -372,7 +372,7 @@ void catchint(int signo, siginfo_t *sf, ucontext_t *uc){
 	printf("\n%d\n", sf->si_code);
 }
 ```
-### t6.c -> alarm recursive in 3 sec.
+### alarm1.c -> alarm recursive in 3 sec.
 ```c
 /*주기적으로 작업을 할려고하는 code*/
 // alarm(3)
@@ -413,7 +413,7 @@ void catchalarm(int signo){
 }
 ```
 
-### lab10
+### alarm2.c
 
 scanf를 받고 sum을 구한다. alarm초간 반응이 없을시 SIGNAL처리
 
@@ -447,6 +447,6 @@ void catchalarm(int signo){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzOTAxMDY2OSwxOTMzNjg2NDI5LDg3OT
-EzNjY4NV19
+eyJoaXN0b3J5IjpbMjk0ODkyMzU3LDE5MzM2ODY0MjksODc5MT
+M2Njg1XX0=
 -->
