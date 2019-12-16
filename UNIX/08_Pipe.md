@@ -223,7 +223,7 @@ void parent(int p[3][2]) {
         int i, j, k;
 
         for(i=0;i<3;i++)
-                close(p[i][1]);         // 읽기 pipe 닫기
+                close(p[i][1]);         // 기 pipe 닫기
 
         FD_ZERO(&master);               // fd_set을 0으로 초기화
 
@@ -311,9 +311,9 @@ fd = open(/tmp/fifo", O_WRONLY);
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjYyOTE0ODgsMTc1NTEyNTg3MCwxNz
-EyNzczMzMzLC00NjY2NzE2OTEsNzI3NDI3MTA3LC0xNjY0MzEz
-NDkzLDEyNzc3OTU2NTUsMTk4NzkyNzA2OSwtMTMzODUwMTk0My
-wxNzUwNzU4Mzg1LDE3OTIzNzE1MzYsNDg0MzM4Mjc2LDIwOTkz
-NTc4NjJdfQ==
+eyJoaXN0b3J5IjpbLTEyMDUxNjYzMSwtMTIyNjI5MTQ4OCwxNz
+U1MTI1ODcwLDE3MTI3NzMzMzMsLTQ2NjY3MTY5MSw3Mjc0Mjcx
+MDcsLTE2NjQzMTM0OTMsMTI3Nzc5NTY1NSwxOTg3OTI3MDY5LC
+0xMzM4NTAxOTQzLDE3NTA3NTgzODUsMTc5MjM3MTUzNiw0ODQz
+MzgyNzYsMjA5OTM1Nzg2Ml19
 -->
