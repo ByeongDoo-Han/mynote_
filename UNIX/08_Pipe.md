@@ -223,12 +223,12 @@ void parent(int p[3][2]) {
         int i, j, k;
 
         for(i=0;i<3;i++)
-                close(p[i][1]);         // 기 pipe 닫기
+                close(p[i][1]);         // 쓰기 pipe 닫기
 
         FD_ZERO(&master);               // fd_set을 0으로 초기화
 
         for(i=0;i<3;i++)
-                FD_SET(p[i][0], &master);       // fd_set의 쓰기용 pipe를 1로 변경
+                FD_SET(p[i][0], &master);       // fd_set의 읽기용 pipe를 1로 변경
 
         // 현재까지의 ->  fd_set은 master
 
@@ -311,9 +311,9 @@ fd = open(/tmp/fifo", O_WRONLY);
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDUxNjYzMSwtMTIyNjI5MTQ4OCwxNz
-U1MTI1ODcwLDE3MTI3NzMzMzMsLTQ2NjY3MTY5MSw3Mjc0Mjcx
-MDcsLTE2NjQzMTM0OTMsMTI3Nzc5NTY1NSwxOTg3OTI3MDY5LC
-0xMzM4NTAxOTQzLDE3NTA3NTgzODUsMTc5MjM3MTUzNiw0ODQz
-MzgyNzYsMjA5OTM1Nzg2Ml19
+eyJoaXN0b3J5IjpbNTE0OTMwMjY2LC0xMjI2MjkxNDg4LDE3NT
+UxMjU4NzAsMTcxMjc3MzMzMywtNDY2NjcxNjkxLDcyNzQyNzEw
+NywtMTY2NDMxMzQ5MywxMjc3Nzk1NjU1LDE5ODc5MjcwNjksLT
+EzMzg1MDE5NDMsMTc1MDc1ODM4NSwxNzkyMzcxNTM2LDQ4NDMz
+ODI3NiwyMDk5MzU3ODYyXX0=
 -->
