@@ -287,26 +287,25 @@ int execvp(const char *file, char *const argv[]);
 - file 이름을 쓰는 경우는?
 환경 변수에 의해 설정된 path안의 file; (`$echo $PATH`)
 
-- 예
-	#### 1	
+- #### ex-1	
 	```c
-		#include <unistd.h>
-		main() {
-				printf("executing a.out\n");
-				execl("./a.out", "a.out", "3", (char *)0);
-				printf("execl failed to run a.out");
-				exit(1);
-		}
-	```
-	#### 2
-	```c
-		#include <unistd.h>
-		main() {
-			char *const av[] = {"a.out", "3", (char*)0);
-			printf("executing a.out \n");
-			execv("./a.out", av);
-			printf("execv failed to run a.out");
+	#include <unistd.h>
+	main() {
+			printf("executing a.out\n");
+			execl("./a.out", "a.out", "3", (char *)0);
+			printf("execl failed to run a.out");
 			exit(1);
+	}
+	```
+- #### ex- 2
+	```c
+	#include <unistd.h>
+	main() {
+		char *const av[] = {"a.out", "3", (char*)0);
+		printf("executing a.out \n");
+		execv("./a.out", av);
+		printf("execv failed to run a.out");
+		exit(1);
 	```
 
 - exec와 fork를 함께 사용
@@ -457,5 +456,5 @@ pid_t waitpid(pid_t pid, int *status, int options);
 	<img src="https://lh3.googleusercontent.com/mqTAikleiGYZyf7LRm3WjmczcYJG4RJxn1BG0HThtnbDnVzgR1QYUxQcHVuNYc3tAkexEDMqkbxo5tHA0Vm3CLloJrau1jd7-8WyH3UEUsehdnbc1sZSwhmU3RbqvHcDfm5oSdUEkPMiFdfB4bOUpvmDytBm4-h3rgDXEN4XyY50EmSibqvr9jvHdR9NjsW5j3mUDn9jXG-nCvv1PQzcZVVGW_sVp-S3vyoZoECEVkN1dYzXMi-FHIcvTs74a1Rf4Wm3IN4Ls8GpKIYmDjk_yLBUuc3yeJ0Sr1fXNuTb6gBQmjByvpkpf2SoxR8DMJ-A6Qnalts_LuIfYV4pew9-7hwKl2rSQ3L3SrriZd8Mb5tIGAUADj7GJ6hPiUNvrb7sdGEI3G28vuQHdKimiLxwnrC-b_2mM_TdqR3tA8oe4lW_aerSiLVZmYj-EHpmp9KfXpJukSp1nmHZqtf90JBijaRl8udwYymdlpqz5mhA8QTzJgdRZpcsQDzMcs9NrcVeXM4D6aju4kAvhPV8uQ-5s-swXglYIzaNfBOPlZaRwL6VvPZN-oM-8wtePOlgAiQosy2YV8mQK_cl6HlxitzPvQmngJjau74uro_mkXUV14E8rS0tEKidvMn8PIx2tRMR97WeKk0HQu1ZtbPRhbVsHUOJ9txAa4uJGmiDJDiKVqXCJwvb-bMiStPqPCUW9H-axfx_AuvxdtmoT86H15XSzkqbHNDvZ0J8Slu7HPIsLSTpdIPq=w734-h941-no" width=400px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwMTIzMjUzLC0xNzAzNzg2MzEyXX0=
+eyJoaXN0b3J5IjpbMTc3ODc0MzIxNCwtMTcwMzc4NjMxMl19
 -->
