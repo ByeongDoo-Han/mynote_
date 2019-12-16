@@ -276,7 +276,7 @@ int execvp(const char *file, char *const argv[]);
 	-> 새 process는 **처음부터 실행**;
 	-> 새 process는 호출 프로세스의 id로 실행(**pid 그대로**)
 	- 실패 시 -1 return; 성공시 return 없음;
-	- fork와의 차이점 : 기존 프로세스와 병령 수행이 아님
+	- fork와의 차이점 : 기존 프로세스와 병렬 수행이 아님
 	<img src="https://lh3.googleusercontent.com/kggN3J3q3cUgHcj0OBWAJZcPn8zXXgtEaDNmpEtea9IGmP6FUVSmHJ5ZXi7JrcsdJr7y1YKWJ4cguANl_6S6tc5uPDECTU0h4BGVpVdViAGr1uZKqzQbGV0tnPUU7QE9K24e1L5R1cJHM0Mx4CneuryhEc3mIV2Tx3ivmXGuv_6el44tAccFiaPXKj8yuBtxv62pxtoH5uN3G6P4wW_QDK1HUOQ0ThRYLWQnrfCkgnsU36CK96wqtusixuUekBzY1UUZQ_F91kPLOo4GamUwd-rxwLv5AgqkFom-m5RgVfvs9pQiaaKr1AqhNV6bxSSMbMvvkGrumHxmQWYr2HJa-kI6UX_tOywN8hmBG7vxlFwbtKKd3psYpmxNP_VPO6Z1yv9SacUFUUpjtxPGPqhZ3qUoy9Kyyz60J8OkKZBy8tg8zmW2vpzcvVqDr5wOErCm46nLZmONxAgsHgxsiIJsxTgNLTV_XM95c8dEEKrH0YmcPiJRNeEHkyZYOe16wVEpjayiKb1a3j3zz3oPEWRnAWo8wcWo4637NUP1OsNvw4XlXNWfRlFbQR9l0r9hyMTIH033NgYTyQafoFW_q9cLFJpbCv10ck55oIssk79YPOFCY1XcEG5r3_HZq__Q3qz18nGYmhWrqpM4BfpfYXCJu0zQoiaYtePDZmtIRs269HOoyTebGaTWdYtWzCkLkaWXE2qFC5oLsXp-1IPud8LaB3BHfmWUl2G5Rj8xp6egzy9K_mv-=w475-h356-no" width=500px />
 - 차이점;
 	-  path: 파일 경로 이름 포함 vs. file : 파일 이름;
@@ -457,5 +457,5 @@ pid_t waitpid(pid_t pid, int *status, int options);
 	<img src="https://lh3.googleusercontent.com/mqTAikleiGYZyf7LRm3WjmczcYJG4RJxn1BG0HThtnbDnVzgR1QYUxQcHVuNYc3tAkexEDMqkbxo5tHA0Vm3CLloJrau1jd7-8WyH3UEUsehdnbc1sZSwhmU3RbqvHcDfm5oSdUEkPMiFdfB4bOUpvmDytBm4-h3rgDXEN4XyY50EmSibqvr9jvHdR9NjsW5j3mUDn9jXG-nCvv1PQzcZVVGW_sVp-S3vyoZoECEVkN1dYzXMi-FHIcvTs74a1Rf4Wm3IN4Ls8GpKIYmDjk_yLBUuc3yeJ0Sr1fXNuTb6gBQmjByvpkpf2SoxR8DMJ-A6Qnalts_LuIfYV4pew9-7hwKl2rSQ3L3SrriZd8Mb5tIGAUADj7GJ6hPiUNvrb7sdGEI3G28vuQHdKimiLxwnrC-b_2mM_TdqR3tA8oe4lW_aerSiLVZmYj-EHpmp9KfXpJukSp1nmHZqtf90JBijaRl8udwYymdlpqz5mhA8QTzJgdRZpcsQDzMcs9NrcVeXM4D6aju4kAvhPV8uQ-5s-swXglYIzaNfBOPlZaRwL6VvPZN-oM-8wtePOlgAiQosy2YV8mQK_cl6HlxitzPvQmngJjau74uro_mkXUV14E8rS0tEKidvMn8PIx2tRMR97WeKk0HQu1ZtbPRhbVsHUOJ9txAa4uJGmiDJDiKVqXCJwvb-bMiStPqPCUW9H-axfx_AuvxdtmoT86H15XSzkqbHNDvZ0J8Slu7HPIsLSTpdIPq=w734-h941-no" width=400px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NzU5OTA0OCwtMTcwMzc4NjMxMl19
+eyJoaXN0b3J5IjpbMzAwMTIzMjUzLC0xNzAzNzg2MzEyXX0=
 -->
