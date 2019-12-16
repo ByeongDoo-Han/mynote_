@@ -279,7 +279,9 @@ void catchsig(int signo){
 	}
 }
 ```
-### t5.c -> sa_sigaction
+### t5.c
+
+flags = SA_SIGINFOㄹ
 ```c
 void catchint(int, siginfo_t *, ucontext_t *);
 
@@ -391,5 +393,5 @@ void catchalarm(int signo){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjcyOTE3ODUsODc5MTM2Njg1XX0=
+eyJoaXN0b3J5IjpbMjE0MTgxNjAyMSw4NzkxMzY2ODVdfQ==
 -->
