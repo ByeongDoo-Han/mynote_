@@ -123,7 +123,8 @@ int main(void) {
 }
 ```
 
-### p2.c -> child가 생성의 역순으로 pid를 출력하는 동기화작업
+### p2.c
+child가 생성의 역순으로 pid를 출력하는 동기화작업
 
 > lab9-2
 
@@ -412,7 +413,10 @@ void catchalarm(int signo){
 }
 ```
 
-### lab10 -> scanf를 받고 sum을 구한다. alarm초간 반응이 없을시 SIGNAL처리
+### lab10
+
+scanf를 받고 sum을 구한다. alarm초간 반응이 없을시 SIGNAL처리
+
 ```c
 void catchalarm(int signo);
 
@@ -443,6 +447,6 @@ void catchalarm(int signo){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjA0NzQ3MTEsMTkzMzY4NjQyOSw4Nz
-kxMzY2ODVdfQ==
+eyJoaXN0b3J5IjpbLTMzOTAxMDY2OSwxOTMzNjg2NDI5LDg3OT
+EzNjY4NV19
 -->
