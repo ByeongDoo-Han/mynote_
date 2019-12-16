@@ -77,8 +77,12 @@ int main() {
 **-> 알아서 blocking하는 점 순서를 자동으로 맞춰준다.**
 
 ### pipe 닫기
-- 읽기 전용 pipe 닫기 : 더 이상 reader가 없으면, wrtier들은 SIGPIPE signal을 받는다. SIgnal handling이 되지 않으면 process는 종료; signal handling이 되면, signal 처리 후 write는 -1을 return;
-- 쓰기 전용 pipe 닫기 : 다른 write가 없는 경우, read를 위해 기다리던 process들에게 0을 return (EOF와 같은 효과)
+- 읽기 전용 pipe 닫기
+	- 더 이상 reader가 없으면, wrtier들은 SIGPIPE signal을 받는다. 
+		- SIgnal handling이 되지 않으면 process는 종료; 
+		- signal handling이 되면, signal 처리 후 write는 -1을 return;
+- 쓰기 전용 pipe 닫기
+	- 다른 write가 없는 경우, read를 위해 기다리던 process들에게 0을 return (EOF와 같은 효과)
 
 
 #### 양방향 예제 code
@@ -307,8 +311,9 @@ fd = open(/tmp/fifo", O_WRONLY);
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NTEyNTg3MCwxNzEyNzczMzMzLC00Nj
-Y2NzE2OTEsNzI3NDI3MTA3LC0xNjY0MzEzNDkzLDEyNzc3OTU2
-NTUsMTk4NzkyNzA2OSwtMTMzODUwMTk0MywxNzUwNzU4Mzg1LD
-E3OTIzNzE1MzYsNDg0MzM4Mjc2LDIwOTkzNTc4NjJdfQ==
+eyJoaXN0b3J5IjpbLTEyMjYyOTE0ODgsMTc1NTEyNTg3MCwxNz
+EyNzczMzMzLC00NjY2NzE2OTEsNzI3NDI3MTA3LC0xNjY0MzEz
+NDkzLDEyNzc3OTU2NTUsMTk4NzkyNzA2OSwtMTMzODUwMTk0My
+wxNzUwNzU4Mzg1LDE3OTIzNzE1MzYsNDg0MzM4Mjc2LDIwOTkz
+NTc4NjJdfQ==
 -->
