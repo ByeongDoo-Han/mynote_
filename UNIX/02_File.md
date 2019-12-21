@@ -3,10 +3,12 @@
 [https://downman.tistory.com/126](https://downman.tistory.com/126)
 
 ## 파일 정보의 획득
+
 ```c
 int stat(const char* pathname, struct stat *buf);
 int fstat(int filedes, struct stat *buf);
 ```
+
 - 차이점
 **stat** -> filename을 사용
 **fstat** -> open된 file에 대해
@@ -157,5 +159,5 @@ int symlink(const char* realname, const char* symname);
 > **채점기준**
 > 1. 실행이 되는가? -> 10개 이상의 case
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzNjM0ODc2MF19
+eyJoaXN0b3J5IjpbNjcwMjkyNjk2LDEzMzYzNDg3NjBdfQ==
 -->

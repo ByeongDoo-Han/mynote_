@@ -187,7 +187,7 @@ int child(int p[2]){
 
 ```
 
-## FIFO
+# FIFO
 ### Reader
 ```c
 #include "../Myheader.h"
@@ -228,7 +228,7 @@ int main(void) {
 }
 ```
 ## lab13-1
-> FIFO를 이용하여 통신하는 두 프로그램. 프로그램 A는 외부 입력으로 정수를 입력 받아 프로그램 B에게 전달하고, 프로그램 B는 전달받은 정수에 +8을 한 뒤 프로글매 A에 돌려줍니다.(-1 입력시 두프로그램 종료)
+> FIFO를 이용하여 통신하는 두 프로그램. 프로그램 A는 외부 입력으로 정수를 입력 받아 프로그램 B에게 전달하고, 프로그램 B는 전달받은 정수에 +8을 한 뒤 프로그램 A에 돌려줍니다.(-1 입력시 두프로그램 종료)
 ### Reader
 ```c
 #include "../Myheader.h"
@@ -423,6 +423,6 @@ int main(int argc, char** argv){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjA1ODEzOTgsLTE1MTM1MTE4MDJdfQ
-==
+eyJoaXN0b3J5IjpbMTM4NjQxMTU0MywxOTkxMDEwODkxLC0xMT
+IwNTgxMzk4LC0xNTEzNTExODAyXX0=
 -->

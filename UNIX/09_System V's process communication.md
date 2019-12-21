@@ -142,7 +142,7 @@ int msgrcv(int mqid, void* message, size_t size, long msg_type, int flags);
 
 ```c
 struct q_entry{
-	long mtype;
+	long mtype;	// long type에 주의!! int형으로 했을시 안보내짐
 	int mnum;
 }
 
@@ -360,6 +360,9 @@ struct sembuf {
 	- 그 외 -> **0**으로 설정할 것!!
 
 ### UNIX의 특별한 Semaphore
+
+> 기존 운영체제에서 배운 Counting Semaphore + Binary Semaphore를 합친 것이 UNIX의 Semaphore
+
 **sem_op의 음수값**
 - 음수 : p() or wait() 연산
 
@@ -603,11 +606,11 @@ int main(void) {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU2MjgyNTIxLC0yNjEzOTQ1MTQsNzgyND
-MwNjQzLC0xOTY5MDM0NzE1LDE3NzE3NTU3NjMsLTEyODc0NDU0
-MjUsLTE0MTA5MzcyMjcsLTE4MTM0NzQ5OTYsMTE5MzU5MTg5Ny
-wxMjg1NTYwMDMyLDE2NTc5MTI0ODIsLTEzMTE4MjkxMDcsOTg5
-NzY4MDMxLDg4MzQ0MTk5NCwxMzIxNzY2Mjk1LC0xMzYxNTY5MD
-ExLDE5OTIwOTgwNzksNzM3OTcxNjkyLDU5NjA4MzQwNSwtMzQ5
-ODU5OTMzXX0=
+eyJoaXN0b3J5IjpbOTg0MDY3MTk5LC0yMDExMTgwOTU3LDU1Nj
+I4MjUyMSwtMjYxMzk0NTE0LDc4MjQzMDY0MywtMTk2OTAzNDcx
+NSwxNzcxNzU1NzYzLC0xMjg3NDQ1NDI1LC0xNDEwOTM3MjI3LC
+0xODEzNDc0OTk2LDExOTM1OTE4OTcsMTI4NTU2MDAzMiwxNjU3
+OTEyNDgyLC0xMzExODI5MTA3LDk4OTc2ODAzMSw4ODM0NDE5OT
+QsMTMyMTc2NjI5NSwtMTM2MTU2OTAxMSwxOTkyMDk4MDc5LDcz
+Nzk3MTY5Ml19
 -->

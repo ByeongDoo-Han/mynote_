@@ -65,7 +65,7 @@ int kill(pid_t pid, int sig);
 		
 		> 위와 같은 예제의 코드로 
 		> 1. pid == -1로 실행한 결과 shell까지 튕김(sender포함)
-		> 2. pid == 0로 실행한 결과 a.out2만 튕김
+		> 2. pid == 0로 실행한 결과 a.out1만 튕김
 		
 
 - 호출 process에게 sig를 보낸다.
@@ -227,8 +227,9 @@ int sigprocmask(int how, const sigset_t *set, sigset_t *oset)
 - how : (= SIG_SETMASK), set에 있는 signal들을 지금부터 봉쇄
 - oset은 봉쇄된 signal들의 현재 mask; 관심 없으면 NULL로 지정;
 - how : (= SIG_UNBLOCK); 봉쇄 제거;
+
 <문제상황>
-<img src="https://lh3.googleusercontent.com/Nt9W3fE_mpAr1t_HwyaIVGKSZiQUxr-MJl6Dj9H3GR3A-ZhC1pArE8a3n00w3EdmzKWQc4HNwkkvP5n8A-YHu4ZUHCp9wsWP_q9vdeMiS_M35TXsE7VNaattHr_2XUibBhEPI_wqYP-I0jEkUL3qOR0S6k5gbBUp5ufKFQkI8p1o6e8-NqQZ5PBRRCe04eb1HcUwxCokNX3uxjHukvUAmWvlD0-nQbG5yRgv_z1SD49GlPWQK7rymmeVMZv57xt_01PwDu4IG5v3dQwLh42N7Wk68Dnul0625jEQbmIuqcNeM5cDd1gzId4WdZ0ICDovgeV0oz1irKCYESoCdXF7_8SqdR3C9fQBoWqiSN-zRkF3tedD5z1dleDFbmgzbQMF7JCsAq63OCos9BSAFCKZ4I5l-MiuYbyB2UptaMaf8hUaGbBB7jN8UU8frKZFpLxmIj6oM32eCOSPONP39l_pP9lqBEeSWaNjN6gq8L5MMqv1u2KA2VtYiiGC-hHYYTF48udtjluRSQozotnAKgq4sYfOpARqOrpPYVoKu57cPV-ALLelOqk24lnhEV1-xo74OuVLZqePnzddL0A9UMINk7x4ZZ6UYG0kB3za3LnPCeQMe7tloJoNQgJfFpQ3RnvgiAtfp8v-fx6rLCNYxFNy3SRdYCPrcjUZGe-Qdb-lqhuUdDgG4k8fnZuiAQ9iT7XovXBrs-7qCQaZQdWY7OEDdwn83sI14KeSKFKq6nx-m9VtfHFU=w959-h405-no" />
+<img src="https://lh3.googleusercontent.com/NoDZRLeb69jLdn1891NElegkQvrRQraEnIoHCR_DhGg-XgnwhrqLG2up6GpeXzlZXwYFJkkphTF7OPpibolNouV22l_NyJ7O3L1suroHMgJkA5FNMGASPhwlBMEfza8qBJK_M0WyHqH6y8r5qPdCQuaIWnDIYMT5ZOmwB1Am3_tg_qVW5k1lloazenWC0O9btN-YcRrUqN9IZAXKXt0OJjDdqe88IEEgeKlkBYh3tll65aCeZ6DZ6QvG8RREqrsnBE-kqUS51fd87sIlgxVwiYLzCXG0xKqvQJ3V5jdm4d__yDS-UIonss_mOr0A1tYUdQ2efOZga1r4wDVC5LI4KwdhXYH00yswVld9JdNMOweNCRakVCb0kbabaTKhzruQepLRN-BOZo6LUyMDmTMOPoKhm8OVvee0pKrlVkBWlcDCg_eXgETY68q3GocARWdGfD5zNvUbfBZ6Zi7N984K4THqMGdssEOPOayxEzK_ykbxgKg-Q6hy81oiFxDqGmMR66ez-rSaTtaSs6Pdw3SIdUJjQthiAiW7A_XziTsP3zrkq3iXnlcH0Zq9Sa7MRC5GmmWUti4FK7_5g5Px3gfhaF0laZbzvCEYO3NNrFkNBluPAvV9qccix0u-dZuMv8Xga7mSnj9_v9i3JEfprbyeu431KqYwZgTUU2TSah13yPwgOISrei5mTjdH3Q08kXQtrWUovC4FDbsB6iUIE1ocfE_6BQCCOjbQwxuB76m9ZmZklUa4=w1920-h696-no" />
 	<문제 상황 => 해결법>
 	<img src="https://lh3.googleusercontent.com/BAAOmDcGXZHhkyXGYv_duVQ6yKQcyCEvINTHTWM56WyjRP276OVNJAn5gzLm6yOQWDB9RdFvt8p4nths8w6oKOsaSvF1UvuM3ClnSVzrlcwiNJgneq6b9TEuuxHDaPvBkJT8R9IimwUIiryHPsRq-w1MVFwZnOqnI6Uy31jikCLrNoeh3KepIfQd2wDrL_oE3FnpTp4Xrn3AGMonupuYrlm1lZxMwckOhgEowkFkMrRdELn_pxS2sX0SwI0eXrUNzZe5zfJ7LvsLlRS54EjZ7vgqE1nGOMY7Y6QxldLOVae0vmREIaMf2-TBp9D1-_OAraAmnGtJppsPNTAnTywXu_lOmFsSxn9plGBGUHhSi1oLJ6Tfp0LHnOOUa6NJaNOCHRiF84sMO55st9pyAmje22cM9cYo68bN3NDdhVS3-rebg_p1GXlZJr_1bH7Cc8hCATMWg-TGxGseht58d0Atc-J8OIxq2Hc2V3uHxW19D6W_2lhXVWNDguSnVbcFobeNIRIShgEDX6U_qbDhs4Wz4Ec1opZA2jzwQ8a57w8TcdJu1Zlbivq_KB59PqytPJo3MWMpAwLgCG0GQC7CrZcfwgtqYTBcKvA97jmuUSGrT8hGSA0As9dewrrAGd3KgFrjYHfdUkqwjnVusiVTCXAoStaOZCGOOP6O2S7ssc5pApMt22AR6jO0Nr9h0gKA6xnJ2Y9uVdUpD_ZWT4NYWbhgrrLmUmNJuFu1NRUbRo0AGAPgmoEz=w619-h943-no" width=500px/>
 ### pause System call
@@ -240,6 +241,6 @@ int pause(void);
 - signal이(어떤 signal 상관없이) 포착되면; 처리 routine 수행 & -1 return;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NDg4NDA2OSw4OTAxODM0MzgsMTAwOT
-gwNzkzNF19
+eyJoaXN0b3J5IjpbLTQwMjgyNjY0MCwtODYxNDcwMDg0LC03OT
+Q4ODQwNjksODkwMTgzNDM4LDEwMDk4MDc5MzRdfQ==
 -->

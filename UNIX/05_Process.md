@@ -239,7 +239,7 @@ int main(int argc, char** argv){
  <img src="https://lh3.googleusercontent.com/ERRhNiNdrN0VARMFpkILk0XsWXf8egQZ1KPBgYKX3o_PvQSsUykFlAFIyp4wopK6Dfr4mYrVpM0iEBtuBwBbc5UKXTD78cvNxtR8VNHh270_JnmUpiepRnLZBPAw89f4zLwI14DPYOQH9U0N7hqIFEsGGYROpwolkUUiCzds68dhJABnBeJmusPA_ZoeAheQs0HyZxuSHOyKpwkoC-j5GE5KucK0vm3eCQl40EgNF0R8oQXHIypvqiQTrkOqKIXPK23_a9r1sjGMBGLCW98YCr78v3z2bPDAPjC57t0PJpgfL_lBsS36iNG0IyzYEfIdESHQtZzsqNSiza5chw_AvPSZQXEcFyz4aqNlmg6xfpxTEnW77Vz-Q4lckeshxLnAUrdV9NyummZSkDsmEqMqSttMdCE7O8L5Sm6DRusj0BqUIx-eXBBqTGx6dfIx-9iaWn7qCta5u3C6a5NjFng-pppzb4nI5L5PE425gH1KV_a8yF8Zn17ag571eTAQusARxVonvx6vscgHNvh7TfyWe7Q7UetaMWktehYAg3UOrpPxHB-MZ2jgnnKL9ZS2iglQpbhhTHLbyM55Rb6CaNrvX3cxsObhF4p8hwt9R4xiGhJGHOsTMZnlQAn5Gfxsksz8ekc52pzaOimBgFmuBcz_po4gOc1MEgQ5xElqbMwkxctVyQ7UbDoWpoQXdAkhqhFrCNSbRkFI-LW1W49SXtTPbGxuU8pUkAaiQxW0SWx-3wCO3gqK=w385-h346-no" width=400px />
 
 ## exit System call
-: exit: process 정지-> open된 file 닫기 -> clean-up-action
+exit : process 정지-> open된 file 닫기 -> clean-up-action
 ```c
 #include <stdlib.h>
 void exit(int status);
@@ -276,7 +276,7 @@ int execvp(const char *file, char *const argv[]);
 	-> 새 process는 **처음부터 실행**;
 	-> 새 process는 호출 프로세스의 id로 실행(**pid 그대로**)
 	- 실패 시 -1 return; 성공시 return 없음;
-	- fork와의 차이점 : 기존 프로세스와 병령 수행이 아님
+	- fork와의 차이점 : 기존 프로세스와 병렬 수행이 아님
 	<img src="https://lh3.googleusercontent.com/kggN3J3q3cUgHcj0OBWAJZcPn8zXXgtEaDNmpEtea9IGmP6FUVSmHJ5ZXi7JrcsdJr7y1YKWJ4cguANl_6S6tc5uPDECTU0h4BGVpVdViAGr1uZKqzQbGV0tnPUU7QE9K24e1L5R1cJHM0Mx4CneuryhEc3mIV2Tx3ivmXGuv_6el44tAccFiaPXKj8yuBtxv62pxtoH5uN3G6P4wW_QDK1HUOQ0ThRYLWQnrfCkgnsU36CK96wqtusixuUekBzY1UUZQ_F91kPLOo4GamUwd-rxwLv5AgqkFom-m5RgVfvs9pQiaaKr1AqhNV6bxSSMbMvvkGrumHxmQWYr2HJa-kI6UX_tOywN8hmBG7vxlFwbtKKd3psYpmxNP_VPO6Z1yv9SacUFUUpjtxPGPqhZ3qUoy9Kyyz60J8OkKZBy8tg8zmW2vpzcvVqDr5wOErCm46nLZmONxAgsHgxsiIJsxTgNLTV_XM95c8dEEKrH0YmcPiJRNeEHkyZYOe16wVEpjayiKb1a3j3zz3oPEWRnAWo8wcWo4637NUP1OsNvw4XlXNWfRlFbQR9l0r9hyMTIH033NgYTyQafoFW_q9cLFJpbCv10ck55oIssk79YPOFCY1XcEG5r3_HZq__Q3qz18nGYmhWrqpM4BfpfYXCJu0zQoiaYtePDZmtIRs269HOoyTebGaTWdYtWzCkLkaWXE2qFC5oLsXp-1IPud8LaB3BHfmWUl2G5Rj8xp6egzy9K_mv-=w475-h356-no" width=500px />
 - 차이점;
 	-  path: 파일 경로 이름 포함 vs. file : 파일 이름;
@@ -287,26 +287,25 @@ int execvp(const char *file, char *const argv[]);
 - file 이름을 쓰는 경우는?
 환경 변수에 의해 설정된 path안의 file; (`$echo $PATH`)
 
-- 예
-	#### 1	
+- #### ex-1	
 	```c
-		#include <unistd.h>
-		main() {
-				printf("executing a.out\n");
-				execl("./a.out", "a.out", "3", (char *)0);
-				printf("execl failed to run a.out");
-				exit(1);
-		}
-	```
-	#### 2
-	```c
-		#include <unistd.h>
-		main() {
-			char *const av[] = {"a.out", "3", (char*)0);
-			printf("executing a.out \n");
-			execv("./a.out", av);
-			printf("execv failed to run a.out");
+	#include <unistd.h>
+	main() {
+			printf("executing a.out\n");
+			execl("./a.out", "a.out", "3", (char *)0);
+			printf("execl failed to run a.out");
 			exit(1);
+	}
+	```
+- #### ex- 2
+	```c
+	#include <unistd.h>
+	main() {
+		char *const av[] = {"a.out", "3", (char*)0);
+		printf("executing a.out \n");
+		execv("./a.out", av);
+		printf("execv failed to run a.out");
+		exit(1);
 	```
 
 - exec와 fork를 함께 사용
@@ -430,11 +429,11 @@ pid_t wait (int* status);
 
 1. parent가 wait를 수행하지 않고 있는 상태에서 child가 퇴장 -> child는 **Zombie process**가 된다.
 
-	<img src="https://lh3.googleusercontent.com/T_NDtt8d53jWfHP_0Lh8BN2aA_Gevj97JfOlGyvHzUZi8nMJtHvXS8bg6x0Kl1aI9ctHkOthOFcaqhcLgWa6rghtnXV1BOGPKLpptsYEtVHStPEKJsWyrisYbzpnOjBT3gjd1zeGz4GRd-C2Ht5raoto1NS5pfPUxM8Ojmt3o0P830ic7SIICCv5FeRroiSfK3oYEwgzWjJLUN-HOC6m63vKcfSwj2u6o8Qa8LZBCv47m4xh5uExke_qZ_7sxL4aANQe7Ic_EnsYrGjTq6EyFHVQdnacbNzeYQtnFlYxkJTvm4IJ0mok7hWAPpOX_hc5prxOaQcVwKmEK6bt8YfiNt6hdOcDNgi-4iVwWHv0EQA5DrE9FyAASbD-i6K4UGlTimjONjOfllKVswbyQ1ot47iMUCOQc2HD2PWmYAsFQBCDY5XNn28FgSQ4xUYOzlBPJcKEkuJwfD78NUEAmGdqGWurlCA1_GsrgvZTi0EewJ2aBDw0DEh0mYTMXuG1eYxXlfnFU5F_Ro6vxrut4vDi1KD7T1g52nEhZnyVFyw0kJOhdu02hGCju-eqWVLHvqJSc5emAyeaOZDgA7eDgDu9g8wgnNU515r91BzYP40EMq_Pb4EPt7XlNkBmQ55nzMfHKwbJ35AOuhQw2-J7cSiKgBX3bEThJDuKGbpwt0mF5La9uhxawmtRE50rczQBIyCc-D_uZ4Wd697bvxAYRfybZpdGffW5fpGzcD_g-6uXhl5KAFMi=w797-h943-no" width=400px />
+	<img src="https://lh3.googleusercontent.com/T_NDtt8d53jWfHP_0Lh8BN2aA_Gevj97JfOlGyvHzUZi8nMJtHvXS8bg6x0Kl1aI9ctHkOthOFcaqhcLgWa6rghtnXV1BOGPKLpptsYEtVHStPEKJsWyrisYbzpnOjBT3gjd1zeGz4GRd-C2Ht5raoto1NS5pfPUxM8Ojmt3o0P830ic7SIICCv5FeRroiSfK3oYEwgzWjJLUN-HOC6m63vKcfSwj2u6o8Qa8LZBCv47m4xh5uExke_qZ_7sxL4aANQe7Ic_EnsYrGjTq6EyFHVQdnacbNzeYQtnFlYxkJTvm4IJ0mok7hWAPpOX_hc5prxOaQcVwKmEK6bt8YfiNt6hdOcDNgi-4iVwWHv0EQA5DrE9FyAASbD-i6K4UGlTimjONjOfllKVswbyQ1ot47iMUCOQc2HD2PWmYAsFQBCDY5XNn28FgSQ4xUYOzlBPJcKEkuJwfD78NUEAmGdqGWurlCA1_GsrgvZTi0EewJ2aBDw0DEh0mYTMXuG1eYxXlfnFU5F_Ro6vxrut4vDi1KD7T1g52nEhZnyVFyw0kJOhdu02hGCju-eqWVLHvqJSc5emAyeaOZDgA7eDgDu9g8wgnNU515r91BzYP40EMq_Pb4EPt7XlNkBmQ55nzMfHKwbJ35AOuhQw2-J7cSiKgBX3bEThJDuKGbpwt0mF5La9uhxawmtRE50rczQBIyCc-D_uZ4Wd697bvxAYRfybZpdGffW5fpGzcD_g-6uXhl5KAFMi=w797-h943-no" width=500px />
 
 2. 하나 이상의 child process가 수행되고 있는 상태에서 parent가 퇴장할 때 -> child는 **init(pid = 1)**의 child로 남는다.
 
-	<img src="https://lh3.googleusercontent.com/x5LqXBUTJdsV4IQec--kM_vc807BkEwTy0QiDOYBoWX51fT_8hTTQBEAfPHIcfbgdxOYBU1z8SgB7sre9-zwrBBzIyxY0LeCLgJlRyw39Dh0owZrcaReSd0BdpB8FDZ-RFXDj6b32NbzpOH5aCi5XKJXG__K2MY0uA8GpbOI9RZ9CwzySMK0q7vAz87RGFWGUJTCKSzU0ZHelI9-xChezCl5evUKE__fDbMym71GujNcyviZZH_nIIVj10vNADp8uMqwxqVK6UNlFZSzTu-UOwnP1DT9Eneoc-rGF9oJH2ZJEvOEv4C1TcSAlGmVKO-ASCm2m8lqEFuO2WsciC0EoJK41BvwbOX3wGIrBeCDF0gtH55gNLVW8CTuB3MH-bhkn6aHcgxEYhW1IQ7vJ47b0bv7LNR6wGCyUglm41UrJbTtyd8H91hTLePFTwSAYEcUCjuzjFBSmimU3kyC2Mj8VESbqnV5lS0BCPAoTxcwXVFUL2vsdV-Tznip-0-Q651MsVypXL1Q0zOPbLdoKN-V8ifD2y0h8JvaK7swRN9HYhjV1p4mMF-AtjE70Ne7t1H6PLwcKKFKkcAX1I1GwK3DCx481Wd20d5W0ogBu-L-nRQangja3STljgsQXCN4Qt7axzDuwLRzxeNowQLDmMVzMKbuiWIX0MzV3KMmylHTYsAxY3zsVdCgNSxXVblcVDUkmQeXnULPdGaDvWU3SVewJQb3-nMZxptbLb1EzwBOM7Efi9Qj=w962-h680-no" width=400px />
+	<img src="https://lh3.googleusercontent.com/x5LqXBUTJdsV4IQec--kM_vc807BkEwTy0QiDOYBoWX51fT_8hTTQBEAfPHIcfbgdxOYBU1z8SgB7sre9-zwrBBzIyxY0LeCLgJlRyw39Dh0owZrcaReSd0BdpB8FDZ-RFXDj6b32NbzpOH5aCi5XKJXG__K2MY0uA8GpbOI9RZ9CwzySMK0q7vAz87RGFWGUJTCKSzU0ZHelI9-xChezCl5evUKE__fDbMym71GujNcyviZZH_nIIVj10vNADp8uMqwxqVK6UNlFZSzTu-UOwnP1DT9Eneoc-rGF9oJH2ZJEvOEv4C1TcSAlGmVKO-ASCm2m8lqEFuO2WsciC0EoJK41BvwbOX3wGIrBeCDF0gtH55gNLVW8CTuB3MH-bhkn6aHcgxEYhW1IQ7vJ47b0bv7LNR6wGCyUglm41UrJbTtyd8H91hTLePFTwSAYEcUCjuzjFBSmimU3kyC2Mj8VESbqnV5lS0BCPAoTxcwXVFUL2vsdV-Tznip-0-Q651MsVypXL1Q0zOPbLdoKN-V8ifD2y0h8JvaK7swRN9HYhjV1p4mMF-AtjE70Ne7t1H6PLwcKKFKkcAX1I1GwK3DCx481Wd20d5W0ogBu-L-nRQangja3STljgsQXCN4Qt7axzDuwLRzxeNowQLDmMVzMKbuiWIX0MzV3KMmylHTYsAxY3zsVdCgNSxXVblcVDUkmQeXnULPdGaDvWU3SVewJQb3-nMZxptbLb1EzwBOM7Efi9Qj=w962-h680-no" width=500px />
 
 ### waitpid system call
 ```c
@@ -457,5 +456,6 @@ pid_t waitpid(pid_t pid, int *status, int options);
 	<img src="https://lh3.googleusercontent.com/mqTAikleiGYZyf7LRm3WjmczcYJG4RJxn1BG0HThtnbDnVzgR1QYUxQcHVuNYc3tAkexEDMqkbxo5tHA0Vm3CLloJrau1jd7-8WyH3UEUsehdnbc1sZSwhmU3RbqvHcDfm5oSdUEkPMiFdfB4bOUpvmDytBm4-h3rgDXEN4XyY50EmSibqvr9jvHdR9NjsW5j3mUDn9jXG-nCvv1PQzcZVVGW_sVp-S3vyoZoECEVkN1dYzXMi-FHIcvTs74a1Rf4Wm3IN4Ls8GpKIYmDjk_yLBUuc3yeJ0Sr1fXNuTb6gBQmjByvpkpf2SoxR8DMJ-A6Qnalts_LuIfYV4pew9-7hwKl2rSQ3L3SrriZd8Mb5tIGAUADj7GJ6hPiUNvrb7sdGEI3G28vuQHdKimiLxwnrC-b_2mM_TdqR3tA8oe4lW_aerSiLVZmYj-EHpmp9KfXpJukSp1nmHZqtf90JBijaRl8udwYymdlpqz5mhA8QTzJgdRZpcsQDzMcs9NrcVeXM4D6aju4kAvhPV8uQ-5s-swXglYIzaNfBOPlZaRwL6VvPZN-oM-8wtePOlgAiQosy2YV8mQK_cl6HlxitzPvQmngJjau74uro_mkXUV14E8rS0tEKidvMn8PIx2tRMR97WeKk0HQu1ZtbPRhbVsHUOJ9txAa4uJGmiDJDiKVqXCJwvb-bMiStPqPCUW9H-axfx_AuvxdtmoT86H15XSzkqbHNDvZ0J8Slu7HPIsLSTpdIPq=w734-h941-no" width=400px />
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDM3ODYzMTJdfQ==
+eyJoaXN0b3J5IjpbODA2MDk5OTE4LDE3Nzg3NDMyMTQsLTE3MD
+M3ODYzMTJdfQ==
 -->

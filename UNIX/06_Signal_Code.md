@@ -1,5 +1,7 @@
 ## Signal
-### t1.c -> child는 1초간격으로 "... child ...\n"를 print, parent는 child 생성후 5초 후에 SIGINT를 보내서 child를 종료시킴
+### t1.c 
+
+child는 1초간격으로 "... child ...\n"를 print, parent는 child 생성후 5초 후에 SIGINT를 보내서 child를 종료시킴
 ```c
 // signal handling 안하는 code
 int main(void) {
@@ -28,7 +30,9 @@ int main(void) {
 }
 ```
 
-### t2.c -> child는 1초간격으로 "... child ...\n"를 print, parent는 child 생성후 5초 후에 SIGINT를 보내고 child는 SIGNAL을 받고 catchint 함수를 실행하고 종료.
+### t2.c 
+
+child는 1초간격으로 "... child ...\n"를 print, parent는 child 생성후 5초 후에 SIGINT를 보내고 child는 SIGNAL을 받고 catchint 함수를 실행하고 종료.
 ```c
 // signal handling 하는 code
 void catchint(int);
@@ -67,8 +71,11 @@ void catchint(int signo){
 }
 ```
 
-### p1.c -> parent는 1 sec 간격으로 child에게 SIGUSR1보냄, 이에 SIGNAL받은 child는 자신의 pid를 3번 print하고 종료
+### p1.c
+parent는 1 sec 간격으로 child에게 SIGUSR1보냄, 이에 SIGNAL받은 child는 자신의 pid를 3번 print하고 종료
+
 > lab9-1
+
 ```c
 void printpid(int signo){
 	int i;
@@ -116,8 +123,11 @@ int main(void) {
 }
 ```
 
-### p2.c -> child가 생성의 역순으로 pid를 출력하는 동기화작업
+### p2.c
+child가 생성의 역순으로 pid를 출력하는 동기화작업
+
 > lab9-2
+
 ```c
 void printpid(){
 	int i;
@@ -217,6 +227,28 @@ void catchsig(int signo){
 		sleep(1);
 	}
 }
+**********OUTPUT***********
+child is running...
+child is running...
+handling sig=2 ... 
+handling sig=10 ... 
+handling sig=12 ... 
+handling sig=12 ... 
+handling sig=12 ... 
+handling sig=12 ... 
+handling sig=12 ... 
+handling sig=10 ... 
+handling sig=10 ... 
+handling sig=10 ... 
+handling sig=10 ... 
+handling sig=2 ... 
+handling sig=2 ... 
+handling sig=2 ... 
+handling sig=2 ... 
+child is running...
+child is running...
+child is running...
+exit status=0
 ```
 ### t4.c -> blocking O(with. sigemptyset)
 ```c
@@ -274,8 +306,33 @@ void catchsig(int signo){
 		sleep(1);
 	}
 }
+**********OUTPUT***********
+child is running...
+child is running...
+handling sig=2 ... 
+handling sig=2 ... 
+handling sig=2 ... 
+handling sig=2 ... 
+handling sig=2 ... 
+handling sig=10 ... 
+handling sig=10 ... 
+handling sig=10 ... 
+handling sig=10 ... 
+handling sig=10 ... 
+handling sig=12 ... 
+handling sig=12 ... 
+handling sig=12 ... 
+handling sig=12 ... 
+handling sig=12 ... 
+child is running...
+child is running...
+child is running...
+exit status=0
 ```
-### t5.c -> sa_sigaction
+### t5.c
+
+flags = SA_SIGINFO로 더 많은 정보를 출력한다.
+
 ```c
 void catchint(int, siginfo_t *, ucontext_t *);
 
@@ -315,7 +372,7 @@ void catchint(int signo, siginfo_t *sf, ucontext_t *uc){
 	printf("\n%d\n", sf->si_code);
 }
 ```
-### t6.c -> alarm recursive in 3 sec.
+### alarm1.c -> alarm recursive in 3 sec.
 ```c
 /*주기적으로 작업을 할려고하는 code*/
 // alarm(3)
@@ -356,7 +413,10 @@ void catchalarm(int signo){
 }
 ```
 
-### lab10 -> scanf를 받고 sum을 구한다. alarm초간 반응이 없을시 SIGNAL처리
+### alarm2.c
+
+scanf를 받고 sum을 구한다. alarm초간 반응이 없을시 SIGNAL처리
+
 ```c
 void catchalarm(int signo);
 
@@ -387,5 +447,6 @@ void catchalarm(int signo){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc5MTM2Njg1XX0=
+eyJoaXN0b3J5IjpbMjk0ODkyMzU3LDE5MzM2ODY0MjksODc5MT
+M2Njg1XX0=
 -->
