@@ -4,11 +4,12 @@
 - email : nana.hong@kggroup.co.kr
 
 ## Odbg shortcut
-F2 : Break Point
-F7 : Step Into (상세하게 분석 : 반복, 함수분석시 사용)
-F8 : Step Over
-F9 : Run
-ctrl + f2 : Restart
+
+F2 : Break Point  
+F7 : Step Into (상세하게 분석 : 반복, 함수분석시 사용)  
+F8 : Step Over  
+F9 : Run  
+ctrl + f2 : Restart  
 
 ## tip
 c로 assembly로 변환한 code
