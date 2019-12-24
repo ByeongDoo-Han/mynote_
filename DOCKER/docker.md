@@ -1,62 +1,3 @@
-
-
-# Docker 컨테이너 사용법
-## 컨테이너 접속(docker attach)
-`docker attach <container | ID >`
-
-![](https://lh3.googleusercontent.com/7fEBG0xN4PQQgapfK9jPBmXDNZTpRIWaQT-rFxV18m5ZfLxdTM1OGOy6vZ9N91ySfd7ty3HSNwXpyIxXCojpy7ri4syr0Io43LvGNTvJJFqcGQI2xO6oHXz23nWpUyijr-jmCgsg7N2U1dquz4Cq--76bYN0GtzxnWlVqNd1jJTwIhLz2QcGe00gNjbFTYYgCJzDqxyNPOTNxZ1kTeKRYwjehinpFmWuvZC0G26PkVwVtX6UqYHJvIiuszEsrOxCaKeiYu551n_tkYNgA6qt_D8_ThXZYQCVpatqfJp7gxEkDFLFik_P_r29iCKV5HlueWpxtghsloj2Zr67sdyBlIySC6P19pqYuQZSRiw_cFSIiSWLkXHYuhTIUV09QV-mLIkZ4NNXDphQdTwjNnETjlOP7t6LwM7tFXYTSYwx-jIXk4dSPbm1QE98LYmIIq3SRgolNqAQYqVP5_t2GpRg2K50Fp-slok8jwCQ8dVSlNUqSRqzgTQ8VwQGpChlL9NsTIbhhRn0uXu2D1v11zGD92ElPZMGuQBlIlafbjH1gpxwN9weT-aPfS8otQFAtonDV4y5ZtMERIbSkpVSd3FXVgvi9CTAhJeB0AxZpWi-eqvt9KCc4c1mVfHZFGrxojs156LvYJJ-vlKdJJyTTz-2V5jUIDd17sN4zGTnKNfhd_Py3e0HfCWeQZ2DgO52SomYdmyRsog0dNsdKq169alHud4S=w952-h193-no)
-->`ctrl+c`에 의한 컨테이너 종료가 아닌, `ctrl+p`,`ctrl+q`를 통한 프로세스를 빠져나와 상태를 유지할 수 있다.
-
-## 컨테이너의 프로세스 실행(docker exec)
-구동 중인 컨테이너에서 새로운 프로세스 실행시 사용
--> 백그라운드에서 실행하는 컨테이너에 docker attach로 접속할 수 없는 경우에 많이 쓰인다.
-`docker exec [option] <container | ID> <command> [value]`
-| options | description |
-|--|--|
-| -d, --detach=false | 커맨드를 백그라운드에서 실행 |
-| -i, --interactive-false | 컨테이너 표준 입력 연결 |
-| -t, --tty=false | tty(단말디바이스 사용) |
-
-![](https://lh3.googleusercontent.com/bF8taugnPoV4Mp-9vj8zMjPF3nF4x_aLJel0U5pOm8jn9icu48zTxYXgZ0G7Av8V7oc19CTP5RUstcQHl56wIB7FJzOoTbkXg-NB61PMSsb8TjVcnAa7_VYa7snxU62vd1lSAAkcP7S-lHY1oWclLzI0OopOKRkco-14-yhsIRD_lGCmBHnnzhVHaGLezWi-AHdTn4d_9b_Q-lP8WMdtOOUElwk9C30h5K9pKmxzy_T4A06eLO4Q2xf1vguHVg9UnRvv0fFjUOqEscxNqOt2goqlhTJ5gtTgS6ul0dSj25fTBOMk3LwZWPAlSbvWHLOXWMejsZjOTnHAZ37-kYxqJq_C-RcLDRKg78Y0hlqyQ4IPcW3J6qJ4PXCiWsPn1_p0HQAsySPdL2qdHQ154ZILutDoM0v-sGxcSAupaqCVoHBpdeZlhOHsCIGbd5jnmOsxdsXhHWbbRd0xQxSn3lpurIj8kiOHGys50eP7rFsvz76xOTThAr90UojAfOZUQlyVTQcfmeGbp0AXqWFi5DvZZYvP8pcHJkJSEzukQYh3YP2C60nHKvoxmxprXPfh02AVFsmMaw9xgYqNI-_dvimKylrIRirMLPKBuMHmJAi56HlPW9mNBUcScenX65D-yU-J0XrkaJ5F_CvTbMbbuZ5BxyJjfoX-YA2F7gQH-SbxlK5bLlIW7fx4h4H6vTJnG2sDJMz1StRQAAG79pYre-N5Mpy1=w952-h183-no)
-- docker exec는 구동 중인 컨테이너에서만 실행가능,
-- 중지된 컨테이너는 docker start 사용
-
-## 컨테이너의 프로세스 확인(docker top)
-구동 중인 컨테이너에서 실행 중인 프로세스 확인
-`docker top <container>`
-![](https://lh3.googleusercontent.com/kpCiV3R3FL3yAKMRbx7zDSCTzRidcHY3Mm5sQQ-eedIMh-StGXdYbPW8AaZ4NTHMMzm8diXqevpt3447uONHdMiuWNdgw8P7mknpCMY71l757qFSRiSGE5oMIqjgUv6EMK8W_aVNlKxFyzpOPUb6s9nMkPlr48CasPm0KccSDI6IlYNx7bGgnknoPJqwfrfsMuDXADCaervWbyRog8_R9_pG8gn2_k55hu2FdUgtrbyEVQVfSqc80vyqtg3iodDlac6F_2vREoDvpr6XxtTtMpyH_j9moGRellMG7qKzz7FDd1bI3JIPUriefipcpiTEj77ICaZqwwr7prhSKfIYZoFeksCPqFTNl3XR3dzO4G72mj3XTi9jFpt35tO4mTZo4hmosWbJaVI363neCeGDR9jzwU0lVUREm30y1K1Y885i_oVTKp7VNLNRJCMUnRh6jLxcW9J8C_GIqxEqfLPHx-4MRxaR4It86mWVpUbq6qgOiEjtYf0Cgqg1icQ7reHecMk22YgTmNlBTtIgI_ZgKBOaYGYUmALqKmsju7kJOgNtobRAHshQUMaDTKcgBWrPlIzV8q5zkzSJ4rwVnbtENpq_n2MHLqsxz1aO_Ig4Gg2jQOez3RZBpN36XQlQFEm32RtS4BawuhunrnWkV-L7BGN6o5bdHGCR93A_5R5VOsS1DCJGdzQB7uiwuOrYBJPeZjqD1xe33wPkM3oCyEwF_aJ8=w1611-h93-no)
-
-## 컨테이너의 포트 상태 확인(docker port)
-구동 중인 컨테이너에서 실행 중인 프로세스의 전송 포트 매핑을 확인
-`docker port <container>`
-![](https://lh3.googleusercontent.com/k9qJOXNbi80ydiBUkJSyHzQCh9RPKzCrXtgG_hLGfgDiUf1bfaR7bPSOtnch42wWpXxGML6DJsLfYxxwguIkNCnbyP1sySHFkOKR5nl_2rg64sNQp38VYEeR1Rmn3UGl70zoACQnbns_6mnXr7v8A-8Rmge_KsihlQBjlRyU360UT7y-lmCBDqvPO4d2ou8QazCEjZX7Tzo1MLX92HcxI8FGrQNBofvlTd1TS39sPU-N843hysUIKHQxFeANS0zs4ayM_DoKIbN-_t1mSuAuUuAPYZJRPozQPvc6O70BaG7mynJbypLTgaw9BdOcQhJOnsjM_5fN349I41org1l-HZ_Zwe8MXItJD6lJ80iXH34qN4ZqxmAuivkxL4vQMbe5tsTGPrLk-sQFYKZiMfaYxkUHZ6W1OfCZJZPyRHhqJdVt_iXbObN-kBiRktXZpjikORrlZD-beUKDR9-OmsgdKtL7-rMrKG1ZVeip7dy63gFriplcosE7vOaPbMvTrtmH29cC-UE7u8A9GniOXXVkJsPG18FACRckJfpqsZAnNnq3rGEqisDsHVi67NjLJEEuP-ZErS2lhmb3Q-jnQLB5VHEXZWc06f8fuoHbce37tGCeJmpS3xmEl9VZkUN4vRPGWWvIwEIoYpaPnzMor8b4HQV0r9oSWDw3oLjh5_SSTOr3T4IcpCpEjCKBUU0LLX77bGLz9VA9PxgPlxOnclnT1A9X=w1308-h202-no)
-
-## 컨테이너명 변경(docker rename)
-컨테이너명 변경
-`docker rename <old name> <new name>`
-
-## 컨테이너 내에서 파일 복사(docker cp)
-- Container to Host file transfer
-`docker cp <container>:/container path /Host path`
-- Host to Container file transfer
-`docker cp /Host path <container>:/container path`
-
-![](https://lh3.googleusercontent.com/2PQlDc-qfCMR5bc_y2Ugrcy4XUKoPRlQbV8PakqXCMN4cAezs_ImSg_KuAyMk9osJylxsErWqpJOMgVQW-KG4pmZ6B53MMIWoNB1vrfyCKzUqwSZOzgidw283up_UtM_yzFdNh537_CdPjEwBOJVVyyRnwLKdrnR3ujDNR9lpUloCsBaySVN4-KtPi0pRbhq3aTv9AuDkC6aJArJDTc-svpkCpt6u3LdKiPt4i8Dzmv08q16fPbyYTjlTDCCIXzpvhVlkpSRN9Y5c3ec5uVeodRxFBDSHkG9CzSaFJ_J3MsrCIDGfB8foK1I5k43WGPejWmFTzOsShC3ZU2NXZ5txWG6PApfQy57uAlGa7f46YlTOqTRQC3L4gZZIxQoPRGaBhe1EeqvP3VEND6ZJOHG1i4j7O9KDMeIYq03fvr6ZHCNXX6LowauTTgMMqtw60IlQABga3sKX8Xu-0ZY2GXQ5K-rmkyyDAuR-_opNx1ep9jcMAAbOARAOBwCd6DpYBNHlbUOYzrXafH-nn_wUxJBMjdGuSwSX5bohXsKoHygHDuYlMZ7gCbeYnn3TCj9xhd2pyireRBKde_JPG36adv8hHa1g8lvmwf8xUZA7Yabz2YprN0q-jgKJM23BhRaHeuVjD-BAZ7LhDp9QzOD3stWk8Cj9kGpJCgE-evraMPrAOPSA39ZMnJniJpVmxdPcvqX1n9dpTjp2mzE4pT7uVS6pq7-=w672-h387-no)
-
-## 컨테이너 내에서 파일 변경 이력 확인(docker diff)
-`docker diff <container | ID>`
-
-[**변경 이력 구분**]
-| section | description |
-|--|--|
-| A | add a file |
-| D | delete a file |
-| C | change a file |
-
-ex) 사용자를 추가후 `docker diff`로 변경 이력 확인
-
-![](https://lh3.googleusercontent.com/GLvxgag99ICeSA0o62lpfERc90uAnq4b8J39Y3_sA389X8QLd8dmriT2K3DsjdWAVJz4pgxlIeS8jk0ymuqORQ0lXzK98zHV2fON5GkeI0lrxwXzplyNwgX6sljc54kUC07tOG6L3qtr64X3SgkhHfzs46Dyrz_KeKp9HirprECjxPAepzYMjAYqQDR1F6m2xlFkmPg7WaXVlPeHUcknaF5B9h87gFz6rrAECPyPryqvbEb1zK8jRGt9cxK107ERdAIHBiIAx0y0nYvE3hMyZ5-SCp1jAn87z1wgp8RAwzfb7RuTL-c4do91DADinx_s-NlhJjsG72PIMfYtfHioKjtrPA4MjZiVdpYhF2BV7736PwSpEHsEKdDpwwvjfryQEInkH-dlv-l3I908YO_0m6JRAzLMFDZvr3to2R6W2tdIqPs4IHpz6QElkxnFRVL_22WxB-h7xZmBs_vcK5e5OJqkntE2vFNpHg5prAIE8DRS07Fbi4kAgc-g9pEEjRN9VtDTRA60Nq95z97rqRPduZ0fufgL1cMqCg60htU8Zh80pSApIKtnHBr9-Q9kG8xc_WMA74aU-4FFVDDxGJ5YqKBtT248C0lIM1mL3wDT3ToLbRwabJtct2NrYkq9jEgklQr6f7VjfwjGQhheWvbvxuOw15rTUigo7Nc3o7qmn34kKIDAdjZXri9YjdA8WWw--AenSHcjzShy3LAFz71mt59Z=w417-h524-no)
-
 # Docker 정보 확인
 ## Docker 버전 확인(docker version)
 docker의 client와 sever의 버전을 확인하고 Go언어, OS, Architecture을 확인가능하다.
@@ -1512,6 +1453,6 @@ $ tar xvf backup.tar
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDQxNzM4MTUsMTQ5MjM0MTMxOSwtMT
-MxNTczNzE1N119
+eyJoaXN0b3J5IjpbLTgzNjQ2NjI5NSwxNDkyMzQxMzE5LC0xMz
+E1NzM3MTU3XX0=
 -->
