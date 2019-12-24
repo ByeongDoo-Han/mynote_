@@ -1,37 +1,3 @@
-# Docker 설치
-설치 환경) windows 10 pro, hyper-v
-설정 환경)
-1. Hyper-v 활성화
-
-제어판 -> '앱 및 기능' -> 프로그램 및 기능 -> windows 기능 사용/사용 안 함 -> Hyper-v 확인 클릭
-
-2. Hyper-v 가상 네트워크 설정
-
-Hyper-v manager -> '가상 스위치 관리자' -> 새 가상 네트워크 스위치 -> 외부 -> 가상 스위치만들기 -> 이름 및 외부 네트워크로 설정 -> 확인 -> 네트워킹 변경 내용 적용 -> '예'
-
-> *막혔던 점 : docker-machine create 과정에서 `docker-machine create --driver hyperv default` 명령어를 실행했을때, iso 파일의 다운이 느렸던 점이 있었는데 다른 날이 다운을 받아보니 정상작동함. link에 많은 사용량이 있거나 사용 네트워크 상태가 좋지 못했던 걸로 예상한다.
-
-3.  Tera-term을 다운 받아서 사용
-docker-machine create 후에 `docker-machine ssh default`를 통해 ssh 설정 -> 설정된 Ip address과 port number 22을 Tera-term을 입력
-> username : docker
-> password : tcuser
-> (>에서 $로 바뀌면 성공)
-
-4. Docker 작동 확인
-
-`docker run <docker images> <command>`를 통해 'Hello world'를 출력해본다.
-`$ docker run ubuntu:latest /bin/echo 'Hello world'`를 실행하여 확인한다.
-![Imgur](https://i.imgur.com/45BE53X.png)
-
-
-**docker-machine의 재실행과정에서 'Timeout'이 발생한 경우(active가 없어짐)**
-![docker-machine timeout solution](https://i.imgur.com/5pzK7ob.png)
-생성한 docker-machine을 stop & start를 후 다시 env를 세팅해준다. 
-
-**docker-machine list에서 Docker을 찾을 수없고 'Unable to query docker version'이 발생한 경우**
-
-![](https://lh3.googleusercontent.com/xeZ_qw0vk7keyPOq8FTI5-9lLVWroJIO4hFIUrl0rJ8C50vnNzFQSBx_dIkA2MGWd34Nlzilb2yYeM3suyrqVeiVLqYNOEBQEX0WYrqVBMAT_QA-jUE3atusRaw5x-O9AyxCh4VEG6tHYPO_dCrb669yhhL7sCDXvVZckPl_v5hdSa38wF-rNzP5epqJF4_lZt5fOQpuCOZuB1J-KtVZQZ4NTm_p_2JYV0NdBp6QM5UlfPeP4VHEMwYNl1M7Ij7Wjb_fMT2MZ-H09hFaYBU7dT9voqgwG2oHpo1g7-r3PSDYS-nY4OKsrZKwaVh3FlGrcyjA8daKT0p0afT_KxP-zsi5mpxgeVpp_9nZuNuyQTlQt6UDctikCxNtM1LSM--sN29y_yHCZDXZnOzXSA7qXWpRx_u-evgZK8yqx0jg3p-DKf5f_mR8UlACihaASE05in7TIdeJnWvy2lo5BzgyRs-d4KsIt0Wr4B2HhrI9TVjZhccJZ6nEAweJ0yZQeBPx8LzP9yeaCt3lPVBfJsovEFLqPrcXs7eU7eeEJJRUrOaDDVLN6q7_FB7H0NN7l3jQ_goa-lYPq2tcFkhIe5sb8BiH5wmvDe1Jj78WINvsvErU_MBMLaqXDKe3h6vIQJfhgybU06WHE1E353hRMAJaL5DRwwwdhQ76fkgyShcm6RE7HG--5ee1vZoen8OsXoZ0oIN6kR1tNTGIDx49yzbcziPK=w960-h418-no)
-
 
 # Docker 명령어
 ## 이미지 다운로드(docker pull)
@@ -1875,5 +1841,5 @@ $ tar xvf backup.tar
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTU3MzcxNTddfQ==
+eyJoaXN0b3J5IjpbMTQ5MjM0MTMxOSwtMTMxNTczNzE1N119
 -->
