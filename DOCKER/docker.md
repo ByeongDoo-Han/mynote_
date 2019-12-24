@@ -4,59 +4,6 @@ docker의 client와 sever의 버전을 확인하고 Go언어, OS, Architecture�
 ## Docker 실행 환경(docker info)
 ![](https://lh3.googleusercontent.com/AnrCBaS8wMP1IXUPqtzikjg3kcUxgGswCz0vdcAwy6r7uHvITRDkNt9OMcK9eGIBl_FDfA4KYNBgOSazjzt5idiSEqPfdFbabp2UCrZwm-8I52SNdhmvoIBC6QlUyLhHTgnOU21YsZznPybZFTcj4h89xOTM_AG1T_kI_LSy5M_EjvR-MI1Il_JCjcNkvWPcy_bunMUnHEYbQqeQQJDOAkBBxocsudHWCKHp7VcGjIMNCO_DolcQZjnSc3PJrDcRxm91nYbiK5mdHfuPF9hWS03NY0FD9dmlP3DAfp8jZcqeGH_wazIvsJXTo_nmAb5W9C4BLuOIuAFyzAX2QTKrPRKmr22dK0pGz2p16f7I9-89Zuku4HVHOFx4TKOeEwXeT3gX9D5D0iPVOrqz_QnjoMlgjuGMsdXCLxsNOLYaWY4sBQwiJhitVWACzDGwpZRUYUBhyDBI7IuYKJHLEbwrtf9qF5sf2IBz5Dvz3Lip-sngommXssg10e-fNWlS8Mlg7KpW_srwPvxEyMaw63HAzBy-uo5NdSUEd_tv_dfRLxtZaAjpbDt-rKxurOPMGAfd-bwF4oRxEuRJkRIwPZj0yngEb5Dmwww-uCwcRvEe6mi1279_bGZnEEQuLYQWr4BUki0wrshRWAo6Y5rlq6VoP9qOSkg7NRXOnqAYO5VrgErnmPuNsOwvmo5JZbde3BiEPu_MZW3MjlrYE8Cu1Npyn4Pa=w849-h943-no)
 
-# 컨테이너에서의 이미지
-## 컨테이너에서 이미지 생성(docker commit)
-현재 컨테이너의 상태를 이미지로 생성한다.
-`docker commit [option] <container | ID> [image:tag]`
-| options | description |
-|--|--|
-| -a, --author="~" | 생성자(ex. iamJjanga <namils147@gmail.com>) |
-| -m, --message="~" | 메시지 |
-| -p, --pause=true | 컨테이너를 일시 중지한 후 commit |
-
-ex)
-`docker commit -a "iamjjanga" nginx1 iamjjanga/webfront:1.0`을 한 후
-`docker inspect iamjjanga/webfront:1.0`을 통해 author을 확인할 수 있다.
-
-## Container->.tar 파일로 저장(docker export)
-구동 중인 컨테이너의 directory 및 file들을 모아 tar 파일로 내보낼 수 있다.
-`docker export [container | ID] > [내보내는 파일명]`
-![](https://lh3.googleusercontent.com/JCZOCElAEAb9XfqVHUqLGi0yAGNMD-Ido0HBxpFNzOnwFks_4aKq5Z2shhkag7TJ4L9yi3uTw9e1XoxCLEJt6qAk_6GiZIdsx8FceQfnaP88HZvRNbDNi9XwLgtrwxTZdHcmMSR5NHuExrEEHnqVmTQ1Bkdgv8ytPXIIHS5HUTGcAvpJTgLq6ZOGeidjk_ai9KchNEUzYSzoxSuGNuEwmdG5TtKwl-8xar1CStH3XKnlS1PS52F7b0yyHjEFcqcMREh2cCDJqtB20sQBRhY_eLMmsntCHUq3mL4o6Hi2q4v1wOKZ7jF4_AZ1EPHdiCyaqShcCttZ5VlCXDeuLVzvjzKJyLxGDtX_oJ3XeYzgK3akruGPKbHzrVSL_y778QEwc7gE86sLNZXa8w5E7V5mNVzFZC6bBZb3e6DrXtQk8BSFXXbcFG3PVa38rc99NiHyASO-ZvvTKsLo1pM4aWRSbw3qB7ZcuCsJEl_SgoEMpKAJvtd2CFyfIhsFr231XkjY1PtdbAyIsvshiU_IUjVgo2UH3infjbrkoijZRzf-oYhZQG9TnF-BJJZ88nJISIfGxssVVX5FuENPOzLkv4Vf4pU29Pq3Vu7sckYg7_bPU9jD3oyc-JGnEfm85nbzA2cMY2zDMmlDzI-s65gkY3jlD5VKQfnztv3NTnj-NosQDF2eCP-TMAtZlmqkX63Xm4qfC2SXHnMQF_EMzxucXm6VJ_xV=w1328-h454-no)
-nginx1 container을 nginx_tar_test.tar 형식으로 보내고 tar을 압축해제 해보았다.
-
-## .tar 파일->image (docker import)
-`docker import <file|url > - [image:tag]`
-- import문에 지정가능한 파일은 1개이다. 따라서 tar 커맨드 등으로 한데 모아야한다.
-> **지정할 수 있는 파일 형식**
-> - tar
-> - tar.gz
-> - tgz
-> - bzip
-> - tar.xz
-> - txz
-
-ex)
-아까 tar형식으로 exported된 container을 다른 이름으로 다시 import해보았다.
-`cat <tar filename> | docker import - <new image name:tag>`
-![](https://lh3.googleusercontent.com/FzEUjh1YnccW3PJEcui0T6_JLRy3E6k_GP8jDU9EjINP6Mvu0lC861_Ihz46a7TMyg7P52YtGmNOYuOfzfRW06sP717Zb0LBz4TF4znqZSHegc9TgDr6z9qvWTcoU4deAoTAt3X6DYgvS5GAwuBVXF5WkowP7rbz3surT6_MhiNvtE9A-ksguakRJQ1r01dvXOOIlr-lTdSuNNLN0lu6pgc7_5GHP-YwyOfm9vtjVsjI6ZWpUv1mT0k268kJF5iTa7aD5_BCBegI1aP68xL25qPyCDWK5wftnH81K9qUW-xr1nUhtk-QfcJ6EqnvcBkmNhpie_qzzkOdE9EvYGA7dmBF9aoIE1iE98s8qVxb4CGPukBjj5OynoTukGrtYwyKAMxPk-NSx5cGlJq9lwMdU0FqzJWPtsLjYh_7Oo406q-clb5UW2qyvGhkNBQChtc_Yz3KSNdOtdO_Rnuz2RZFkEoUpjPvtDfMkSqakvGi-TeI9Kq5yoF8bqzCMbZO_CXbefejxFhDBIOB12_f4POCXbuLLLHe2bcJz_KJSD_ahF2u-wX_P98ew2U4v3Lib9keKCWOffWdIlSWSwILT8hdKoXvjUHX7UW9Z915sVHUc4jys4g1sl3P7XdqpVb0_lSascUuXK4VOuVVENmkdEm5uSUsrRz1XxDo_h6ApAXGYNRJuGLELdHrUy3EGDz3jBcg0DcbUDrwNOkvpxa8I-7xklSY=w937-h315-no)
-
-## 이미지 저장 image -> tar (docker save)
-`docker save [option] <filename> [image]`
-| options | description |
-|--|--|
-| -o | 파일명 지정 |
-
-ex) `docker save -o export.tar iamjjanga/webfront:1.0`
-![](https://lh3.googleusercontent.com/_KTZd_tdXmzwMOMDMGkPG2mds023_gM4rUU3CxwCb0rLWhuQcmoPGTHyIXZIDQpZR0VNtxfPfE8cNXb5XS1LT1sr-MYe0Sa5OiavqcMjYfYeQJoBPaYcIEZyUkDzMaZRNx18S_5rtgORnhxSBTiPv4EQGfMbBJycyWMBxan-uX0kneCfaSyi4DEu6FVu49RN6d316CxDAk7h9wbgA3jK8ht9eV66w-soRLBwZCa6Aq0NKbNE8aV1XmvhF08hPiu3xp2U7XeuhuosygXhGx5w6l9bFyI0rdlu_7EtJtPQpc0PGQ3HD1L0YHIhWpDPDQJtafrlBMpSLQX77Tn7Vpi4Nj_I0yJ1GhLlh02ED_D9fYlHnZqjjJ-LH26bXbfa3ufGAjvecO6CrMKb8tNgOMBNSCN-_o536Nbvu5wSbeUjYtVIxcu10I8v1GpV9bfn7fTAkj136TRQrByDwcVWC34Uc07-QIOMQUUKuUXvTMecEG7QAw-m_P1Dcf19JCRJ7vLzP1TR9u4Vdx63iwT6YPmf6B24XrHwNkYorZlADNorUEGhr4qg0SUpbWtl692kBVUpvrh16OZ_Quz1WlW2ZqfV4VoSqGazZPMz2LDnQW-wRBlAICuhK5p6DbacuzLJ-ftW4hRq10ChYx9_pELTsVXtBiL9nuR_Nxgx_TG1xDc053Dr-gyF6glhrc4J4AVuQLVMTvz9kFeZHZKamqzTV1yrHMZC=w896-h314-no)
-
-## 이미지로 되돌리기 tar->image (docker load)
-docker save로 저장한 tar 파일을 이미지로 되돌릴 수 있다.
-`docker load [option] <filename>`
-| options | description |
-|--|--|
-| -i | 파일명 지정 |
-
-ex)`docker load -i export.tar`
 
 # Dockerfile
 ## Dockerfile 기본
@@ -1453,6 +1400,6 @@ $ tar xvf backup.tar
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzNjQ2NjI5NSwxNDkyMzQxMzE5LC0xMz
-E1NzM3MTU3XX0=
+eyJoaXN0b3J5IjpbNzM5OTMxMDAzLDE0OTIzNDEzMTksLTEzMT
+U3MzcxNTddfQ==
 -->
