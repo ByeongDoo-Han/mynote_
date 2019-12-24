@@ -10,93 +10,6 @@ docker의 client와 sever의 버전을 확인하고 Go언어, OS, Architecture�
 
 
 
-# Docker image 공유
-## Private registry 구축 및 관리
-
-- 사용 이유 : 팀 개발 간에 새롭게 생성한 Docker 이미지를 공유하는 경우에 멤버간 동일한 환경에서 애플리케이션 개발을 하는 것이 중요하고, Docker 이미지를 중앙에서 관리하는 레지스트리를 Local 환경에서 구축하고 이를 관리하기 위해
--  Docker Hub에 공식적으로 공개된 registry를 사용한다.(https://hub.docker.com/_/registry/)
-- version 0은 파이썬, version 2는 Go언어로 구현. 대부분은 version 2를 사용한다.
-
-1. `docker search` 커맨드로 registry를 확인
-
-		$ docker search registry
-		NAME                                DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
-		registry                            The Docker Registry 2.0 implementation for s…   2630                [OK]
-		distribution/registry               WARNING: NOT the registry official image!!! …   57                                      [OK]
-
-2. Registry 이미지 다운로드
-
-		$ docker pull registry:2.0
-		
-3. 다운로드한 registry image 확인
-
-		$ docker images registry
-		REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-		registry            2.0                 3bccd459597f        4 years ago         549MB
-		
-4. registry image를 기반으로 `docker run` 커맨드를 통해 registry 컨테이너 구동(포트넘버 5000)
-
-		$ docker run -d -p 5000:5000 registry:2.0
-		65ceed38cc08d684d3247ef01fad29631d65a579d937e1fbe434076b195fe682
-		
-5. 컨테이너 확인
-
-		$ docker ps --format="{{.ID}}\t{{.Image}}\t{{.Ports}}"
-		65ceed38cc08    registry:2.0    0.0.0.0:5000->5000/tcp
-
-6. 업로드할 이미지 생성 및 build
-
-		# Docker image
-		FROM centos:latest
-
-		# maintainer
-		MAINTAINER 0.1 your-name@your-domain.com
-
-		# Apache httpd install
-		RUN ["yum", "install", "-y", "httpd"]
-
-		# Apache httpd execution
-		CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-
-		$ docker build -t webserver
-
-7. private network에 업로드하기 위한 **tagging**
-	><형식>
-	> docker tag <로컬 이미지> [Docker repository의 ID address | 호스트명:port number]/[이미지명]
-
-		$ docker images
-		REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-		webserver           latest              7743267ec55d        38 seconds ago      340MB
-		registry            2.0                 3bccd459597f        4 years ago         549MB
-
-8. <local -> private>로 이미지 업로드
-
-		$ docker push localhost:5000/httpd
-		The push refers to repository [localhost:5000/httpd]
-		9403a4ccd015: Pushed
-		d69483a6face: Pushed
-		latest: digest: sha256:b9ddc98796c8904bec38f43ae79d5618e72b614e8b41ebf5a37395d7dd8d64e1 size: 4740
-
-9. 기존 local image 삭제
-
-		$ docker rmi webserver
-		$ docker rmi localhost:5000/httpd
-
-10. <private registry -> local> 환경으로 다운 
-
-		$ docker pull localhost:5000/httpd
-		Using default tag: latest
-		latest: Pulling from httpd
-		8ba884070f61: Already exists
-		48b08652a3d9: Pull complete
-		Digest: sha256:b9ddc98796c8904bec38f43ae79d5618e72b614e8b41ebf5a37395d7dd8d64e1
-		Status: Downloaded newer image for localhost:5000/httpd:latest
-
-11. 다운받은 이미지 확인
-
-		$ docker images
-		REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-		localhost:5000/httpd   latest              7743267ec55d        5 minutes ago       340MB
 
 ---
 # 여러 컨테이너 통합 관리 - Docker Compose
@@ -689,7 +602,7 @@ $ tar xvf backup.tar
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3ODk1OTE1NywxNDUxNzcxMjQsMjM2Nz
+eyJoaXN0b3J5IjpbLTUyOTI1MjY0NSwxNDUxNzcxMjQsMjM2Nz
 c1ODUsNzM5OTMxMDAzLDE0OTIzNDEzMTksLTEzMTU3MzcxNTdd
 fQ==
 -->
